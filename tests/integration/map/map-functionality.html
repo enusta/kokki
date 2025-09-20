@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map Functionality Test</title>
+    
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+          crossorigin=""/>
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background: #f5f5f5;
+        }
+        
+        .test-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        #test-map {
+            width: 100%;
+            height: 400px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        
+        .test-controls {
+            display: flex;
+            gap: 10px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+        
+        .test-btn {
+            padding: 10px 20px;
+            background: #4facfe;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        
+        .test-btn:hover {
+            background: #3d8bfe;
+        }
+        
+        .test-results {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+            font-family: monospace;
+            font-size: 12px;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+        
+        /* Include map styles from main CSS */
+        .custom-country-marker {
+            background: none !important;
+            border: none !important;
+        }
+
+        .country-marker {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+        }
+
+        .flag-emoji {
+            font-size: 24px;
+            z-index: 2;
+            position: relative;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .marker-pulse {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 40px;
+            height: 40px;
+            background: rgba(79, 172, 254, 0.3);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+            z-index: 1;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: translate(-50%, -50%) scale(0.8);
+                opacity: 1;
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(2);
+                opacity: 0;
+            }
+        }
+
+        .country-popup {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-width: 250px;
+        }
+
+        .country-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        .country-flag-large {
+            font-size: 32px;
+        }
+
+        .country-name {
+            margin: 0;
+            color: #2d3748;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .country-details {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .detail-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5px 0;
+            font-size: 0.9rem;
+            color: #4a5568;
+        }
+
+        .detail-item strong {
+            color: #2d3748;
+            min-width: 60px;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>Map Functionality Test</h1>
+        <p>This page tests the world map integration functionality for the flag guessing game.</p>
+        
+        <div id="test-map"></div>
+        
+        <div class="test-controls">
+            <button class="test-btn" onclick="testInitializeMap()">Initialize Map</button>
+            <button class="test-btn" onclick="testHighlightJapan()">Highlight Japan</button>
+            <button class="test-btn" onclick="testHighlightUSA()">Highlight USA</button>
+            <button class="test-btn" onclick="testHighlightBrazil()">Highlight Brazil</button>
+            <button class="test-btn" onclick="testClearHighlight()">Clear Highlight</button>
+            <button class="test-btn" onclick="testResetView()">Reset View</button>
+        </div>
+        
+        <div class="test-results" id="test-results">
+            <strong>Test Results:</strong><br>
+            Ready to test map functionality...<br>
+        </div>
+    </div>
+
+    <!-- Leaflet JavaScript -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+            crossorigin=""></script>
+    
+    <!-- Map functionality -->
+    <script src="../../../js/map.js"></script>
+    
+    <script>
+        // Mock gameState for testing
+        const gameState = {
+            currentCountry: null
+        };
+        
+        // Test sample countries
+        const testCountries = {
+            japan: {
+                name: { common: "Japan" },
+                cca2: "JP",
+                flag: "🇯🇵",
+                capital: ["Tokyo"],
+                region: "Asia",
+                subregion: "Eastern Asia",
+                latlng: [36.0, 138.0],
+                population: 125836021,
+                area: 377930
+            },
+            usa: {
+                name: { common: "United States" },
+                cca2: "US",
+                flag: "🇺🇸",
+                capital: ["Washington, D.C."],
+                region: "Americas",
+                subregion: "North America",
+                latlng: [38.0, -97.0],
+                population: 331002651,
+                area: 9833517
+            },
+            brazil: {
+                name: { common: "Brazil" },
+                cca2: "BR",
+                flag: "🇧🇷",
+                capital: ["Brasília"],
+                region: "Americas",
+                subregion: "South America",
+                latlng: [-10.0, -55.0],
+                population: 212559417,
+                area: 8515767
+            }
+        };
+        
+        function log(message) {
+            const results = document.getElementById('test-results');
+            const timestamp = new Date().toLocaleTimeString();
+            results.innerHTML += `[${timestamp}] ${message}<br>`;
+            results.scrollTop = results.scrollHeight;
+        }
+        
+        function testInitializeMap() {
+            log('Testing map initialization...');
+            
+            // Override map container ID for test
+            const originalMapId = 'world-map';
+            const testMapId = 'test-map';
+            
+            // Temporarily modify the map.js to use test container
+            const mapContainer = document.getElementById(testMapId);
+            if (!mapContainer) {
+                log('ERROR: Test map container not found');
+                return;
+            }
+            
+            try {
+                // Initialize map directly with test container
+                if (typeof L !== 'undefined') {
+                    window.testMap = L.map(testMapId, {
+                        center: [20, 0],
+                        zoom: 2,
+                        minZoom: 1,
+                        maxZoom: 10,
+                        zoomControl: true,
+                        scrollWheelZoom: true
+                    });
+
+                    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                        attribution: '© OpenStreetMap contributors',
+                        maxZoom: 18
+                    }).addTo(window.testMap);
+                    
+                    log('SUCCESS: Map initialized successfully');
+                } else {
+                    log('ERROR: Leaflet library not loaded');
+                }
+            } catch (error) {
+                log(`ERROR: ${error.message}`);
+            }
+        }
+        
+        function testHighlightJapan() {
+            testHighlightCountry('japan', testCountries.japan);
+        }
+        
+        function testHighlightUSA() {
+            testHighlightCountry('usa', testCountries.usa);
+        }
+        
+        function testHighlightBrazil() {
+            testHighlightCountry('brazil', testCountries.brazil);
+        }
+        
+        function testHighlightCountry(countryKey, country) {
+            log(`Testing highlight for ${country.name.common}...`);
+            
+            if (!window.testMap) {
+                log('ERROR: Map not initialized. Please initialize map first.');
+                return;
+            }
+            
+            try {
+                // Set current country for marker creation
+                gameState.currentCountry = country;
+                
+                // Clear previous highlight
+                if (window.currentTestMarker) {
+                    window.testMap.removeLayer(window.currentTestMarker);
+                }
+                
+                // Create marker using the map.js function logic
+                const [lat, lng] = country.latlng;
+                
+                const flagIcon = L.divIcon({
+                    html: `
+                        <div class="country-marker">
+                            <div class="flag-emoji">${country.flag || '🏳️'}</div>
+                            <div class="marker-pulse"></div>
+                        </div>
+                    `,
+                    className: 'custom-country-marker',
+                    iconSize: [40, 40],
+                    iconAnchor: [20, 20]
+                });
+
+                const marker = L.marker([lat, lng], { icon: flagIcon });
+                
+                // Create popup content
+                const popupContent = `
+                    <div class="country-popup">
+                        <div class="country-header">
+                            <span class="country-flag-large">${country.flag}</span>
+                            <h3 class="country-name">${country.name.common}</h3>
+                        </div>
+                        <div class="country-details">
+                            <div class="detail-item">
+                                <strong>首都:</strong> ${country.capital[0]}
+                            </div>
+                            <div class="detail-item">
+                                <strong>地域:</strong> ${country.region}${country.subregion ? ` (${country.subregion})` : ''}
+                            </div>
+                            <div class="detail-item">
+                                <strong>人口:</strong> ${country.population.toLocaleString()}
+                            </div>
+                            <div class="detail-item">
+                                <strong>面積:</strong> ${country.area.toLocaleString()} km²
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                marker.bindPopup(popupContent, {
+                    maxWidth: 300,
+                    className: 'country-info-popup'
+                });
+
+                marker.addTo(window.testMap);
+                window.currentTestMarker = marker;
+
+                // Zoom to country
+                window.testMap.setView([lat, lng], 4, {
+                    animate: true,
+                    duration: 1.5
+                });
+
+                // Open popup after a delay
+                setTimeout(() => {
+                    marker.openPopup();
+                }, 500);
+                
+                log(`SUCCESS: ${country.name.common} highlighted at [${lat}, ${lng}]`);
+                
+            } catch (error) {
+                log(`ERROR: ${error.message}`);
+            }
+        }
+        
+        function testClearHighlight() {
+            log('Testing clear highlight...');
+            
+            if (!window.testMap) {
+                log('ERROR: Map not initialized');
+                return;
+            }
+            
+            try {
+                if (window.currentTestMarker) {
+                    window.testMap.removeLayer(window.currentTestMarker);
+                    window.currentTestMarker = null;
+                    log('SUCCESS: Highlight cleared');
+                } else {
+                    log('INFO: No highlight to clear');
+                }
+            } catch (error) {
+                log(`ERROR: ${error.message}`);
+            }
+        }
+        
+        function testResetView() {
+            log('Testing reset view...');
+            
+            if (!window.testMap) {
+                log('ERROR: Map not initialized');
+                return;
+            }
+            
+            try {
+                testClearHighlight();
+                window.testMap.closePopup();
+                window.testMap.setView([20, 0], 2, {
+                    animate: true,
+                    duration: 1
+                });
+                log('SUCCESS: View reset to world view');
+            } catch (error) {
+                log(`ERROR: ${error.message}`);
+            }
+        }
+        
+        // Auto-initialize map on page load
+        window.addEventListener('load', () => {
+            setTimeout(testInitializeMap, 500);
+        });
+    </script>
+</body>
+</html>

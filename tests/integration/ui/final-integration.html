@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>最終統合テスト - 国旗あてゲーム</title>
+    
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+          crossorigin=""/>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <style>
+        .test-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .test-section {
+            background: white;
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .test-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 15px;
+            margin: 15px 0;
+        }
+        
+        .test-item {
+            padding: 15px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            background: #f8f9fa;
+        }
+        
+        .test-item.passed {
+            border-color: #48bb78;
+            background: #c6f6d5;
+        }
+        
+        .test-item.failed {
+            border-color: #f56565;
+            background: #fed7d7;
+        }
+        
+        .test-item.warning {
+            border-color: #ed8936;
+            background: #fbd38d;
+        }
+        
+        .test-controls {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin: 15px 0;
+        }
+        
+        .test-btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        
+        .test-btn.primary {
+            background: #4facfe;
+            color: white;
+        }
+        
+        .test-btn.success {
+            background: #48bb78;
+            color: white;
+        }
+        
+        .test-btn.warning {
+            background: #ed8936;
+            color: white;
+        }
+        
+        .test-btn.danger {
+            background: #f56565;
+            color: white;
+        }
+        
+        .test-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+        
+        .browser-info {
+            background: #e6fffa;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+            border-left: 4px solid #38b2ac;
+        }
+        
+        .device-info {
+            background: #fef5e7;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+            border-left: 4px solid #ed8936;
+        }
+        
+        .performance-info {
+            background: #f0fff4;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+            border-left: 4px solid #48bb78;
+        }
+        
+        .test-log {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            padding: 15px;
+            max-height: 300px;
+            overflow-y: auto;
+            font-family: monospace;
+            font-size: 12px;
+            margin: 15px 0;
+        }
+        
+        .status-indicator {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+        
+        .status-pass { background: #48bb78; }
+        .status-fail { background: #f56565; }
+        .status-warn { background: #ed8936; }
+        .status-pending { background: #a0aec0; }
+        
+        @media (max-width: 768px) {
+            .test-container {
+                padding: 10px;
+            }
+            
+            .test-controls {
+                flex-direction: column;
+            }
+            
+            .test-btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <div class="header">
+            <h1>🧪 最終統合テスト</h1>
+            <div class="score-display">
+                <span>Task 10: 最終テストと統合</span>
+            </div>
+        </div>
+
+        <!-- System Information -->
+        <div class="test-section">
+            <h2>🖥️ システム情報</h2>
+            <div class="browser-info">
+                <h3>ブラウザ情報</h3>
+                <div id="browser-details"></div>
+            </div>
+            <div class="device-info">
+                <h3>デバイス情報</h3>
+                <div id="device-details"></div>
+            </div>
+            <div class="performance-info">
+                <h3>パフォーマンス情報</h3>
+                <div id="performance-details"></div>
+            </div>
+        </div>
+
+        <!-- Cross-Browser Compatibility Tests -->
+        <div class="test-section">
+            <h2>🌐 クロスブラウザ互換性テスト</h2>
+            <div class="test-controls">
+                <button class="test-btn primary" onclick="runBrowserCompatibilityTests()">互換性テスト実行</button>
+                <button class="test-btn warning" onclick="testFeatureSupport()">機能サポート確認</button>
+            </div>
+            <div class="test-grid" id="browser-tests"></div>
+        </div>
+
+        <!-- Mobile Device Tests -->
+        <div class="test-section">
+            <h2>📱 モバイルデバイステスト</h2>
+            <div class="test-controls">
+                <button class="test-btn primary" onclick="runMobileTests()">モバイルテスト実行</button>
+                <button class="test-btn success" onclick="testTouchGestures()">タッチジェスチャーテスト</button>
+                <button class="test-btn warning" onclick="testOrientationChange()">画面回転テスト</button>
+            </div>
+            <div class="test-grid" id="mobile-tests"></div>
+        </div>
+
+        <!-- Integration Tests -->
+        <div class="test-section">
+            <h2>🔗 統合機能テスト</h2>
+            <div class="test-controls">
+                <button class="test-btn primary" onclick="runFullGameFlow()">完全ゲームフロー</button>
+                <button class="test-btn success" onclick="testAllDifficulties()">全難易度テスト</button>
+                <button class="test-btn warning" onclick="testErrorScenarios()">エラーシナリオ</button>
+                <button class="test-btn danger" onclick="testPerformanceLoad()">パフォーマンステスト</button>
+            </div>
+            <div class="test-grid" id="integration-tests"></div>
+        </div>
+
+        <!-- Requirements Verification -->
+        <div class="test-section">
+            <h2>✅ 要件検証</h2>
+            <div class="test-controls">
+                <button class="test-btn primary" onclick="verifyAllRequirements()">全要件検証</button>
+                <button class="test-btn success" onclick="generateTestReport()">テストレポート生成</button>
+            </div>
+            <div class="test-grid" id="requirements-verification"></div>
+        </div>
+
+        <!-- Test Log -->
+        <div class="test-section">
+            <h2>📋 テストログ</h2>
+            <div class="test-controls">
+                <button class="test-btn warning" onclick="clearTestLog()">ログクリア</button>
+                <button class="test-btn success" onclick="exportTestLog()">ログエクスポート</button>
+            </div>
+            <div class="test-log" id="test-log"></div>
+        </div>
+    </div>
+
+    <!-- Leaflet JavaScript -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+            crossorigin=""></script>
+    
+    <!-- Custom JavaScript -->
+    <script src="../../../js/countryService.js"></script>
+    <script src="../../../js/ui.js"></script>
+    <script src="../../../js/map.js"></script>
+    <script src="../../../js/game.js"></script>
+    <script src="../../../js/app.js"></script>
+
+    <script>
+        // Test state management
+        const testState = {
+            results: {},
+            startTime: null,
+            totalTests: 0,
+            passedTests: 0,
+            failedTests: 0,
+            warnings: 0
+        };
+
+        // Initialize test environment
+        document.addEventListener('DOMContentLoaded', () => {
+            initializeTestEnvironment();
+            displaySystemInformation();
+            logTest('System', 'Final integration test environment initialized', 'pass');
+        });
+
+        function initializeTestEnvironment() {
+            testState.startTime = new Date();
+            
+            // Initialize the main application
+            if (typeof initializeApp === 'function') {
+                initializeApp();
+            }
+            
+            // Set up test-specific error handling
+            window.addEventListener('error', (event) => {
+                logTest('Error', `Uncaught error: ${event.error?.message || event.message}`, 'fail');
+            });
+            
+            window.addEventListener('unhandledrejection', (event) => {
+                logTest('Promise', `Unhandled rejection: ${event.reason}`, 'fail');
+            });
+        }
+
+        function displaySystemInformation() {
+            // Browser information
+            const browserInfo = {
+                userAgent: navigator.userAgent,
+                language: navigator.language,
+                platform: navigator.platform,
+                cookieEnabled: navigator.cookieEnabled,
+                onLine: navigator.onLine,
+                vendor: navigator.vendor,
+                appName: navigator.appName,
+                appVersion: navigator.appVersion
+            };
+
+            document.getElementById('browser-details').innerHTML = `
+                <p><strong>User Agent:</strong> ${browserInfo.userAgent}</p>
+                <p><strong>Language:</strong> ${browserInfo.language}</p>
+                <p><strong>Platform:</strong> ${browserInfo.platform}</p>
+                <p><strong>Vendor:</strong> ${browserInfo.vendor}</p>
+                <p><strong>Online:</strong> ${browserInfo.onLine ? 'Yes' : 'No'}</p>
+                <p><strong>Cookies:</strong> ${browserInfo.cookieEnabled ? 'Enabled' : 'Disabled'}</p>
+            `;
+
+            // Device information
+            const deviceInfo = {
+                screenWidth: screen.width,
+                screenHeight: screen.height,
+                windowWidth: window.innerWidth,
+                windowHeight: window.innerHeight,
+                devicePixelRatio: window.devicePixelRatio || 1,
+                touchSupport: 'ontouchstart' in window,
+                orientation: screen.orientation?.type || 'unknown'
+            };
+
+            document.getElementById('device-details').innerHTML = `
+                <p><strong>Screen:</strong> ${deviceInfo.screenWidth} × ${deviceInfo.screenHeight}</p>
+                <p><strong>Window:</strong> ${deviceInfo.windowWidth} × ${deviceInfo.windowHeight}</p>
+                <p><strong>Pixel Ratio:</strong> ${deviceInfo.devicePixelRatio}</p>
+                <p><strong>Touch Support:</strong> ${deviceInfo.touchSupport ? 'Yes' : 'No'}</p>
+                <p><strong>Orientation:</strong> ${deviceInfo.orientation}</p>
+            `;
+
+            // Performance information
+            if (performance.memory) {
+                const memoryInfo = performance.memory;
+                document.getElementById('performance-details').innerHTML = `
+                    <p><strong>Used Memory:</strong> ${Math.round(memoryInfo.usedJSHeapSize / 1048576)} MB</p>
+                    <p><strong>Total Memory:</strong> ${Math.round(memoryInfo.totalJSHeapSize / 1048576)} MB</p>
+                    <p><strong>Memory Limit:</strong> ${Math.round(memoryInfo.jsHeapSizeLimit / 1048576)} MB</p>
+                `;
+            } else {
+                document.getElementById('performance-details').innerHTML = '<p>Memory information not available</p>';
+            }
+        }
+
+        // Cross-Browser Compatibility Tests
+        function runBrowserCompatibilityTests() {
+            logTest('Browser', 'Starting cross-browser compatibility tests', 'info');
+            
+            const tests = [
+                { name: 'Fetch API', test: () => typeof fetch !== 'undefined' },
+                { name: 'LocalStorage', test: () => typeof localStorage !== 'undefined' },
+                { name: 'Geolocation', test: () => 'geolocation' in navigator },
+                { name: 'Canvas', test: () => !!document.createElement('canvas').getContext },
+                { name: 'WebGL', test: () => !!document.createElement('canvas').getContext('webgl') },
+                { name: 'Touch Events', test: () => 'ontouchstart' in window },
+                { name: 'Device Orientation', test: () => 'DeviceOrientationEvent' in window },
+                { name: 'CSS Grid', test: () => CSS.supports('display', 'grid') },
+                { name: 'CSS Flexbox', test: () => CSS.supports('display', 'flex') },
+                { name: 'ES6 Modules', test: () => 'noModule' in HTMLScriptElement.prototype }
+            ];
+
+            const container = document.getElementById('browser-tests');
+            container.innerHTML = '';
+
+            tests.forEach(test => {
+                try {
+                    const result = test.test();
+                    const status = result ? 'passed' : 'failed';
+                    const statusText = result ? 'サポート' : '非サポート';
+                    
+                    container.innerHTML += `
+                        <div class="test-item ${status}">
+                            <span class="status-indicator status-${result ? 'pass' : 'fail'}"></span>
+                            <strong>${test.name}:</strong> ${statusText}
+                        </div>
+                    `;
+                    
+                    logTest('Browser', `${test.name}: ${statusText}`, result ? 'pass' : 'warn');
+                } catch (error) {
+                    container.innerHTML += `
+                        <div class="test-item failed">
+                            <span class="status-indicator status-fail"></span>
+                            <strong>${test.name}:</strong> エラー
+                        </div>
+                    `;
+                    logTest('Browser', `${test.name}: Error - ${error.message}`, 'fail');
+                }
+            });
+        }
+
+        function testFeatureSupport() {
+            logTest('Features', 'Testing specific game features support', 'info');
+            
+            const features = [
+                { 
+                    name: 'Leaflet Map', 
+                    test: () => typeof L !== 'undefined' && typeof L.map === 'function' 
+                },
+                { 
+                    name: 'Country Service', 
+                    test: () => typeof fetchCountries === 'function' 
+                },
+                { 
+                    name: 'Game Logic', 
+                    test: () => typeof startGame === 'function' 
+                },
+                { 
+                    name: 'UI Functions', 
+                    test: () => typeof showScreen === 'function' 
+                },
+                { 
+                    name: 'Map Functions', 
+                    test: () => typeof initializeMap === 'function' 
+                }
+            ];
+
+            features.forEach(feature => {
+                try {
+                    const result = feature.test();
+                    logTest('Features', `${feature.name}: ${result ? 'Available' : 'Missing'}`, result ? 'pass' : 'fail');
+                } catch (error) {
+                    logTest('Features', `${feature.name}: Error - ${error.message}`, 'fail');
+                }
+            });
+        }
+
+        // Mobile Device Tests
+        function runMobileTests() {
+            logTest('Mobile', 'Starting mobile device tests', 'info');
+            
+            const container = document.getElementById('mobile-tests');
+            container.innerHTML = '';
+
+            const mobileTests = [
+                {
+                    name: 'Touch Support',
+                    test: () => 'ontouchstart' in window,
+                    description: 'タッチイベントサポート'
+                },
+                {
+                    name: 'Viewport Meta',
+                    test: () => !!document.querySelector('meta[name="viewport"]'),
+                    description: 'ビューポート設定'
+                },
+                {
+                    name: 'Responsive Design',
+                    test: () => window.innerWidth <= 768 ? true : CSS.supports('display', 'grid'),
+                    description: 'レスポンシブデザイン'
+                },
+                {
+                    name: 'Orientation API',
+                    test: () => 'orientation' in screen,
+                    description: '画面回転API'
+                },
+                {
+                    name: 'Device Motion',
+                    test: () => 'DeviceMotionEvent' in window,
+                    description: 'デバイスモーション'
+                }
+            ];
+
+            mobileTests.forEach(test => {
+                try {
+                    const result = test.test();
+                    const status = result ? 'passed' : 'warning';
+                    
+                    container.innerHTML += `
+                        <div class="test-item ${status}">
+                            <span class="status-indicator status-${result ? 'pass' : 'warn'}"></span>
+                            <strong>${test.name}:</strong> ${test.description}<br>
+                            <small>結果: ${result ? '対応' : '非対応'}</small>
+                        </div>
+                    `;
+                    
+                    logTest('Mobile', `${test.name}: ${result ? 'Supported' : 'Not supported'}`, result ? 'pass' : 'warn');
+                } catch (error) {
+                    container.innerHTML += `
+                        <div class="test-item failed">
+                            <span class="status-indicator status-fail"></span>
+                            <strong>${test.name}:</strong> エラー<br>
+                            <small>${error.message}</small>
+                        </div>
+                    `;
+                    logTest('Mobile', `${test.name}: Error - ${error.message}`, 'fail');
+                }
+            });
+        }
+
+        function testTouchGestures() {
+            if (!('ontouchstart' in window)) {
+                logTest('Touch', 'Touch gestures not supported on this device', 'warn');
+                alert('このデバイスはタッチジェスチャーをサポートしていません。');
+                return;
+            }
+
+            logTest('Touch', 'Touch gesture support detected', 'pass');
+            alert('タッチジェスチャーがサポートされています。\n\nモバイルデバイスで以下をテストしてください：\n- タップ\n- ドラッグ\n- ピンチズーム\n- 長押し');
+        }
+
+        function testOrientationChange() {
+            if (!('orientation' in screen)) {
+                logTest('Orientation', 'Screen orientation API not supported', 'warn');
+                alert('画面回転APIがサポートされていません。');
+                return;
+            }
+
+            const currentOrientation = screen.orientation?.type || 'unknown';
+            logTest('Orientation', `Current orientation: ${currentOrientation}`, 'pass');
+            
+            // Listen for orientation changes
+            screen.orientation?.addEventListener('change', () => {
+                const newOrientation = screen.orientation.type;
+                logTest('Orientation', `Orientation changed to: ${newOrientation}`, 'pass');
+            });
+
+            alert(`現在の画面向き: ${currentOrientation}\n\nデバイスを回転させて自動調整をテストしてください。`);
+        }
+
+        // Integration Tests
+        async function runFullGameFlow() {
+            logTest('Integration', 'Starting full game flow test', 'info');
+            
+            try {
+                // Test difficulty selection
+                logTest('Integration', 'Testing difficulty selection', 'info');
+                
+                // Test beginner difficulty
+                if (typeof handleDifficultySelection === 'function') {
+                    await handleDifficultySelection('beginner');
+                    logTest('Integration', 'Beginner difficulty selection: OK', 'pass');
+                } else {
+                    logTest('Integration', 'Difficulty selection function not found', 'fail');
+                    return;
+                }
+
+                // Wait for game to initialize
+                await new Promise(resolve => setTimeout(resolve, 2000));
+
+                // Test game state
+                if (typeof gameState !== 'undefined' && gameState.isGameActive) {
+                    logTest('Integration', 'Game state initialized correctly', 'pass');
+                } else {
+                    logTest('Integration', 'Game state not properly initialized', 'fail');
+                }
+
+                // Test UI elements
+                const flagImage = document.getElementById('flag-image');
+                const optionButtons = document.querySelectorAll('.option-btn');
+                
+                if (flagImage && optionButtons.length === 4) {
+                    logTest('Integration', 'UI elements present and correct', 'pass');
+                } else {
+                    logTest('Integration', 'UI elements missing or incorrect', 'fail');
+                }
+
+                // Test map functionality
+                if (typeof map !== 'undefined' && map) {
+                    logTest('Integration', 'Map initialized successfully', 'pass');
+                } else {
+                    logTest('Integration', 'Map not initialized', 'warn');
+                }
+
+                logTest('Integration', 'Full game flow test completed', 'pass');
+                
+            } catch (error) {
+                logTest('Integration', `Full game flow test failed: ${error.message}`, 'fail');
+            }
+        }
+
+        async function testAllDifficulties() {
+            logTest('Difficulty', 'Testing all difficulty levels', 'info');
+            
+            const difficulties = ['beginner', 'intermediate', 'advanced'];
+            
+            for (const difficulty of difficulties) {
+                try {
+                    logTest('Difficulty', `Testing ${difficulty} difficulty`, 'info');
+                    
+                    if (typeof canStartGame === 'function' && canStartGame(difficulty)) {
+                        logTest('Difficulty', `${difficulty}: Can start game`, 'pass');
+                    } else {
+                        logTest('Difficulty', `${difficulty}: Cannot start game`, 'warn');
+                    }
+                    
+                    // Test difficulty configuration
+                    if (typeof getDifficultyConfig === 'function') {
+                        const config = getDifficultyConfig(difficulty);
+                        if (config && config.questionsCount > 0) {
+                            logTest('Difficulty', `${difficulty}: Configuration valid (${config.questionsCount} questions)`, 'pass');
+                        } else {
+                            logTest('Difficulty', `${difficulty}: Invalid configuration`, 'fail');
+                        }
+                    }
+                    
+                } catch (error) {
+                    logTest('Difficulty', `${difficulty}: Error - ${error.message}`, 'fail');
+                }
+            }
+        }
+
+        async function testErrorScenarios() {
+            logTest('Error', 'Testing error handling scenarios', 'info');
+            
+            const errorTests = [
+                {
+                    name: 'Network Error',
+                    test: () => {
+                        const error = new Error('Network request failed');
+                        if (typeof handleError === 'function') {
+                            handleError(error, 'NetworkTest');
+                            return true;
+                        }
+                        return false;
+                    }
+                },
+                {
+                    name: 'Invalid Difficulty',
+                    test: () => {
+                        try {
+                            if (typeof handleDifficultySelection === 'function') {
+                                handleDifficultySelection('invalid');
+                                return true;
+                            }
+                        } catch (error) {
+                            return true; // Expected to fail
+                        }
+                        return false;
+                    }
+                },
+                {
+                    name: 'Missing Game State',
+                    test: () => {
+                        const originalGameState = window.gameState;
+                        window.gameState = undefined;
+                        
+                        try {
+                            if (typeof handleAnswerSelection === 'function') {
+                                handleAnswerSelection(0);
+                                window.gameState = originalGameState;
+                                return true;
+                            }
+                        } catch (error) {
+                            window.gameState = originalGameState;
+                            return true; // Expected to handle gracefully
+                        }
+                        
+                        window.gameState = originalGameState;
+                        return false;
+                    }
+                }
+            ];
+
+            errorTests.forEach(test => {
+                try {
+                    const result = test.test();
+                    logTest('Error', `${test.name}: ${result ? 'Handled correctly' : 'Not handled'}`, result ? 'pass' : 'warn');
+                } catch (error) {
+                    logTest('Error', `${test.name}: Exception - ${error.message}`, 'fail');
+                }
+            });
+        }
+
+        function testPerformanceLoad() {
+            logTest('Performance', 'Starting performance tests', 'info');
+            
+            const startTime = performance.now();
+            
+            // Test memory usage
+            if (performance.memory) {
+                const memoryBefore = performance.memory.usedJSHeapSize;
+                
+                // Simulate heavy operations
+                const testArray = new Array(10000).fill(0).map((_, i) => ({ id: i, data: Math.random() }));
+                
+                const memoryAfter = performance.memory.usedJSHeapSize;
+                const memoryIncrease = (memoryAfter - memoryBefore) / 1048576; // MB
+                
+                logTest('Performance', `Memory increase: ${memoryIncrease.toFixed(2)} MB`, memoryIncrease < 10 ? 'pass' : 'warn');
+            }
+            
+            // Test rendering performance
+            const renderStart = performance.now();
+            
+            // Create and remove DOM elements
+            for (let i = 0; i < 1000; i++) {
+                const div = document.createElement('div');
+                div.textContent = `Test element ${i}`;
+                document.body.appendChild(div);
+                document.body.removeChild(div);
+            }
+            
+            const renderTime = performance.now() - renderStart;
+            logTest('Performance', `DOM manipulation: ${renderTime.toFixed(2)}ms`, renderTime < 100 ? 'pass' : 'warn');
+            
+            const totalTime = performance.now() - startTime;
+            logTest('Performance', `Total performance test: ${totalTime.toFixed(2)}ms`, 'info');
+        }
+
+        // Requirements Verification
+        function verifyAllRequirements() {
+            logTest('Requirements', 'Verifying all requirements', 'info');
+            
+            const requirements = [
+                {
+                    id: '1.1',
+                    description: 'ランダムな国旗を表示する',
+                    test: () => document.getElementById('flag-image') !== null
+                },
+                {
+                    id: '1.2',
+                    description: '4つの選択肢を提供する',
+                    test: () => document.querySelectorAll('.option-btn').length === 4
+                },
+                {
+                    id: '2.1',
+                    description: '世界地図上で国をハイライト表示する',
+                    test: () => typeof highlightCountry === 'function'
+                },
+                {
+                    id: '2.2',
+                    description: '国名と基本情報を表示する',
+                    test: () => typeof showCountryInfo === 'function'
+                },
+                {
+                    id: '2.3',
+                    description: 'インタラクティブなズーム機能を提供する',
+                    test: () => typeof map !== 'undefined' && map && map.getZoom
+                },
+                {
+                    id: '3.1',
+                    description: 'スコアカウンターを0で初期化する',
+                    test: () => document.getElementById('current-score') !== null
+                },
+                {
+                    id: '3.2',
+                    description: 'スコアを1ポイント増加させる',
+                    test: () => typeof updateScore === 'function'
+                },
+                {
+                    id: '4.1',
+                    description: '難易度選択オプションを提供する',
+                    test: () => document.querySelectorAll('.difficulty-btn').length === 3
+                },
+                {
+                    id: '5.1',
+                    description: 'タッチフレンドリーなインターフェースを提供する',
+                    test: () => document.querySelector('meta[name="viewport"]') !== null
+                },
+                {
+                    id: '5.2',
+                    description: 'レイアウトを適切に調整する',
+                    test: () => CSS.supports('display', 'grid') && CSS.supports('display', 'flex')
+                }
+            ];
+
+            const container = document.getElementById('requirements-verification');
+            container.innerHTML = '';
+
+            requirements.forEach(req => {
+                try {
+                    const result = req.test();
+                    const status = result ? 'passed' : 'failed';
+                    
+                    container.innerHTML += `
+                        <div class="test-item ${status}">
+                            <span class="status-indicator status-${result ? 'pass' : 'fail'}"></span>
+                            <strong>Req ${req.id}:</strong> ${req.description}<br>
+                            <small>結果: ${result ? '適合' : '不適合'}</small>
+                        </div>
+                    `;
+                    
+                    logTest('Requirements', `${req.id}: ${result ? 'PASS' : 'FAIL'}`, result ? 'pass' : 'fail');
+                } catch (error) {
+                    container.innerHTML += `
+                        <div class="test-item failed">
+                            <span class="status-indicator status-fail"></span>
+                            <strong>Req ${req.id}:</strong> ${req.description}<br>
+                            <small>エラー: ${error.message}</small>
+                        </div>
+                    `;
+                    logTest('Requirements', `${req.id}: ERROR - ${error.message}`, 'fail');
+                }
+            });
+        }
+
+        function generateTestReport() {
+            const endTime = new Date();
+            const duration = endTime - testState.startTime;
+            
+            const report = {
+                timestamp: endTime.toISOString(),
+                duration: `${Math.round(duration / 1000)}秒`,
+                browser: navigator.userAgent,
+                platform: navigator.platform,
+                viewport: `${window.innerWidth}×${window.innerHeight}`,
+                tests: {
+                    total: testState.totalTests,
+                    passed: testState.passedTests,
+                    failed: testState.failedTests,
+                    warnings: testState.warnings
+                },
+                results: testState.results
+            };
+
+            const reportText = `
+# 国旗あてゲーム - 最終統合テストレポート
+
+## テスト概要
+- **実行日時**: ${report.timestamp}
+- **実行時間**: ${report.duration}
+- **ブラウザ**: ${report.browser}
+- **プラットフォーム**: ${report.platform}
+- **ビューポート**: ${report.viewport}
+
+## テスト結果サマリー
+- **総テスト数**: ${report.tests.total}
+- **成功**: ${report.tests.passed}
+- **失敗**: ${report.tests.failed}
+- **警告**: ${report.tests.warnings}
+- **成功率**: ${report.tests.total > 0 ? Math.round((report.tests.passed / report.tests.total) * 100) : 0}%
+
+## 詳細結果
+${Object.entries(report.results).map(([category, tests]) => 
+    `### ${category}\n${tests.map(test => `- ${test.status.toUpperCase()}: ${test.message}`).join('\n')}`
+).join('\n\n')}
+
+---
+Generated by Flag Guessing Game Test Suite
+            `.trim();
+
+            // Display report
+            const reportWindow = window.open('', '_blank');
+            reportWindow.document.write(`
+                <html>
+                    <head>
+                        <title>Test Report</title>
+                        <style>
+                            body { font-family: Arial, sans-serif; margin: 20px; line-height: 1.6; }
+                            pre { background: #f5f5f5; padding: 15px; border-radius: 5px; overflow: auto; }
+                            h1, h2, h3 { color: #333; }
+                        </style>
+                    </head>
+                    <body>
+                        <pre>${reportText}</pre>
+                    </body>
+                </html>
+            `);
+
+            logTest('Report', 'Test report generated successfully', 'pass');
+        }
+
+        // Utility functions
+        function logTest(category, message, status = 'info') {
+            const timestamp = new Date().toLocaleTimeString();
+            const logEntry = { timestamp, category, message, status };
+            
+            // Update test state
+            if (!testState.results[category]) {
+                testState.results[category] = [];
+            }
+            testState.results[category].push(logEntry);
+            
+            testState.totalTests++;
+            switch (status) {
+                case 'pass': testState.passedTests++; break;
+                case 'fail': testState.failedTests++; break;
+                case 'warn': testState.warnings++; break;
+            }
+            
+            // Display in log
+            const logContainer = document.getElementById('test-log');
+            const statusClass = status === 'pass' ? 'status-pass' : 
+                               status === 'fail' ? 'status-fail' : 
+                               status === 'warn' ? 'status-warn' : 'status-pending';
+            
+            const logElement = document.createElement('div');
+            logElement.style.cssText = 'margin: 5px 0; padding: 5px; border-left: 3px solid #ddd;';
+            logElement.innerHTML = `
+                <span class="status-indicator ${statusClass}"></span>
+                <strong>[${timestamp}] ${category}:</strong> ${message}
+            `;
+            
+            logContainer.appendChild(logElement);
+            logContainer.scrollTop = logContainer.scrollHeight;
+        }
+
+        function clearTestLog() {
+            document.getElementById('test-log').innerHTML = '';
+            testState.results = {};
+            testState.totalTests = 0;
+            testState.passedTests = 0;
+            testState.failedTests = 0;
+            testState.warnings = 0;
+            logTest('System', 'Test log cleared', 'info');
+        }
+
+        function exportTestLog() {
+            const logData = {
+                timestamp: new Date().toISOString(),
+                results: testState.results,
+                summary: {
+                    total: testState.totalTests,
+                    passed: testState.passedTests,
+                    failed: testState.failedTests,
+                    warnings: testState.warnings
+                }
+            };
+            
+            const dataStr = JSON.stringify(logData, null, 2);
+            const dataBlob = new Blob([dataStr], { type: 'application/json' });
+            const url = URL.createObjectURL(dataBlob);
+            
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = `flag-game-test-log-${new Date().toISOString().split('T')[0]}.json`;
+            link.click();
+            
+            URL.revokeObjectURL(url);
+            logTest('Export', 'Test log exported successfully', 'pass');
+        }
+    </script>

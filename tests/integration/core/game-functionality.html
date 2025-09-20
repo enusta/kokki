@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Functionality Test</title>
+</head>
+<body>
+    <h1>Game Functionality Test</h1>
+    <div id="test-results"></div>
+    
+    <script src="../../../js/countryService.js"></script>
+    <script src="../../../js/game.js"></script>
+    <script>
+        // Mock UI functions for testing
+        function showLoading(message) {
+            console.log('Loading:', message);
+        }
+        
+        function hideLoading() {
+            console.log('Loading hidden');
+        }
+        
+        function showScreen(screen) {
+            console.log('Showing screen:', screen);
+        }
+        
+        function displayFlag(url, alt) {
+            console.log('Displaying flag:', alt, url);
+        }
+        
+        function showOptions(options) {
+            console.log('Options:', options);
+        }
+        
+        function updateScore(score, total) {
+            console.log('Score updated:', score, '/', total);
+        }
+        
+        function updateQuestionCounter(current, total) {
+            console.log('Question counter:', current, '/', total);
+        }
+        
+        function updateProgress(progress) {
+            console.log('Progress:', progress + '%');
+        }
+        
+        function showFeedback(isCorrect, correctAnswer) {
+            console.log('Feedback:', isCorrect ? 'Correct!' : 'Incorrect. Answer: ' + correctAnswer);
+        }
+        
+        function highlightOptions(correctIndex, selectedIndex) {
+            console.log('Highlighting options - Correct:', correctIndex, 'Selected:', selectedIndex);
+        }
+        
+        function showResults(score, total) {
+            console.log('Final results:', score, '/', total);
+        }
+        
+        // Test basic functionality
+        async function runTests() {
+            const resultsDiv = document.getElementById('test-results');
+            
+            try {
+                // Test 1: Generate answer options
+                console.log('=== Test 1: Generate Answer Options ===');
+                const mockCountries = [
+                    { name: { common: 'Japan' }, cca2: 'JP', flags: { png: 'jp.png' } },
+                    { name: { common: 'USA' }, cca2: 'US', flags: { png: 'us.png' } },
+                    { name: { common: 'France' }, cca2: 'FR', flags: { png: 'fr.png' } },
+                    { name: { common: 'Germany' }, cca2: 'DE', flags: { png: 'de.png' } },
+                    { name: { common: 'Italy' }, cca2: 'IT', flags: { png: 'it.png' } }
+                ];
+                
+                const options = generateAnswerOptions(mockCountries[0], mockCountries);
+                console.log('Generated options:', options);
+                
+                if (options.options && options.options.length === 4 && 
+                    typeof options.correctIndex === 'number') {
+                    resultsDiv.innerHTML += '<p>✅ Test 1 Passed: Answer options generated correctly</p>';
+                } else {
+                    resultsDiv.innerHTML += '<p>❌ Test 1 Failed: Answer options not generated correctly</p>';
+                }
+                
+                // Test 2: Shuffle array
+                console.log('=== Test 2: Shuffle Array ===');
+                const originalArray = [1, 2, 3, 4, 5];
+                const shuffledArray = shuffleArray(originalArray);
+                console.log('Original:', originalArray);
+                console.log('Shuffled:', shuffledArray);
+                
+                if (shuffledArray.length === originalArray.length && 
+                    shuffledArray.every(item => originalArray.includes(item))) {
+                    resultsDiv.innerHTML += '<p>✅ Test 2 Passed: Array shuffled correctly</p>';
+                } else {
+                    resultsDiv.innerHTML += '<p>❌ Test 2 Failed: Array shuffle failed</p>';
+                }
+                
+                // Test 3: Calculate progress
+                console.log('=== Test 3: Calculate Progress ===');
+                gameState.currentQuestion = 5;
+                gameState.totalQuestions = 10;
+                const progress = calculateProgress();
+                console.log('Progress:', progress);
+                
+                if (progress === 50) {
+                    resultsDiv.innerHTML += '<p>✅ Test 3 Passed: Progress calculated correctly</p>';
+                } else {
+                    resultsDiv.innerHTML += '<p>❌ Test 3 Failed: Progress calculation incorrect</p>';
+                }
+                
+                // Test 4: Calculate accuracy
+                console.log('=== Test 4: Calculate Accuracy ===');
+                gameState.score = 7;
+                gameState.currentQuestion = 10;
+                const accuracy = calculateAccuracy();
+                console.log('Accuracy:', accuracy);
+                
+                if (accuracy === 70) {
+                    resultsDiv.innerHTML += '<p>✅ Test 4 Passed: Accuracy calculated correctly</p>';
+                } else {
+                    resultsDiv.innerHTML += '<p>❌ Test 4 Failed: Accuracy calculation incorrect</p>';
+                }
+                
+                // Test 5: Reset game state
+                console.log('=== Test 5: Reset Game State ===');
+                resetGameState();
+                console.log('Game state after reset:', gameState);
+                
+                if (gameState.currentQuestion === 0 && gameState.score === 0 && 
+                    !gameState.isGameActive) {
+                    resultsDiv.innerHTML += '<p>✅ Test 5 Passed: Game state reset correctly</p>';
+                } else {
+                    resultsDiv.innerHTML += '<p>❌ Test 5 Failed: Game state not reset correctly</p>';
+                }
+                
+                resultsDiv.innerHTML += '<p><strong>All basic functionality tests completed!</strong></p>';
+                
+            } catch (error) {
+                console.error('Test error:', error);
+                resultsDiv.innerHTML += '<p>❌ Test Error: ' + error.message + '</p>';
+            }
+        }
+        
+        // Run tests when page loads
+        window.addEventListener('load', runTests);
+    </script>
+</body>
+</html>
+</text>
+</invoke>

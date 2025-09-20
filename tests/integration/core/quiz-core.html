@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Core Functionality Test</title>
+</head>
+<body>
+    <h1>Quiz Core Functionality Test</h1>
+    <div id="output"></div>
+    
+    <script src="../../../js/countryService.js"></script>
+    <script src="../../../js/game.js"></script>
+    <script>
+        const output = document.getElementById('output');
+        
+        function log(message) {
+            output.innerHTML += '<p>' + message + '</p>';
+            console.log(message);
+        }
+        
+        // Test the core quiz functionality
+        function testQuizCore() {
+            log('=== Testing Quiz Core Functionality ===');
+            
+            // Test 1: Shuffle Array
+            log('Test 1: Shuffle Array');
+            const testArray = ['A', 'B', 'C', 'D'];
+            const shuffled = shuffleArray(testArray);
+            log('Original: ' + JSON.stringify(testArray));
+            log('Shuffled: ' + JSON.stringify(shuffled));
+            log('✅ Shuffle test completed');
+            
+            // Test 2: Generate Answer Options
+            log('Test 2: Generate Answer Options');
+            const mockCountries = [
+                { name: { common: 'Japan' }, cca2: 'JP', flags: { png: 'jp.png' } },
+                { name: { common: 'USA' }, cca2: 'US', flags: { png: 'us.png' } },
+                { name: { common: 'France' }, cca2: 'FR', flags: { png: 'fr.png' } },
+                { name: { common: 'Germany' }, cca2: 'DE', flags: { png: 'de.png' } },
+                { name: { common: 'Italy' }, cca2: 'IT', flags: { png: 'it.png' } }
+            ];
+            
+            try {
+                const result = generateAnswerOptions(mockCountries[0], mockCountries);
+                log('Options generated: ' + result.options.length + ' options');
+                log('Correct index: ' + result.correctIndex);
+                log('Options: ' + result.options.map(c => c.name.common).join(', '));
+                log('✅ Answer options generation test passed');
+            } catch (error) {
+                log('❌ Answer options generation failed: ' + error.message);
+            }
+            
+            // Test 3: Progress Calculation
+            log('Test 3: Progress Calculation');
+            gameState.currentQuestion = 3;
+            gameState.totalQuestions = 10;
+            const progress = calculateProgress();
+            log('Progress: ' + progress + '%');
+            log('✅ Progress calculation test completed');
+            
+            // Test 4: Accuracy Calculation
+            log('Test 4: Accuracy Calculation');
+            gameState.score = 8;
+            gameState.currentQuestion = 10;
+            const accuracy = calculateAccuracy();
+            log('Accuracy: ' + accuracy + '%');
+            log('✅ Accuracy calculation test completed');
+            
+            // Test 5: Game State Reset
+            log('Test 5: Game State Reset');
+            log('Before reset - Score: ' + gameState.score + ', Question: ' + gameState.currentQuestion);
+            resetGameState();
+            log('After reset - Score: ' + gameState.score + ', Question: ' + gameState.currentQuestion);
+            log('✅ Game state reset test completed');
+            
+            log('=== All Core Tests Completed ===');
+        }
+        
+        // Mock UI functions to prevent errors
+        window.showLoading = function(msg) { log('Loading: ' + msg); };
+        window.hideLoading = function() { log('Loading hidden'); };
+        window.showScreen = function(screen) { log('Screen: ' + screen); };
+        window.displayFlag = function(url, alt) { log('Flag: ' + alt); };
+        window.showOptions = function(options) { log('Options: ' + options.join(', ')); };
+        window.updateScore = function(score, total) { log('Score: ' + score + '/' + total); };
+        window.updateQuestionCounter = function(current, total) { log('Question: ' + current + '/' + total); };
+        window.updateProgress = function(progress) { log('Progress: ' + progress + '%'); };
+        window.showFeedback = function(correct, answer) { log('Feedback: ' + (correct ? 'Correct!' : 'Wrong: ' + answer)); };
+        window.highlightOptions = function(correct, selected) { log('Highlight - Correct: ' + correct + ', Selected: ' + selected); };
+        window.showResults = function(score, total) { log('Results: ' + score + '/' + total); };
+        
+        // Run tests
+        testQuizCore();
+    </script>
+</body>
+</html>
+</text>
+</invoke>

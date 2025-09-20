@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map Integration Test - Flag Guessing Game</title>
+    
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+          crossorigin=""/>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <style>
+        .test-header {
+            background: #4facfe;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .test-section {
+            margin: 20px 0;
+            padding: 20px;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+        }
+        
+        .test-controls {
+            display: flex;
+            gap: 10px;
+            margin: 15px 0;
+            flex-wrap: wrap;
+        }
+        
+        .test-btn {
+            padding: 8px 16px;
+            background: #4facfe;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        
+        .test-btn:hover {
+            background: #3d8bfe;
+        }
+        
+        .test-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+        
+        .test-log {
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 5px;
+            font-family: monospace;
+            font-size: 12px;
+            max-height: 150px;
+            overflow-y: auto;
+            margin-top: 10px;
+        }
+        
+        .success { color: #28a745; }
+        .error { color: #dc3545; }
+        .info { color: #17a2b8; }
+        
+        #world-map {
+            height: 300px !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="test-header">
+            <h1>Map Integration Test</h1>
+            <p>Testing world map functionality for the flag guessing game</p>
+        </div>
+
+        <!-- Map Display Test -->
+        <div class="test-section">
+            <h3>Map Display Test</h3>
+            <p>Test map initialization and display functionality</p>
+            
+            <div class="test-controls">
+                <button class="test-btn" onclick="testMapInit()">Initialize Map</button>
+                <button class="test-btn" onclick="testShowMap()">Show Map</button>
+                <button class="test-btn" onclick="testHideMap()">Hide Map</button>
+                <button class="test-btn" onclick="testResizeMap()">Resize Map</button>
+            </div>
+            
+            <div id="world-map" class="map-container hidden"></div>
+            <div class="test-log" id="map-log"></div>
+        </div>
+
+        <!-- Country Highlighting Test -->
+        <div class="test-section">
+            <h3>Country Highlighting Test</h3>
+            <p>Test country highlighting and information display</p>
+            
+            <div class="test-controls">
+                <button class="test-btn" onclick="testHighlightJapan()">Highlight Japan</button>
+                <button class="test-btn" onclick="testHighlightUSA()">Highlight USA</button>
+                <button class="test-btn" onclick="testHighlightFrance()">Highlight France</button>
+                <button class="test-btn" onclick="testClearHighlight()">Clear Highlight</button>
+                <button class="test-btn" onclick="testResetView()">Reset View</button>
+            </div>
+            
+            <div class="test-log" id="highlight-log"></div>
+        </div>
+
+        <!-- Interactive Features Test -->
+        <div class="test-section">
+            <h3>Interactive Features Test</h3>
+            <p>Test map interactions and responsive behavior</p>
+            
+            <div class="test-controls">
+                <button class="test-btn" onclick="testMapInteractions()">Setup Interactions</button>
+                <button class="test-btn" onclick="testResponsive()">Test Responsive</button>
+                <button class="test-btn" onclick="simulateGameFlow()">Simulate Game Flow</button>
+            </div>
+            
+            <div class="test-log" id="interaction-log"></div>
+        </div>
+
+        <!-- Integration Test -->
+        <div class="test-section">
+            <h3>Full Integration Test</h3>
+            <p>Test complete map integration with game flow</p>
+            
+            <div class="test-controls">
+                <button class="test-btn" onclick="runFullTest()">Run Full Test</button>
+                <button class="test-btn" onclick="clearAllLogs()">Clear Logs</button>
+            </div>
+            
+            <div class="test-log" id="integration-log"></div>
+        </div>
+    </div>
+
+    <!-- Leaflet JavaScript -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+            crossorigin=""></script>
+    
+    <!-- Game JavaScript -->
+    <script src="../../../js/countryService.js"></script>
+    <script src="../../../js/map.js"></script>
+    <script src="../../../js/ui.js"></script>
+    <script src="../../../js/game.js"></script>
+
+    <script>
+        // Test countries data
+        const testCountries = {
+            japan: {
+                name: { common: "Japan" },
+                cca2: "JP",
+                flag: "🇯🇵",
+                capital: ["Tokyo"],
+                region: "Asia",
+                subregion: "Eastern Asia",
+                latlng: [36.0, 138.0],
+                population: 125836021,
+                area: 377930
+            },
+            usa: {
+                name: { common: "United States" },
+                cca2: "US",
+                flag: "🇺🇸",
+                capital: ["Washington, D.C."],
+                region: "Americas",
+                subregion: "North America",
+                latlng: [38.0, -97.0],
+                population: 331002651,
+                area: 9833517
+            },
+            france: {
+                name: { common: "France" },
+                cca2: "FR",
+                flag: "🇫🇷",
+                capital: ["Paris"],
+                region: "Europe",
+                subregion: "Western Europe",
+                latlng: [46.0, 2.0],
+                population: 67391582,
+                area: 643801
+            }
+        };
+
+        function log(message, logId = 'integration-log', type = 'info') {
+            const logElement = document.getElementById(logId);
+            const timestamp = new Date().toLocaleTimeString();
+            const className = type === 'error' ? 'error' : type === 'success' ? 'success' : 'info';
+            logElement.innerHTML += `<span class="${className}">[${timestamp}] ${message}</span><br>`;
+            logElement.scrollTop = logElement.scrollHeight;
+        }
+
+        // Map Display Tests
+        function testMapInit() {
+            log('Testing map initialization...', 'map-log');
+            try {
+                const result = initializeMap();
+                if (result !== false) {
+                    log('SUCCESS: Map initialized', 'map-log', 'success');
+                } else {
+                    log('ERROR: Map initialization failed', 'map-log', 'error');
+                }
+            } catch (error) {
+                log(`ERROR: ${error.message}`, 'map-log', 'error');
+            }
+        }
+
+        function testShowMap() {
+            log('Testing show map...', 'map-log');
+            try {
+                showMap();
+                const mapContainer = document.getElementById('world-map');
+                if (mapContainer && !mapContainer.classList.contains('hidden')) {
+                    log('SUCCESS: Map is now visible', 'map-log', 'success');
+                } else {
+                    log('ERROR: Map is still hidden', 'map-log', 'error');
+                }
+            } catch (error) {
+                log(`ERROR: ${error.message}`, 'map-log', 'error');
+            }
+        }
+
+        function testHideMap() {
+            log('Testing hide map...', 'map-log');
+            try {
+                hideMap();
+                const mapContainer = document.getElementById('world-map');
+                if (mapContainer && mapContainer.classList.contains('hidden')) {
+                    log('SUCCESS: Map is now hidden', 'map-log', 'success');
+                } else {
+                    log('ERROR: Map is still visible', 'map-log', 'error');
+                }
+            } catch (error) {
+                log(`ERROR: ${error.message}`, 'map-log', 'error');
+            }
+        }
+
+        function testResizeMap() {
+            log('Testing map resize...', 'map-log');
+            try {
+                resizeMap();
+                log('SUCCESS: Map resize function called', 'map-log', 'success');
+            } catch (error) {
+                log(`ERROR: ${error.message}`, 'map-log', 'error');
+            }
+        }
+
+        // Country Highlighting Tests
+        function testHighlightJapan() {
+            testHighlightCountry('Japan', testCountries.japan, 'highlight-log');
+        }
+
+        function testHighlightUSA() {
+            testHighlightCountry('USA', testCountries.usa, 'highlight-log');
+        }
+
+        function testHighlightFrance() {
+            testHighlightCountry('France', testCountries.france, 'highlight-log');
+        }
+
+        function testHighlightCountry(name, country, logId) {
+            log(`Testing highlight for ${name}...`, logId);
+            try {
+                // Set current country for the highlight function
+                if (typeof gameState !== 'undefined') {
+                    gameState.currentCountry = country;
+                }
+                
+                showMap(); // Ensure map is visible
+                highlightCountry(country.cca2, country.latlng);
+                log(`SUCCESS: ${name} highlighted at [${country.latlng[0]}, ${country.latlng[1]}]`, logId, 'success');
+            } catch (error) {
+                log(`ERROR: ${error.message}`, logId, 'error');
+            }
+        }
+
+        function testClearHighlight() {
+            log('Testing clear highlight...', 'highlight-log');
+            try {
+                clearHighlight();
+                log('SUCCESS: Highlight cleared', 'highlight-log', 'success');
+            } catch (error) {
+                log(`ERROR: ${error.message}`, 'highlight-log', 'error');
+            }
+        }
+
+        function testResetView() {
+            log('Testing reset view...', 'highlight-log');
+            try {
+                resetMapView();
+                log('SUCCESS: Map view reset', 'highlight-log', 'success');
+            } catch (error) {
+                log(`ERROR: ${error.message}`, 'highlight-log', 'error');
+            }
+        }
+
+        // Interactive Features Tests
+        function testMapInteractions() {
+            log('Testing map interactions setup...', 'interaction-log');
+            try {
+                setupMapInteractions();
+                log('SUCCESS: Map interactions set up', 'interaction-log', 'success');
+                log('INFO: Try clicking on the map to test interactions', 'interaction-log', 'info');
+            } catch (error) {
+                log(`ERROR: ${error.message}`, 'interaction-log', 'error');
+            }
+        }
+
+        function testResponsive() {
+            log('Testing responsive behavior...', 'interaction-log');
+            try {
+                // Simulate window resize
+                window.dispatchEvent(new Event('resize'));
+                log('SUCCESS: Resize event triggered', 'interaction-log', 'success');
+            } catch (error) {
+                log(`ERROR: ${error.message}`, 'interaction-log', 'error');
+            }
+        }
+
+        function simulateGameFlow() {
+            log('Simulating game flow...', 'interaction-log');
+            try {
+                // Simulate a correct answer sequence
+                showMap();
+                setTimeout(() => {
+                    testHighlightCountry('Japan (Correct Answer)', testCountries.japan, 'interaction-log');
+                }, 500);
+                
+                setTimeout(() => {
+                    log('Simulating next question...', 'interaction-log', 'info');
+                    clearHighlight();
+                }, 3000);
+                
+                setTimeout(() => {
+                    testHighlightCountry('USA (Next Question)', testCountries.usa, 'interaction-log');
+                }, 4000);
+                
+                log('Game flow simulation started', 'interaction-log', 'success');
+            } catch (error) {
+                log(`ERROR: ${error.message}`, 'interaction-log', 'error');
+            }
+        }
+
+        // Full Integration Test
+        function runFullTest() {
+            log('Starting full integration test...', 'integration-log');
+            
+            let testStep = 0;
+            const tests = [
+                () => {
+                    log('Step 1: Initialize map', 'integration-log', 'info');
+                    testMapInit();
+                },
+                () => {
+                    log('Step 2: Show map', 'integration-log', 'info');
+                    testShowMap();
+                },
+                () => {
+                    log('Step 3: Setup interactions', 'integration-log', 'info');
+                    testMapInteractions();
+                },
+                () => {
+                    log('Step 4: Test country highlighting', 'integration-log', 'info');
+                    testHighlightCountry('Japan', testCountries.japan, 'integration-log');
+                },
+                () => {
+                    log('Step 5: Test clear highlight', 'integration-log', 'info');
+                    testClearHighlight();
+                },
+                () => {
+                    log('Step 6: Test another country', 'integration-log', 'info');
+                    testHighlightCountry('France', testCountries.france, 'integration-log');
+                },
+                () => {
+                    log('Step 7: Test reset view', 'integration-log', 'info');
+                    testResetView();
+                },
+                () => {
+                    log('Step 8: Test responsive behavior', 'integration-log', 'info');
+                    testResponsive();
+                },
+                () => {
+                    log('Full integration test completed!', 'integration-log', 'success');
+                }
+            ];
+
+            function runNextTest() {
+                if (testStep < tests.length) {
+                    tests[testStep]();
+                    testStep++;
+                    setTimeout(runNextTest, 1500);
+                }
+            }
+
+            runNextTest();
+        }
+
+        function clearAllLogs() {
+            ['map-log', 'highlight-log', 'interaction-log', 'integration-log'].forEach(id => {
+                const element = document.getElementById(id);
+                if (element) {
+                    element.innerHTML = '';
+                }
+            });
+        }
+
+        // Auto-initialize on page load
+        window.addEventListener('load', () => {
+            log('Page loaded, ready for testing', 'integration-log', 'info');
+            setTimeout(() => {
+                testMapInit();
+                testShowMap();
+            }, 500);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Country Service Test</title>
+</head>
+<body>
+    <h1>Country Service Test</h1>
+    <div id="output"></div>
+    <button onclick="testCountryService()">Test Country Service</button>
+    <button onclick="testDifficultyFiltering()">Test Difficulty Filtering</button>
+    <button onclick="testCaching()">Test Caching</button>
+    <button onclick="clearTestCache()">Clear Cache</button>
+
+    <script src="../../../js/countryService.js"></script>
+    <script>
+        const output = document.getElementById('output');
+
+        function log(message) {
+            output.innerHTML += '<p>' + message + '</p>';
+            console.log(message);
+        }
+
+        async function testCountryService() {
+            output.innerHTML = '<h2>Testing Country Service...</h2>';
+            
+            try {
+                log('Fetching countries...');
+                const countries = await fetchCountries();
+                log(`✓ Fetched ${countries.length} countries`);
+                
+                if (countries.length > 0) {
+                    const sample = countries[0];
+                    log(`Sample country: ${sample.name.common} (${sample.cca2})`);
+                    log(`Has flag: ${!!sample.flags.png}`);
+                }
+                
+            } catch (error) {
+                log(`✗ Error: ${error.message}`);
+            }
+        }
+
+        async function testDifficultyFiltering() {
+            output.innerHTML = '<h2>Testing Difficulty Filtering...</h2>';
+            
+            try {
+                const countries = await fetchCountries();
+                
+                const beginnerCountries = getCountriesByDifficulty(countries, 'beginner');
+                log(`✓ Beginner: ${beginnerCountries.length} countries`);
+                
+                const intermediateCountries = getCountriesByDifficulty(countries, 'intermediate');
+                log(`✓ Intermediate: ${intermediateCountries.length} countries`);
+                
+                const advancedCountries = getCountriesByDifficulty(countries, 'advanced');
+                log(`✓ Advanced: ${advancedCountries.length} countries`);
+                
+                // Test random country selection
+                const randomCountry = getRandomCountry(beginnerCountries);
+                if (randomCountry) {
+                    log(`✓ Random country: ${randomCountry.name.common}`);
+                    
+                    // Test wrong answers generation
+                    const wrongAnswers = generateWrongAnswers(randomCountry, beginnerCountries);
+                    log(`✓ Generated ${wrongAnswers.length} wrong answers`);
+                }
+                
+            } catch (error) {
+                log(`✗ Error: ${error.message}`);
+            }
+        }
+
+        async function testCaching() {
+            output.innerHTML = '<h2>Testing Caching...</h2>';
+            
+            const cacheInfo = getCacheInfo();
+            log(`Cache info: ${JSON.stringify(cacheInfo, null, 2)}`);
+            
+            try {
+                log('Testing cache functionality...');
+                const countries = await fetchCountries();
+                log(`✓ Data loaded (${countries.length} countries)`);
+                
+                const newCacheInfo = getCacheInfo();
+                log(`Updated cache info: ${JSON.stringify(newCacheInfo, null, 2)}`);
+                
+            } catch (error) {
+                log(`✗ Error: ${error.message}`);
+            }
+        }
+
+        function clearTestCache() {
+            clearCache();
+            log('Cache cleared');
+        }
+    </script>
+</body>
+</html>

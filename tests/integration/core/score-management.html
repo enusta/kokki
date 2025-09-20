@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>スコア管理機能テスト</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .test-section {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .score-display {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin: 10px 0;
+            padding: 10px;
+            background: #e3f2fd;
+            border-radius: 4px;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            border-radius: 4px;
+            background: #2196f3;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #1976d2;
+        }
+        .result {
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 4px;
+        }
+        .success {
+            background: #c8e6c9;
+            color: #2e7d32;
+        }
+        .error {
+            background: #ffcdd2;
+            color: #c62828;
+        }
+    </style>
+</head>
+<body>
+    <h1>スコア管理機能テスト</h1>
+    
+    <div class="test-section">
+        <h2>基本スコア表示テスト</h2>
+        <div id="current-score" class="score-display">スコア: 0/0</div>
+        <div id="question-counter" class="score-display">問題: 0/0</div>
+        <div style="background: #e0e0e0; height: 10px; border-radius: 5px; margin: 10px 0;">
+            <div id="progress-fill" style="background: #4caf50; height: 100%; width: 0%; border-radius: 5px; transition: width 0.3s;"></div>
+        </div>
+        
+        <button onclick="testInitializeScore()">スコア初期化テスト</button>
+        <button onclick="testCorrectAnswer()">正解テスト</button>
+        <button onclick="testIncorrectAnswer()">不正解テスト</button>
+        <button onclick="testEndGame()">ゲーム終了テスト</button>
+        
+        <div id="test-results"></div>
+    </div>
+    
+    <div class="test-section">
+        <h2>最終結果表示テスト</h2>
+        <div id="final-score-text" class="score-display"></div>
+        <div id="accuracy-text" class="score-display"></div>
+        <div id="score-details"></div>
+    </div>
+
+    <script>
+        // Mock game state for testing
+        const gameState = {
+            currentQuestion: 0,
+            totalQuestions: 10,
+            score: 0,
+            difficulty: 'beginner',
+            isGameActive: false
+        };
+
+        // Mock elements object
+        const elements = {
+            scoreDisplay: document.getElementById('current-score'),
+            questionCounter: document.getElementById('question-counter'),
+            progressFill: document.getElementById('progress-fill')
+        };
+
+        // Include the score management functions from game.js
+        function initializeScoreDisplay() {
+            updateScore(0, 0);
+            updateQuestionCounter(0, gameState.totalQuestions);
+            updateProgress(0);
+            console.log('Score display initialized');
+        }
+
+        function updateScoreDisplay() {
+            const questionsAnswered = gameState.currentQuestion + 1;
+            updateScore(gameState.score, questionsAnswered);
+        }
+
+        function updateProgressDisplay() {
+            const questionsAnswered = gameState.currentQuestion + 1;
+            updateQuestionCounter(questionsAnswered, gameState.totalQuestions);
+            updateProgress(calculateProgress());
+        }
+
+        function calculateProgress() {
+            if (gameState.totalQuestions === 0) {
+                return 0;
+            }
+            return Math.round((gameState.currentQuestion / gameState.totalQuestions) * 100);
+        }
+
+        function calculateCurrentAccuracy() {
+            const questionsAnswered = gameState.currentQuestion + 1;
+            if (questionsAnswered === 0) {
+                return 0;
+            }
+            return Math.round((gameState.score / questionsAnswered) * 100);
+        }
+
+        function getScoreStatistics() {
+            const questionsAnswered = gameState.currentQuestion;
+            const accuracy = questionsAnswered > 0 ? Math.round((gameState.score / questionsAnswered) * 100) : 0;
+            
+            return {
+                score: gameState.score,
+                totalQuestions: gameState.totalQuestions,
+                questionsAnswered: questionsAnswered,
+                accuracy: accuracy,
+                correctAnswers: gameState.score,
+                incorrectAnswers: questionsAnswered - gameState.score,
+                remainingQuestions: gameState.totalQuestions - questionsAnswered
+            };
+        }
+
+        // Include UI functions
+        function updateScore(score, total) {
+            if (!elements.scoreDisplay) {
+                console.error('Score display element not found');
+                return;
+            }
+            
+            const previousText = elements.scoreDisplay.textContent;
+            const newText = `スコア: ${score}/${total}`;
+            
+            if (previousText !== newText) {
+                elements.scoreDisplay.textContent = newText;
+                
+                if (score > 0) {
+                    elements.scoreDisplay.style.animation = 'scoreUpdate 0.5s ease';
+                    elements.scoreDisplay.style.color = '#48bb78';
+                    
+                    setTimeout(() => {
+                        elements.scoreDisplay.style.animation = '';
+                        elements.scoreDisplay.style.color = '#2d3748';
+                    }, 500);
+                }
+            }
+        }
+
+        function updateQuestionCounter(current, total) {
+            if (!elements.questionCounter) {
+                console.error('Question counter element not found');
+                return;
+            }
+            
+            elements.questionCounter.textContent = `問題: ${current}/${total}`;
+        }
+
+        function updateProgress(progress) {
+            if (!elements.progressFill) {
+                console.error('Progress fill element not found');
+                return;
+            }
+            
+            elements.progressFill.style.width = `${Math.max(0, Math.min(100, progress))}%`;
+        }
+
+        function showFinalResults(scoreData) {
+            const finalScoreElement = document.getElementById('final-score-text');
+            const accuracyElement = document.getElementById('accuracy-text');
+            const detailsElement = document.getElementById('score-details');
+            
+            if (finalScoreElement) {
+                finalScoreElement.textContent = `最終スコア: ${scoreData.score}/${scoreData.total}`;
+            }
+            
+            if (accuracyElement) {
+                if (scoreData.accuracy >= 80) {
+                    accuracyElement.innerHTML = `正解率: ${scoreData.accuracy}% 🎉 素晴らしい！`;
+                    accuracyElement.style.color = '#48bb78';
+                } else if (scoreData.accuracy >= 60) {
+                    accuracyElement.innerHTML = `正解率: ${scoreData.accuracy}% 👍 良い結果です！`;
+                    accuracyElement.style.color = '#ed8936';
+                } else {
+                    accuracyElement.innerHTML = `正解率: ${scoreData.accuracy}% 📚 もう少し頑張りましょう！`;
+                    accuracyElement.style.color = '#f56565';
+                }
+            }
+            
+            if (detailsElement) {
+                const correctAnswers = scoreData.score;
+                const incorrectAnswers = scoreData.questionsAnswered - scoreData.score;
+                
+                detailsElement.innerHTML = `
+                    <div style="display: flex; justify-content: center; gap: 20px; margin-top: 20px;">
+                        <div style="display: flex; align-items: center; gap: 8px; padding: 10px 15px; border-radius: 8px; background: #c6f6d5; color: #22543d; border: 2px solid #48bb78;">
+                            <span style="font-size: 1.2em;">✅</span>
+                            <span>正解: ${correctAnswers}問</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 8px; padding: 10px 15px; border-radius: 8px; background: #fed7d7; color: #742a2a; border: 2px solid #f56565;">
+                            <span style="font-size: 1.2em;">❌</span>
+                            <span>不正解: ${incorrectAnswers}問</span>
+                        </div>
+                    </div>
+                `;
+            }
+        }
+
+        // Test functions
+        function testInitializeScore() {
+            gameState.currentQuestion = 0;
+            gameState.score = 0;
+            gameState.totalQuestions = 10;
+            
+            initializeScoreDisplay();
+            logResult('スコア初期化テスト', 'スコアが0/0、問題が0/10、プログレスが0%で初期化されました', 'success');
+        }
+
+        function testCorrectAnswer() {
+            gameState.score++;
+            gameState.currentQuestion++;
+            
+            updateScoreDisplay();
+            updateProgressDisplay();
+            
+            const accuracy = calculateCurrentAccuracy();
+            logResult('正解テスト', `スコア: ${gameState.score}/${gameState.currentQuestion}, 正解率: ${accuracy}%`, 'success');
+        }
+
+        function testIncorrectAnswer() {
+            gameState.currentQuestion++;
+            
+            updateProgressDisplay();
+            
+            const accuracy = calculateCurrentAccuracy();
+            logResult('不正解テスト', `スコア: ${gameState.score}/${gameState.currentQuestion}, 正解率: ${accuracy}%`, 'success');
+        }
+
+        function testEndGame() {
+            gameState.currentQuestion = gameState.totalQuestions;
+            
+            const finalScore = {
+                score: gameState.score,
+                total: gameState.totalQuestions,
+                accuracy: Math.round((gameState.score / gameState.totalQuestions) * 100),
+                questionsAnswered: gameState.totalQuestions
+            };
+            
+            showFinalResults(finalScore);
+            logResult('ゲーム終了テスト', `最終スコア表示: ${finalScore.score}/${finalScore.total} (${finalScore.accuracy}%)`, 'success');
+        }
+
+        function logResult(testName, message, type) {
+            const resultsDiv = document.getElementById('test-results');
+            const resultDiv = document.createElement('div');
+            resultDiv.className = `result ${type}`;
+            resultDiv.innerHTML = `<strong>${testName}:</strong> ${message}`;
+            resultsDiv.appendChild(resultDiv);
+        }
+
+        // Initialize on load
+        window.onload = function() {
+            testInitializeScore();
+        };
+    </script>
+</body>
+</html>
