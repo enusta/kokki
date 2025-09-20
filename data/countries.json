@@ -1,5 +1,5 @@
 {
-  "generated": "2025-09-20T09:21:42.389Z",
+  "generated": "2025-09-20T11:12:50.456Z",
   "version": "1.0.0",
   "source": "REST Countries API v3.1",
   "description": "Static fallback data for Flag Guessing Game",
@@ -514,8 +514,8 @@
           "name": {
             "common": "Belgium",
             "official": "Kingdom of Belgium",
-            "japanese": "Belgium",
-            "hiragana": "Belgium"
+            "japanese": "ベルギー",
+            "hiragana": "べるぎー"
           },
           "cca2": "BE",
           "cca3": "BEL",
@@ -529,10 +529,10 @@
               "Brussels"
             ],
             "japanese": [
-              "Brussels"
+              "ブリュッセル"
             ],
             "hiragana": [
-              "Brussels"
+              "ぶりゅっせる"
             ]
           },
           "region": {
@@ -556,8 +556,8 @@
           "name": {
             "common": "Greece",
             "official": "Hellenic Republic",
-            "japanese": "Greece",
-            "hiragana": "Greece"
+            "japanese": "ギリシャ",
+            "hiragana": "ぎりしゃ"
           },
           "cca2": "GR",
           "cca3": "GRC",
@@ -571,10 +571,10 @@
               "Athens"
             ],
             "japanese": [
-              "Athens"
+              "アテネ"
             ],
             "hiragana": [
-              "Athens"
+              "あてね"
             ]
           },
           "region": {
@@ -640,8 +640,8 @@
           "name": {
             "common": "Portugal",
             "official": "Portuguese Republic",
-            "japanese": "Portugal",
-            "hiragana": "Portugal"
+            "japanese": "ポルトガル",
+            "hiragana": "ぽるとがる"
           },
           "cca2": "PT",
           "cca3": "PRT",
@@ -655,10 +655,10 @@
               "Lisbon"
             ],
             "japanese": [
-              "Lisbon"
+              "リスボン"
             ],
             "hiragana": [
-              "Lisbon"
+              "りすぼん"
             ]
           },
           "region": {
@@ -682,8 +682,8 @@
           "name": {
             "common": "Austria",
             "official": "Republic of Austria",
-            "japanese": "Austria",
-            "hiragana": "Austria"
+            "japanese": "オーストリア",
+            "hiragana": "おーすとりあ"
           },
           "cca2": "AT",
           "cca3": "AUT",
@@ -697,10 +697,10 @@
               "Vienna"
             ],
             "japanese": [
-              "Vienna"
+              "ウィーン"
             ],
             "hiragana": [
-              "Vienna"
+              "うぃーん"
             ]
           },
           "region": {
@@ -766,8 +766,8 @@
           "name": {
             "common": "Denmark",
             "official": "Kingdom of Denmark",
-            "japanese": "Denmark",
-            "hiragana": "Denmark"
+            "japanese": "デンマーク",
+            "hiragana": "でんまーく"
           },
           "cca2": "DK",
           "cca3": "DNK",
@@ -781,10 +781,10 @@
               "Copenhagen"
             ],
             "japanese": [
-              "Copenhagen"
+              "コペンハーゲン"
             ],
             "hiragana": [
-              "Copenhagen"
+              "こぺんはーげん"
             ]
           },
           "region": {
@@ -808,8 +808,8 @@
           "name": {
             "common": "Finland",
             "official": "Republic of Finland",
-            "japanese": "Finland",
-            "hiragana": "Finland"
+            "japanese": "フィンランド",
+            "hiragana": "ふぃんらんど"
           },
           "cca2": "FI",
           "cca3": "FIN",
@@ -823,10 +823,10 @@
               "Helsinki"
             ],
             "japanese": [
-              "Helsinki"
+              "ヘルシンキ"
             ],
             "hiragana": [
-              "Helsinki"
+              "へるしんき"
             ]
           },
           "region": {
@@ -1029,8 +1029,8 @@
           "name": {
             "common": "Indonesia",
             "official": "Republic of Indonesia",
-            "japanese": "Indonesia",
-            "hiragana": "Indonesia"
+            "japanese": "インドネシア",
+            "hiragana": "いんどねしあ"
           },
           "cca2": "ID",
           "cca3": "IDN",
@@ -1044,10 +1044,10 @@
               "Jakarta"
             ],
             "japanese": [
-              "Jakarta"
+              "ジャカルタ"
             ],
             "hiragana": [
-              "Jakarta"
+              "じゃかるた"
             ]
           },
           "region": {
@@ -1239,8 +1239,8 @@
           "name": {
             "common": "Philippines",
             "official": "Republic of the Philippines",
-            "japanese": "Philippines",
-            "hiragana": "Philippines"
+            "japanese": "フィリピン",
+            "hiragana": "ふぃりぴん"
           },
           "cca2": "PH",
           "cca3": "PHL",
@@ -1254,10 +1254,10 @@
               "Manila"
             ],
             "japanese": [
-              "Manila"
+              "マニラ"
             ],
             "hiragana": [
-              "Manila"
+              "まにら"
             ]
           },
           "region": {
@@ -1281,8 +1281,8 @@
           "name": {
             "common": "Vietnam",
             "official": "Socialist Republic of Vietnam",
-            "japanese": "Vietnam",
-            "hiragana": "Vietnam"
+            "japanese": "ベトナム",
+            "hiragana": "べとなむ"
           },
           "cca2": "VN",
           "cca3": "VNM",
@@ -1296,10 +1296,10 @@
               "Hanoi"
             ],
             "japanese": [
-              "Hanoi"
+              "ハノイ"
             ],
             "hiragana": [
-              "Hanoi"
+              "はのい"
             ]
           },
           "region": {
@@ -1743,8 +1743,8 @@
           "name": {
             "common": "Malaysia",
             "official": "Malaysia",
-            "japanese": "Malaysia",
-            "hiragana": "Malaysia"
+            "japanese": "マレーシア",
+            "hiragana": "まれいしあ"
           },
           "cca2": "MY",
           "cca3": "MYS",
@@ -1758,10 +1758,10 @@
               "Kuala Lumpur"
             ],
             "japanese": [
-              "Kuala Lumpur"
+              "クアラルンプール"
             ],
             "hiragana": [
-              "Kuala Lumpur"
+              "くあ-るんぷーる"
             ]
           },
           "region": {
@@ -1869,8 +1869,8 @@
           "name": {
             "common": "Belgium",
             "official": "Kingdom of Belgium",
-            "japanese": "Belgium",
-            "hiragana": "Belgium"
+            "japanese": "ベルギー",
+            "hiragana": "べるぎー"
           },
           "cca2": "BE",
           "cca3": "BEL",
@@ -1884,10 +1884,10 @@
               "Brussels"
             ],
             "japanese": [
-              "Brussels"
+              "ブリュッセル"
             ],
             "hiragana": [
-              "Brussels"
+              "ぶりゅっせる"
             ]
           },
           "region": {
@@ -1911,8 +1911,8 @@
           "name": {
             "common": "Greece",
             "official": "Hellenic Republic",
-            "japanese": "Greece",
-            "hiragana": "Greece"
+            "japanese": "ギリシャ",
+            "hiragana": "ぎりしゃ"
           },
           "cca2": "GR",
           "cca3": "GRC",
@@ -1926,10 +1926,10 @@
               "Athens"
             ],
             "japanese": [
-              "Athens"
+              "アテネ"
             ],
             "hiragana": [
-              "Athens"
+              "あてね"
             ]
           },
           "region": {
@@ -1995,8 +1995,8 @@
           "name": {
             "common": "Portugal",
             "official": "Portuguese Republic",
-            "japanese": "Portugal",
-            "hiragana": "Portugal"
+            "japanese": "ポルトガル",
+            "hiragana": "ぽるとがる"
           },
           "cca2": "PT",
           "cca3": "PRT",
@@ -2010,10 +2010,10 @@
               "Lisbon"
             ],
             "japanese": [
-              "Lisbon"
+              "リスボン"
             ],
             "hiragana": [
-              "Lisbon"
+              "りすぼん"
             ]
           },
           "region": {
@@ -2037,8 +2037,8 @@
           "name": {
             "common": "Austria",
             "official": "Republic of Austria",
-            "japanese": "Austria",
-            "hiragana": "Austria"
+            "japanese": "オーストリア",
+            "hiragana": "おーすとりあ"
           },
           "cca2": "AT",
           "cca3": "AUT",
@@ -2052,10 +2052,10 @@
               "Vienna"
             ],
             "japanese": [
-              "Vienna"
+              "ウィーン"
             ],
             "hiragana": [
-              "Vienna"
+              "うぃーん"
             ]
           },
           "region": {
@@ -2121,8 +2121,8 @@
           "name": {
             "common": "Denmark",
             "official": "Kingdom of Denmark",
-            "japanese": "Denmark",
-            "hiragana": "Denmark"
+            "japanese": "デンマーク",
+            "hiragana": "でんまーく"
           },
           "cca2": "DK",
           "cca3": "DNK",
@@ -2136,10 +2136,10 @@
               "Copenhagen"
             ],
             "japanese": [
-              "Copenhagen"
+              "コペンハーゲン"
             ],
             "hiragana": [
-              "Copenhagen"
+              "こぺんはーげん"
             ]
           },
           "region": {
@@ -2163,8 +2163,8 @@
           "name": {
             "common": "Singapore",
             "official": "Republic of Singapore",
-            "japanese": "Singapore",
-            "hiragana": "Singapore"
+            "japanese": "シンガポール",
+            "hiragana": "しんがぽーる"
           },
           "cca2": "SG",
           "cca3": "SGP",
@@ -2205,8 +2205,8 @@
           "name": {
             "common": "Finland",
             "official": "Republic of Finland",
-            "japanese": "Finland",
-            "hiragana": "Finland"
+            "japanese": "フィンランド",
+            "hiragana": "ふぃんらんど"
           },
           "cca2": "FI",
           "cca3": "FIN",
@@ -2220,10 +2220,10 @@
               "Helsinki"
             ],
             "japanese": [
-              "Helsinki"
+              "ヘルシンキ"
             ],
             "hiragana": [
-              "Helsinki"
+              "へるしんき"
             ]
           },
           "region": {
@@ -2470,8 +2470,8 @@
           "name": {
             "common": "Indonesia",
             "official": "Republic of Indonesia",
-            "japanese": "Indonesia",
-            "hiragana": "Indonesia"
+            "japanese": "インドネシア",
+            "hiragana": "いんどねしあ"
           },
           "cca2": "ID",
           "cca3": "IDN",
@@ -2485,10 +2485,10 @@
               "Jakarta"
             ],
             "japanese": [
-              "Jakarta"
+              "ジャカルタ"
             ],
             "hiragana": [
-              "Jakarta"
+              "じゃかるた"
             ]
           },
           "region": {
@@ -2554,8 +2554,8 @@
           "name": {
             "common": "Nigeria",
             "official": "Federal Republic of Nigeria",
-            "japanese": "Nigeria",
-            "hiragana": "Nigeria"
+            "japanese": "ナイジェリア",
+            "hiragana": "ないじぇりあ"
           },
           "cca2": "NG",
           "cca3": "NGA",
@@ -2569,10 +2569,10 @@
               "Abuja"
             ],
             "japanese": [
-              "Abuja"
+              "アブジャ"
             ],
             "hiragana": [
-              "Abuja"
+              "あぶじゃ"
             ]
           },
           "region": {
@@ -2722,8 +2722,8 @@
           "name": {
             "common": "Philippines",
             "official": "Republic of the Philippines",
-            "japanese": "Philippines",
-            "hiragana": "Philippines"
+            "japanese": "フィリピン",
+            "hiragana": "ふぃりぴん"
           },
           "cca2": "PH",
           "cca3": "PHL",
@@ -2737,10 +2737,10 @@
               "Manila"
             ],
             "japanese": [
-              "Manila"
+              "マニラ"
             ],
             "hiragana": [
-              "Manila"
+              "まにら"
             ]
           },
           "region": {
@@ -2806,8 +2806,8 @@
           "name": {
             "common": "Vietnam",
             "official": "Socialist Republic of Vietnam",
-            "japanese": "Vietnam",
-            "hiragana": "Vietnam"
+            "japanese": "ベトナム",
+            "hiragana": "べとなむ"
           },
           "cca2": "VN",
           "cca3": "VNM",
@@ -2821,10 +2821,10 @@
               "Hanoi"
             ],
             "japanese": [
-              "Hanoi"
+              "ハノイ"
             ],
             "hiragana": [
-              "Hanoi"
+              "はのい"
             ]
           },
           "region": {
@@ -3312,8 +3312,8 @@
           "name": {
             "common": "Malaysia",
             "official": "Malaysia",
-            "japanese": "Malaysia",
-            "hiragana": "Malaysia"
+            "japanese": "マレーシア",
+            "hiragana": "まれいしあ"
           },
           "cca2": "MY",
           "cca3": "MYS",
@@ -3327,10 +3327,10 @@
               "Kuala Lumpur"
             ],
             "japanese": [
-              "Kuala Lumpur"
+              "クアラルンプール"
             ],
             "hiragana": [
-              "Kuala Lumpur"
+              "くあ-るんぷーる"
             ]
           },
           "region": {
@@ -3438,8 +3438,8 @@
           "name": {
             "common": "Belgium",
             "official": "Kingdom of Belgium",
-            "japanese": "Belgium",
-            "hiragana": "Belgium"
+            "japanese": "ベルギー",
+            "hiragana": "べるぎー"
           },
           "cca2": "BE",
           "cca3": "BEL",
@@ -3453,10 +3453,10 @@
               "Brussels"
             ],
             "japanese": [
-              "Brussels"
+              "ブリュッセル"
             ],
             "hiragana": [
-              "Brussels"
+              "ぶりゅっせる"
             ]
           },
           "region": {
@@ -3480,8 +3480,8 @@
           "name": {
             "common": "Greece",
             "official": "Hellenic Republic",
-            "japanese": "Greece",
-            "hiragana": "Greece"
+            "japanese": "ギリシャ",
+            "hiragana": "ぎりしゃ"
           },
           "cca2": "GR",
           "cca3": "GRC",
@@ -3495,10 +3495,10 @@
               "Athens"
             ],
             "japanese": [
-              "Athens"
+              "アテネ"
             ],
             "hiragana": [
-              "Athens"
+              "あてね"
             ]
           },
           "region": {
@@ -3564,8 +3564,8 @@
           "name": {
             "common": "Portugal",
             "official": "Portuguese Republic",
-            "japanese": "Portugal",
-            "hiragana": "Portugal"
+            "japanese": "ポルトガル",
+            "hiragana": "ぽるとがる"
           },
           "cca2": "PT",
           "cca3": "PRT",
@@ -3579,10 +3579,10 @@
               "Lisbon"
             ],
             "japanese": [
-              "Lisbon"
+              "リスボン"
             ],
             "hiragana": [
-              "Lisbon"
+              "りすぼん"
             ]
           },
           "region": {
@@ -3606,8 +3606,8 @@
           "name": {
             "common": "Austria",
             "official": "Republic of Austria",
-            "japanese": "Austria",
-            "hiragana": "Austria"
+            "japanese": "オーストリア",
+            "hiragana": "おーすとりあ"
           },
           "cca2": "AT",
           "cca3": "AUT",
@@ -3621,10 +3621,10 @@
               "Vienna"
             ],
             "japanese": [
-              "Vienna"
+              "ウィーン"
             ],
             "hiragana": [
-              "Vienna"
+              "うぃーん"
             ]
           },
           "region": {
@@ -3690,8 +3690,8 @@
           "name": {
             "common": "Denmark",
             "official": "Kingdom of Denmark",
-            "japanese": "Denmark",
-            "hiragana": "Denmark"
+            "japanese": "デンマーク",
+            "hiragana": "でんまーく"
           },
           "cca2": "DK",
           "cca3": "DNK",
@@ -3705,10 +3705,10 @@
               "Copenhagen"
             ],
             "japanese": [
-              "Copenhagen"
+              "コペンハーゲン"
             ],
             "hiragana": [
-              "Copenhagen"
+              "こぺんはーげん"
             ]
           },
           "region": {
@@ -3732,8 +3732,8 @@
           "name": {
             "common": "Singapore",
             "official": "Republic of Singapore",
-            "japanese": "Singapore",
-            "hiragana": "Singapore"
+            "japanese": "シンガポール",
+            "hiragana": "しんがぽーる"
           },
           "cca2": "SG",
           "cca3": "SGP",
@@ -3774,8 +3774,8 @@
           "name": {
             "common": "Finland",
             "official": "Republic of Finland",
-            "japanese": "Finland",
-            "hiragana": "Finland"
+            "japanese": "フィンランド",
+            "hiragana": "ふぃんらんど"
           },
           "cca2": "FI",
           "cca3": "FIN",
@@ -3789,10 +3789,10 @@
               "Helsinki"
             ],
             "japanese": [
-              "Helsinki"
+              "ヘルシンキ"
             ],
             "hiragana": [
-              "Helsinki"
+              "へるしんき"
             ]
           },
           "region": {
@@ -4412,8 +4412,8 @@
       "name": {
         "common": "Belgium",
         "official": "Kingdom of Belgium",
-        "japanese": "Belgium",
-        "hiragana": "Belgium"
+        "japanese": "ベルギー",
+        "hiragana": "べるぎー"
       },
       "cca2": "BE",
       "cca3": "BEL",
@@ -4427,10 +4427,10 @@
           "Brussels"
         ],
         "japanese": [
-          "Brussels"
+          "ブリュッセル"
         ],
         "hiragana": [
-          "Brussels"
+          "ぶりゅっせる"
         ]
       },
       "region": {
@@ -4454,8 +4454,8 @@
       "name": {
         "common": "Greece",
         "official": "Hellenic Republic",
-        "japanese": "Greece",
-        "hiragana": "Greece"
+        "japanese": "ギリシャ",
+        "hiragana": "ぎりしゃ"
       },
       "cca2": "GR",
       "cca3": "GRC",
@@ -4469,10 +4469,10 @@
           "Athens"
         ],
         "japanese": [
-          "Athens"
+          "アテネ"
         ],
         "hiragana": [
-          "Athens"
+          "あてね"
         ]
       },
       "region": {
@@ -4538,8 +4538,8 @@
       "name": {
         "common": "Portugal",
         "official": "Portuguese Republic",
-        "japanese": "Portugal",
-        "hiragana": "Portugal"
+        "japanese": "ポルトガル",
+        "hiragana": "ぽるとがる"
       },
       "cca2": "PT",
       "cca3": "PRT",
@@ -4553,10 +4553,10 @@
           "Lisbon"
         ],
         "japanese": [
-          "Lisbon"
+          "リスボン"
         ],
         "hiragana": [
-          "Lisbon"
+          "りすぼん"
         ]
       },
       "region": {
@@ -4580,8 +4580,8 @@
       "name": {
         "common": "Austria",
         "official": "Republic of Austria",
-        "japanese": "Austria",
-        "hiragana": "Austria"
+        "japanese": "オーストリア",
+        "hiragana": "おーすとりあ"
       },
       "cca2": "AT",
       "cca3": "AUT",
@@ -4595,10 +4595,10 @@
           "Vienna"
         ],
         "japanese": [
-          "Vienna"
+          "ウィーン"
         ],
         "hiragana": [
-          "Vienna"
+          "うぃーん"
         ]
       },
       "region": {
@@ -4664,8 +4664,8 @@
       "name": {
         "common": "Denmark",
         "official": "Kingdom of Denmark",
-        "japanese": "Denmark",
-        "hiragana": "Denmark"
+        "japanese": "デンマーク",
+        "hiragana": "でんまーく"
       },
       "cca2": "DK",
       "cca3": "DNK",
@@ -4679,10 +4679,10 @@
           "Copenhagen"
         ],
         "japanese": [
-          "Copenhagen"
+          "コペンハーゲン"
         ],
         "hiragana": [
-          "Copenhagen"
+          "こぺんはーげん"
         ]
       },
       "region": {
@@ -4706,8 +4706,8 @@
       "name": {
         "common": "Finland",
         "official": "Republic of Finland",
-        "japanese": "Finland",
-        "hiragana": "Finland"
+        "japanese": "フィンランド",
+        "hiragana": "ふぃんらんど"
       },
       "cca2": "FI",
       "cca3": "FIN",
@@ -4721,10 +4721,10 @@
           "Helsinki"
         ],
         "japanese": [
-          "Helsinki"
+          "ヘルシンキ"
         ],
         "hiragana": [
-          "Helsinki"
+          "へるしんき"
         ]
       },
       "region": {
@@ -4874,8 +4874,8 @@
       "name": {
         "common": "Indonesia",
         "official": "Republic of Indonesia",
-        "japanese": "Indonesia",
-        "hiragana": "Indonesia"
+        "japanese": "インドネシア",
+        "hiragana": "いんどねしあ"
       },
       "cca2": "ID",
       "cca3": "IDN",
@@ -4889,10 +4889,10 @@
           "Jakarta"
         ],
         "japanese": [
-          "Jakarta"
+          "ジャカルタ"
         ],
         "hiragana": [
-          "Jakarta"
+          "じゃかるた"
         ]
       },
       "region": {
@@ -4958,8 +4958,8 @@
       "name": {
         "common": "Philippines",
         "official": "Republic of the Philippines",
-        "japanese": "Philippines",
-        "hiragana": "Philippines"
+        "japanese": "フィリピン",
+        "hiragana": "ふぃりぴん"
       },
       "cca2": "PH",
       "cca3": "PHL",
@@ -4973,10 +4973,10 @@
           "Manila"
         ],
         "japanese": [
-          "Manila"
+          "マニラ"
         ],
         "hiragana": [
-          "Manila"
+          "まにら"
         ]
       },
       "region": {
@@ -5000,8 +5000,8 @@
       "name": {
         "common": "Vietnam",
         "official": "Socialist Republic of Vietnam",
-        "japanese": "Vietnam",
-        "hiragana": "Vietnam"
+        "japanese": "ベトナム",
+        "hiragana": "べとなむ"
       },
       "cca2": "VN",
       "cca3": "VNM",
@@ -5015,10 +5015,10 @@
           "Hanoi"
         ],
         "japanese": [
-          "Hanoi"
+          "ハノイ"
         ],
         "hiragana": [
-          "Hanoi"
+          "はのい"
         ]
       },
       "region": {
@@ -5168,8 +5168,8 @@
       "name": {
         "common": "Malaysia",
         "official": "Malaysia",
-        "japanese": "Malaysia",
-        "hiragana": "Malaysia"
+        "japanese": "マレーシア",
+        "hiragana": "まれいしあ"
       },
       "cca2": "MY",
       "cca3": "MYS",
@@ -5183,10 +5183,10 @@
           "Kuala Lumpur"
         ],
         "japanese": [
-          "Kuala Lumpur"
+          "クアラルンプール"
         ],
         "hiragana": [
-          "Kuala Lumpur"
+          "くあ-るんぷーる"
         ]
       },
       "region": {
@@ -5252,8 +5252,8 @@
       "name": {
         "common": "Singapore",
         "official": "Republic of Singapore",
-        "japanese": "Singapore",
-        "hiragana": "Singapore"
+        "japanese": "シンガポール",
+        "hiragana": "しんがぽーる"
       },
       "cca2": "SG",
       "cca3": "SGP",
@@ -5336,8 +5336,8 @@
       "name": {
         "common": "Nigeria",
         "official": "Federal Republic of Nigeria",
-        "japanese": "Nigeria",
-        "hiragana": "Nigeria"
+        "japanese": "ナイジェリア",
+        "hiragana": "ないじぇりあ"
       },
       "cca2": "NG",
       "cca3": "NGA",
@@ -5351,10 +5351,10 @@
           "Abuja"
         ],
         "japanese": [
-          "Abuja"
+          "アブジャ"
         ],
         "hiragana": [
-          "Abuja"
+          "あぶじゃ"
         ]
       },
       "region": {

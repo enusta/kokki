@@ -99,6 +99,86 @@
     "Sweden": {
       "japanese": "スウェーデン",
       "hiragana": "すうぇーでん"
+    },
+    "Indonesia": {
+      "japanese": "インドネシア",
+      "hiragana": "いんどねしあ"
+    },
+    "Saudi Arabia": {
+      "japanese": "サウジアラビア",
+      "hiragana": "さうじあらびあ"
+    },
+    "Nigeria": {
+      "japanese": "ナイジェリア",
+      "hiragana": "ないじぇりあ"
+    },
+    "Vietnam": {
+      "japanese": "ベトナム",
+      "hiragana": "べとなむ"
+    },
+    "Pakistan": {
+      "japanese": "パキスタン",
+      "hiragana": "ぱきすたん"
+    },
+    "Bangladesh": {
+      "japanese": "バングラデシュ",
+      "hiragana": "ば-ぐらでしゅ"
+    },
+    "Philippines": {
+      "japanese": "フィリピン",
+      "hiragana": "ふぃりぴん"
+    },
+    "Malaysia": {
+      "japanese": "マレーシア",
+      "hiragana": "まれいしあ"
+    },
+    "Singapore": {
+      "japanese": "シンガポール",
+      "hiragana": "しんがぽーる"
+    },
+    "Finland": {
+      "japanese": "フィンランド",
+      "hiragana": "ふぃんらんど"
+    },
+    "Denmark": {
+      "japanese": "デンマーク",
+      "hiragana": "でんまーく"
+    },
+    "Ireland": {
+      "japanese": "アイルランド",
+      "hiragana": "あいるらんど"
+    },
+    "Portugal": {
+      "japanese": "ポルトガル",
+      "hiragana": "ぽるとがる"
+    },
+    "Greece": {
+      "japanese": "ギリシャ",
+      "hiragana": "ぎりしゃ"
+    },
+    "Austria": {
+      "japanese": "オーストリア",
+      "hiragana": "おーすとりあ"
+    },
+    "Belgium": {
+      "japanese": "ベルギー",
+      "hiragana": "べるぎー"
+    },
+    "Israel": {
+      "japanese": "イスラエル",
+      "hiragana": "いすらえる"
+    },
+    "United Arab Emirates": {
+      "japanese": "アラブ首長国連邦",
+      "hiragana": "あらぶしゅちょうこくれんぽう"
+    },
+    "Iran": {
+      "japanese": "イラン",
+      "hiragana": "いらん"
+    },
+    "Ukraine": {
+      "japanese": "ウクライナ",
+      "hiragana": "うくらいな"
     }
   },
   "capitals": {
@@ -209,6 +289,86 @@
     "Stockholm": {
       "japanese": "ストックホルム",
       "hiragana": "すとっくほるむ"
+    },
+    "Jakarta": {
+      "japanese": "ジャカルタ",
+      "hiragana": "じゃかるた"
+    },
+    "Riyadh": {
+      "japanese": "リヤド",
+      "hiragana": "りやど"
+    },
+    "Abuja": {
+      "japanese": "アブジャ",
+      "hiragana": "あぶじゃ"
+    },
+    "Hanoi": {
+      "japanese": "ハノイ",
+      "hiragana": "はのい"
+    },
+    "Islamabad": {
+      "japanese": "イスラマバード",
+      "hiragana": "いすまらばーど"
+    },
+    "Dhaka": {
+      "japanese": "ダッカ",
+      "hiragana": "だっか"
+    },
+    "Manila": {
+      "japanese": "マニラ",
+      "hiragana": "まにら"
+    },
+    "Kuala Lumpur": {
+      "japanese": "クアラルンプール",
+      "hiragana": "くあ-るんぷーる"
+    },
+    "Singapore City": {
+      "japanese": "シンガポール",
+      "hiragana": "しんがぽーる"
+    },
+    "Helsinki": {
+      "japanese": "ヘルシンキ",
+      "hiragana": "へるしんき"
+    },
+    "Copenhagen": {
+      "japanese": "コペンハーゲン",
+      "hiragana": "こぺんはーげん"
+    },
+    "Dublin": {
+      "japanese": "ダブリン",
+      "hiragana": "だぶりん"
+    },
+    "Lisbon": {
+      "japanese": "リスボン",
+      "hiragana": "りすぼん"
+    },
+    "Athens": {
+      "japanese": "アテネ",
+      "hiragana": "あてね"
+    },
+    "Vienna": {
+      "japanese": "ウィーン",
+      "hiragana": "うぃーん"
+    },
+    "Brussels": {
+      "japanese": "ブリュッセル",
+      "hiragana": "ぶりゅっせる"
+    },
+    "Jerusalem": {
+      "japanese": "エルサレム",
+      "hiragana": "えるされむ"
+    },
+    "Abu Dhabi": {
+      "japanese": "アブダビ",
+      "hiragana": "あぶだび"
+    },
+    "Tehran": {
+      "japanese": "テヘラン",
+      "hiragana": "てへらん"
+    },
+    "Kyiv": {
+      "japanese": "キーウ",
+      "hiragana": "きーう"
     }
   },
   "regions": {
