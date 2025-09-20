@@ -1,0 +1,27 @@
+{
+  "name": "flag-guessing-game",
+  "version": "1.0.0",
+  "description": "Interactive flag guessing game with world map integration",
+  "main": "index.html",
+  "scripts": {
+    "generate-countries": "node data/scripts/generate-countries.js",
+    "generate-countries-verify": "node data/scripts/generate-countries.js --verify",
+    "serve": "npx http-server -p 8000",
+    "test": "node run_integration_tests.js"
+  },
+  "keywords": [
+    "flag",
+    "geography",
+    "quiz",
+    "game",
+    "education"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "node-fetch": "^3.3.2"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}

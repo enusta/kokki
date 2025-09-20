@@ -44,76 +44,76 @@ async function fetchCountries() {
             }
         }
 
-        // Try embedded fallback data first for faster loading
-        const fallbackData = getEmbeddedFallbackData();
-        if (fallbackData && fallbackData.length > 0) {
-            console.log('Using embedded fallback data for immediate availability');
-            saveToCache(fallbackData);
-            return fallbackData;
+        // Try external fallback data first
+        const externalFallbackData = await loadExternalFallbackData();
+        if (externalFallbackData && externalFallbackData.length > 0) {
+            console.log('Using external fallback data');
+            saveToCache(externalFallbackData);
+            return externalFallbackData;
         }
 
         console.log('Fetching countries from API...');
-        
+
         // Try primary API with timeout
         const controller = new AbortController();
         const timeoutId = setTimeout(() => controller.abort(), 10000); // 10 second timeout
-        
+
         try {
             const response = await fetch(`${API_BASE_URL}/all?fields=name,cca2,cca3,flag,flags,capital,region,subregion,latlng,area,population`, {
                 signal: controller.signal
             });
-            
+
             clearTimeout(timeoutId);
-            
+
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
 
             const countries = await response.json();
-            
+
             // Filter out countries without flags or essential data
-            const validCountries = countries.filter(country => 
-                country.flags && 
-                country.flags.png && 
-                country.name && 
+            const validCountries = countries.filter(country =>
+                country.flags &&
+                country.flags.png &&
+                country.name &&
                 country.name.common &&
                 country.cca2
             );
 
             // Save to cache
             saveToCache(validCountries);
-            
+
             console.log(`Fetched ${validCountries.length} countries from API`);
             return validCountries;
-            
+
         } catch (fetchError) {
             clearTimeout(timeoutId);
-            
+
             // If primary API fails, try fallback sources
             console.warn('Primary API failed, trying fallback sources:', fetchError.message);
-            
+
             // Try alternative API endpoints
             const fallbackSources = [
                 'https://restcountries.com/v3.1/all',
                 'https://restcountries.com/v2/all?fields=name;alpha2Code;alpha3Code;flag;capital;region;subregion;latlng;area;population'
             ];
-            
+
             for (const fallbackUrl of fallbackSources) {
                 try {
                     console.log(`Trying fallback API: ${fallbackUrl}`);
                     const fallbackController = new AbortController();
                     const fallbackTimeoutId = setTimeout(() => fallbackController.abort(), 8000);
-                    
+
                     const fallbackResponse = await fetch(fallbackUrl, {
                         signal: fallbackController.signal
                     });
-                    
+
                     clearTimeout(fallbackTimeoutId);
-                    
+
                     if (fallbackResponse.ok) {
                         const fallbackData = await fallbackResponse.json();
                         const normalizedData = normalizeFallbackData(fallbackData, fallbackUrl);
-                        
+
                         if (normalizedData && normalizedData.length > 0) {
                             saveToCache(normalizedData);
                             console.log(`Successfully fetched ${normalizedData.length} countries from fallback API`);
@@ -125,27 +125,27 @@ async function fetchCountries() {
                     continue;
                 }
             }
-            
+
             throw fetchError; // Re-throw original error if all fallbacks fail
         }
 
     } catch (error) {
         console.error('Error fetching countries:', error);
-        
+
         // Try to use cached data as fallback (even expired cache)
         const cachedData = loadFromCache();
         if (cachedData && cachedData.length > 0) {
             console.log('Using cached data as fallback (may be expired)');
             return cachedData;
         }
-        
+
         // Try to use embedded fallback data as last resort
         const fallbackData = getEmbeddedFallbackData();
         if (fallbackData && fallbackData.length > 0) {
             console.log('Using embedded fallback data as last resort');
             return fallbackData;
         }
-        
+
         // If no fallback available, throw error
         throw new Error('Failed to fetch countries data and no fallback available');
     }
@@ -166,15 +166,15 @@ function getCountriesByDifficulty(countries, difficulty) {
     const config = DIFFICULTY_CONFIG[difficulty] || DIFFICULTY_CONFIG.beginner;
     console.log(`Filtering countries for ${difficulty} difficulty:`, config);
     console.log(`Total countries available:`, countries.length);
-    
+
     let filteredCountries = [...countries];
 
     // Filter by regions if specified
     if (config.regions !== 'all') {
         console.log('Filtering by regions:', config.regions);
         console.log('Available regions in data:', [...new Set(countries.map(c => c.region))]);
-        
-        filteredCountries = filteredCountries.filter(country => 
+
+        filteredCountries = filteredCountries.filter(country =>
             config.regions.includes(country.region)
         );
         console.log(`After region filtering: ${filteredCountries.length} countries`);
@@ -222,14 +222,14 @@ function generateWrongAnswers(correctCountry, allCountries, count = 3, usedCount
     }
 
     // Filter out the correct country and already used countries
-    const availableCountries = allCountries.filter(country => 
-        country.cca2 !== correctCountry.cca2 && 
+    const availableCountries = allCountries.filter(country =>
+        country.cca2 !== correctCountry.cca2 &&
         !usedCountries.includes(country.cca2)
     );
 
     // If not enough unused countries, fall back to excluding only the correct country
-    const countriesToUse = availableCountries.length >= count 
-        ? availableCountries 
+    const countriesToUse = availableCountries.length >= count
+        ? availableCountries
         : allCountries.filter(country => country.cca2 !== correctCountry.cca2);
 
     // Shuffle the array and take the required count
@@ -269,10 +269,10 @@ function saveToCache(countries) {
     try {
         const now = new Date().getTime();
         const expiryTime = now + CACHE_DURATION;
-        
+
         localStorage.setItem(CACHE_KEY, JSON.stringify(countries));
         localStorage.setItem(CACHE_EXPIRY_KEY, expiryTime.toString());
-        
+
         console.log('Countries data saved to cache');
     } catch (error) {
         console.error('Error saving to cache:', error);
@@ -320,7 +320,7 @@ function getCacheInfo() {
         const hasCache = localStorage.getItem(CACHE_KEY) !== null;
         const expiryTime = localStorage.getItem(CACHE_EXPIRY_KEY);
         const isValid = isCacheValid();
-        
+
         return {
             hasCache,
             expiryTime: expiryTime ? new Date(parseInt(expiryTime)) : null,
@@ -343,7 +343,7 @@ function normalizeFallbackData(data, source) {
     if (!Array.isArray(data)) {
         return [];
     }
-    
+
     try {
         // Handle v2 API format
         if (source.includes('/v2/')) {
@@ -365,22 +365,22 @@ function normalizeFallbackData(data, source) {
                 latlng: country.latlng || [0, 0],
                 area: country.area || 0,
                 population: country.population || 0
-            })).filter(country => 
-                country.name?.common && 
-                country.cca2 && 
+            })).filter(country =>
+                country.name?.common &&
+                country.cca2 &&
                 country.flags?.png
             );
         }
-        
+
         // Handle v3 API format (should be same as primary)
-        return data.filter(country => 
-            country.flags && 
-            country.flags.png && 
-            country.name && 
+        return data.filter(country =>
+            country.flags &&
+            country.flags.png &&
+            country.name &&
             country.name.common &&
             country.cca2
         );
-        
+
     } catch (error) {
         console.error('Error normalizing fallback data:', error);
         return [];
@@ -388,11 +388,12 @@ function normalizeFallbackData(data, source) {
 }
 
 /**
- * Get embedded fallback data for offline functionality
- * @returns {Array} Extended country data for basic functionality
+ * Get minimal embedded fallback data for emergency use only
+ * @returns {Array} Minimal country data for emergency functionality
  */
 function getEmbeddedFallbackData() {
-    // Extended dataset for better game experience
+    console.warn('Using minimal embedded fallback data - external countries.json file should be available');
+    // Minimal dataset for emergency use only (should rarely be used)
     return [
         // North America & Europe (Beginner level)
         {
@@ -579,6 +580,54 @@ function getEmbeddedFallbackData() {
 }
 
 /**
+ * Load external fallback data from JSON files
+ * @returns {Promise<Array>} Countries data from external files
+ */
+async function loadExternalFallbackData() {
+    try {
+        console.log('Loading static countries data from external JSON file...');
+        const response = await fetch('./data/countries.json');
+        
+        if (response.ok) {
+            const data = await response.json();
+            console.log(`Loaded countries data generated on: ${data.generated}`);
+            console.log(`Data version: ${data.version}, Source: ${data.source}`);
+            
+            // Use allCountries array if available, otherwise combine difficulties
+            let allCountries = [];
+            
+            if (data.allCountries && Array.isArray(data.allCountries)) {
+                allCountries = data.allCountries;
+            } else if (data.difficulties) {
+                // Combine all difficulties into one array for compatibility
+                Object.values(data.difficulties).forEach(difficulty => {
+                    if (difficulty.countries) {
+                        allCountries.push(...difficulty.countries);
+                    }
+                });
+                
+                // Remove duplicates based on cca2 code
+                allCountries = allCountries.filter((country, index, self) => 
+                    index === self.findIndex(c => c.cca2 === country.cca2)
+                );
+            }
+            
+            if (allCountries.length > 0) {
+                console.log(`External countries data loaded: ${allCountries.length} countries`);
+                return allCountries;
+            } else {
+                throw new Error('No valid countries data found in external file');
+            }
+        } else {
+            throw new Error(`Failed to load countries.json: ${response.status} ${response.statusText}`);
+        }
+    } catch (error) {
+        console.warn('Failed to load external countries data:', error.message);
+        return null;
+    }
+}
+
+/**
  * Check network connectivity
  * @returns {Promise<boolean>} True if network is available
  */
@@ -587,15 +636,15 @@ async function checkNetworkConnectivity() {
         // Try to fetch a small resource to test connectivity
         const controller = new AbortController();
         const timeoutId = setTimeout(() => controller.abort(), 3000);
-        
+
         const response = await fetch('https://httpbin.org/status/200', {
             method: 'HEAD',
             signal: controller.signal
         });
-        
+
         clearTimeout(timeoutId);
         return response.ok;
-        
+
     } catch (error) {
         console.log('Network connectivity check failed:', error.message);
         return false;
@@ -610,22 +659,22 @@ async function checkNetworkConnectivity() {
 async function initializeCountryService(difficulty = 'beginner') {
     try {
         console.log('Initializing country service...');
-        
+
         // Check network connectivity first
         const isOnline = await checkNetworkConnectivity();
         if (!isOnline) {
             console.warn('Network connectivity limited, using cached/fallback data');
         }
-        
+
         const allCountries = await fetchCountries();
         const filteredCountries = getCountriesByDifficulty(allCountries, difficulty);
         console.log(`Country service initialized with ${filteredCountries.length} countries for ${difficulty} difficulty`);
-        
+
         // Preload flag images for better performance
         if (typeof preloadFlagImages === 'function') {
             preloadFlagImages(filteredCountries.slice(0, 10)); // Preload first 10 flags
         }
-        
+
         return filteredCountries;
     } catch (error) {
         console.error('Failed to initialize country service:', error);

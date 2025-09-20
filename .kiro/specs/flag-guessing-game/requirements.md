@@ -66,6 +66,30 @@
 
 ### Requirement 6
 
+**User Story:** ゲームプレイヤーとして、同じゲームセッション内で重複した問題が出題されないようにしたい。そうすることで、より多様な国旗を学習でき、ゲーム体験が向上する。
+
+#### Acceptance Criteria
+
+1. WHEN ゲームセッションが開始される THEN システム SHALL 出題済み国旗のリストを初期化する
+2. WHEN 新しい問題が生成される THEN システム SHALL 既に出題された国旗を除外する
+3. WHEN 国旗が出題される THEN システム SHALL その国旗を出題済みリストに追加する
+4. WHEN 選択肢が生成される THEN システム SHALL 可能な限り出題済みの国を選択肢から除外する
+5. IF 全ての国旗が出題済みになる THEN システム SHALL 出題済みリストをリセットして継続する
+
+### Requirement 7
+
+**User Story:** 開発者として、フォールバックデータが外部JSONファイルとして管理され、開発時に一度だけ生成できるようにしたい。そうすることで、コードが整理され、データのメンテナンスが容易になる。
+
+#### Acceptance Criteria
+
+1. WHEN フォールバックデータが必要になる THEN システム SHALL 静的JSONファイル（countries.json）からデータを読み込む
+2. WHEN 開発者がデータ生成スクリプトを実行する THEN システム SHALL APIからデータを取得してJSONファイルを生成する
+3. WHEN countries.jsonファイルが存在する THEN システム SHALL そのファイルをリポジトリにコミットして配布に含める
+4. WHEN 本番環境で動作する THEN システム SHALL countries.jsonファイルが常に利用可能である
+5. IF 開発者が新しいデータが必要と判断する THEN 手動でスクリプトを再実行してファイルを更新できる
+
+### Requirement 8
+
 **User Story:** 開発者として、テストファイルが整理されたフォルダー構造にあることで、特定のテストを素早く見つけて実行できるようにしたい
 
 #### Acceptance Criteria

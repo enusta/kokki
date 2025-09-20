@@ -1,0 +1,1363 @@
+{
+  "generated": "2025-09-20T04:59:18.318Z",
+  "version": "1.0.0",
+  "source": "REST Countries API v3.1",
+  "description": "Static fallback data for Flag Guessing Game",
+  "difficulties": {
+    "beginner": {
+      "countries": [
+        {
+          "name": {
+            "common": "United States",
+            "official": "United States of America"
+          },
+          "cca2": "US",
+          "cca3": "USA",
+          "flag": "🇺🇸",
+          "flags": {
+            "png": "https://flagcdn.com/w320/us.png",
+            "svg": "https://flagcdn.com/us.svg"
+          },
+          "capital": [
+            "Washington, D.C."
+          ],
+          "region": "Americas",
+          "subregion": "North America",
+          "latlng": [
+            38,
+            -97
+          ],
+          "area": 9372610,
+          "population": 329484123
+        },
+        {
+          "name": {
+            "common": "Canada",
+            "official": "Canada"
+          },
+          "cca2": "CA",
+          "cca3": "CAN",
+          "flag": "🇨🇦",
+          "flags": {
+            "png": "https://flagcdn.com/w320/ca.png",
+            "svg": "https://flagcdn.com/ca.svg"
+          },
+          "capital": [
+            "Ottawa"
+          ],
+          "region": "Americas",
+          "subregion": "North America",
+          "latlng": [
+            60,
+            -95
+          ],
+          "area": 9984670,
+          "population": 38005238
+        },
+        {
+          "name": {
+            "common": "Germany",
+            "official": "Federal Republic of Germany"
+          },
+          "cca2": "DE",
+          "cca3": "DEU",
+          "flag": "🇩🇪",
+          "flags": {
+            "png": "https://flagcdn.com/w320/de.png",
+            "svg": "https://flagcdn.com/de.svg"
+          },
+          "capital": [
+            "Berlin"
+          ],
+          "region": "Europe",
+          "subregion": "Western Europe",
+          "latlng": [
+            51,
+            9
+          ],
+          "area": 357114,
+          "population": 83240525
+        },
+        {
+          "name": {
+            "common": "France",
+            "official": "French Republic"
+          },
+          "cca2": "FR",
+          "cca3": "FRA",
+          "flag": "🇫🇷",
+          "flags": {
+            "png": "https://flagcdn.com/w320/fr.png",
+            "svg": "https://flagcdn.com/fr.svg"
+          },
+          "capital": [
+            "Paris"
+          ],
+          "region": "Europe",
+          "subregion": "Western Europe",
+          "latlng": [
+            46,
+            2
+          ],
+          "area": 551695,
+          "population": 67391582
+        },
+        {
+          "name": {
+            "common": "United Kingdom",
+            "official": "United Kingdom of Great Britain and Northern Ireland"
+          },
+          "cca2": "GB",
+          "cca3": "GBR",
+          "flag": "🇬🇧",
+          "flags": {
+            "png": "https://flagcdn.com/w320/gb.png",
+            "svg": "https://flagcdn.com/gb.svg"
+          },
+          "capital": [
+            "London"
+          ],
+          "region": "Europe",
+          "subregion": "Northern Europe",
+          "latlng": [
+            54,
+            -2
+          ],
+          "area": 242495,
+          "population": 67886011
+        },
+        {
+          "name": {
+            "common": "Italy",
+            "official": "Italian Republic"
+          },
+          "cca2": "IT",
+          "cca3": "ITA",
+          "flag": "🇮🇹",
+          "flags": {
+            "png": "https://flagcdn.com/w320/it.png",
+            "svg": "https://flagcdn.com/it.svg"
+          },
+          "capital": [
+            "Rome"
+          ],
+          "region": "Europe",
+          "subregion": "Southern Europe",
+          "latlng": [
+            42.83333333,
+            12.83333333
+          ],
+          "area": 301336,
+          "population": 59554023
+        },
+        {
+          "name": {
+            "common": "Spain",
+            "official": "Kingdom of Spain"
+          },
+          "cca2": "ES",
+          "cca3": "ESP",
+          "flag": "🇪🇸",
+          "flags": {
+            "png": "https://flagcdn.com/w320/es.png",
+            "svg": "https://flagcdn.com/es.svg"
+          },
+          "capital": [
+            "Madrid"
+          ],
+          "region": "Europe",
+          "subregion": "Southern Europe",
+          "latlng": [
+            40,
+            -4
+          ],
+          "area": 505992,
+          "population": 47351567
+        },
+        {
+          "name": {
+            "common": "Brazil",
+            "official": "Federative Republic of Brazil"
+          },
+          "cca2": "BR",
+          "cca3": "BRA",
+          "flag": "🇧🇷",
+          "flags": {
+            "png": "https://flagcdn.com/w320/br.png",
+            "svg": "https://flagcdn.com/br.svg"
+          },
+          "capital": [
+            "Brasília"
+          ],
+          "region": "Americas",
+          "subregion": "South America",
+          "latlng": [
+            -10,
+            -55
+          ],
+          "area": 8515767,
+          "population": 214326223
+        },
+        {
+          "name": {
+            "common": "Russia",
+            "official": "Russian Federation"
+          },
+          "cca2": "RU",
+          "cca3": "RUS",
+          "flag": "🇷🇺",
+          "flags": {
+            "png": "https://flagcdn.com/w320/ru.png",
+            "svg": "https://flagcdn.com/ru.svg"
+          },
+          "capital": [
+            "Moscow"
+          ],
+          "region": "Europe",
+          "subregion": "Eastern Europe",
+          "latlng": [
+            60,
+            100
+          ],
+          "area": 17098242,
+          "population": 144104080
+        },
+        {
+          "name": {
+            "common": "Mexico",
+            "official": "United Mexican States"
+          },
+          "cca2": "MX",
+          "cca3": "MEX",
+          "flag": "🇲🇽",
+          "flags": {
+            "png": "https://flagcdn.com/w320/mx.png",
+            "svg": "https://flagcdn.com/mx.svg"
+          },
+          "capital": [
+            "Mexico City"
+          ],
+          "region": "Americas",
+          "subregion": "North America",
+          "latlng": [
+            23,
+            -102
+          ],
+          "area": 1964375,
+          "population": 128932753
+        }
+      ],
+      "count": 10,
+      "questionsCount": 10,
+      "regions": [
+        "Europe",
+        "Americas"
+      ],
+      "description": "Beginner level countries"
+    },
+    "intermediate": {
+      "countries": [
+        {
+          "name": {
+            "common": "China",
+            "official": "People's Republic of China"
+          },
+          "cca2": "CN",
+          "cca3": "CHN",
+          "flag": "🇨🇳",
+          "flags": {
+            "png": "https://flagcdn.com/w320/cn.png",
+            "svg": "https://flagcdn.com/cn.svg"
+          },
+          "capital": [
+            "Beijing"
+          ],
+          "region": "Asia",
+          "subregion": "Eastern Asia",
+          "latlng": [
+            35,
+            105
+          ],
+          "area": 9596961,
+          "population": 1402112000
+        },
+        {
+          "name": {
+            "common": "India",
+            "official": "Republic of India"
+          },
+          "cca2": "IN",
+          "cca3": "IND",
+          "flag": "🇮🇳",
+          "flags": {
+            "png": "https://flagcdn.com/w320/in.png",
+            "svg": "https://flagcdn.com/in.svg"
+          },
+          "capital": [
+            "New Delhi"
+          ],
+          "region": "Asia",
+          "subregion": "Southern Asia",
+          "latlng": [
+            20,
+            77
+          ],
+          "area": 3287263,
+          "population": 1380004385
+        },
+        {
+          "name": {
+            "common": "United States",
+            "official": "United States of America"
+          },
+          "cca2": "US",
+          "cca3": "USA",
+          "flag": "🇺🇸",
+          "flags": {
+            "png": "https://flagcdn.com/w320/us.png",
+            "svg": "https://flagcdn.com/us.svg"
+          },
+          "capital": [
+            "Washington, D.C."
+          ],
+          "region": "Americas",
+          "subregion": "North America",
+          "latlng": [
+            38,
+            -97
+          ],
+          "area": 9372610,
+          "population": 329484123
+        },
+        {
+          "name": {
+            "common": "Brazil",
+            "official": "Federative Republic of Brazil"
+          },
+          "cca2": "BR",
+          "cca3": "BRA",
+          "flag": "🇧🇷",
+          "flags": {
+            "png": "https://flagcdn.com/w320/br.png",
+            "svg": "https://flagcdn.com/br.svg"
+          },
+          "capital": [
+            "Brasília"
+          ],
+          "region": "Americas",
+          "subregion": "South America",
+          "latlng": [
+            -10,
+            -55
+          ],
+          "area": 8515767,
+          "population": 214326223
+        },
+        {
+          "name": {
+            "common": "Russia",
+            "official": "Russian Federation"
+          },
+          "cca2": "RU",
+          "cca3": "RUS",
+          "flag": "🇷🇺",
+          "flags": {
+            "png": "https://flagcdn.com/w320/ru.png",
+            "svg": "https://flagcdn.com/ru.svg"
+          },
+          "capital": [
+            "Moscow"
+          ],
+          "region": "Europe",
+          "subregion": "Eastern Europe",
+          "latlng": [
+            60,
+            100
+          ],
+          "area": 17098242,
+          "population": 144104080
+        },
+        {
+          "name": {
+            "common": "Mexico",
+            "official": "United Mexican States"
+          },
+          "cca2": "MX",
+          "cca3": "MEX",
+          "flag": "🇲🇽",
+          "flags": {
+            "png": "https://flagcdn.com/w320/mx.png",
+            "svg": "https://flagcdn.com/mx.svg"
+          },
+          "capital": [
+            "Mexico City"
+          ],
+          "region": "Americas",
+          "subregion": "North America",
+          "latlng": [
+            23,
+            -102
+          ],
+          "area": 1964375,
+          "population": 128932753
+        },
+        {
+          "name": {
+            "common": "Japan",
+            "official": "Japan"
+          },
+          "cca2": "JP",
+          "cca3": "JPN",
+          "flag": "🇯🇵",
+          "flags": {
+            "png": "https://flagcdn.com/w320/jp.png",
+            "svg": "https://flagcdn.com/jp.svg"
+          },
+          "capital": [
+            "Tokyo"
+          ],
+          "region": "Asia",
+          "subregion": "Eastern Asia",
+          "latlng": [
+            36,
+            138
+          ],
+          "area": 377930,
+          "population": 125836021
+        },
+        {
+          "name": {
+            "common": "Germany",
+            "official": "Federal Republic of Germany"
+          },
+          "cca2": "DE",
+          "cca3": "DEU",
+          "flag": "🇩🇪",
+          "flags": {
+            "png": "https://flagcdn.com/w320/de.png",
+            "svg": "https://flagcdn.com/de.svg"
+          },
+          "capital": [
+            "Berlin"
+          ],
+          "region": "Europe",
+          "subregion": "Western Europe",
+          "latlng": [
+            51,
+            9
+          ],
+          "area": 357114,
+          "population": 83240525
+        },
+        {
+          "name": {
+            "common": "United Kingdom",
+            "official": "United Kingdom of Great Britain and Northern Ireland"
+          },
+          "cca2": "GB",
+          "cca3": "GBR",
+          "flag": "🇬🇧",
+          "flags": {
+            "png": "https://flagcdn.com/w320/gb.png",
+            "svg": "https://flagcdn.com/gb.svg"
+          },
+          "capital": [
+            "London"
+          ],
+          "region": "Europe",
+          "subregion": "Northern Europe",
+          "latlng": [
+            54,
+            -2
+          ],
+          "area": 242495,
+          "population": 67886011
+        },
+        {
+          "name": {
+            "common": "France",
+            "official": "French Republic"
+          },
+          "cca2": "FR",
+          "cca3": "FRA",
+          "flag": "🇫🇷",
+          "flags": {
+            "png": "https://flagcdn.com/w320/fr.png",
+            "svg": "https://flagcdn.com/fr.svg"
+          },
+          "capital": [
+            "Paris"
+          ],
+          "region": "Europe",
+          "subregion": "Western Europe",
+          "latlng": [
+            46,
+            2
+          ],
+          "area": 551695,
+          "population": 67391582
+        },
+        {
+          "name": {
+            "common": "Italy",
+            "official": "Italian Republic"
+          },
+          "cca2": "IT",
+          "cca3": "ITA",
+          "flag": "🇮🇹",
+          "flags": {
+            "png": "https://flagcdn.com/w320/it.png",
+            "svg": "https://flagcdn.com/it.svg"
+          },
+          "capital": [
+            "Rome"
+          ],
+          "region": "Europe",
+          "subregion": "Southern Europe",
+          "latlng": [
+            42.83333333,
+            12.83333333
+          ],
+          "area": 301336,
+          "population": 59554023
+        },
+        {
+          "name": {
+            "common": "South Korea",
+            "official": "Republic of Korea"
+          },
+          "cca2": "KR",
+          "cca3": "KOR",
+          "flag": "🇰🇷",
+          "flags": {
+            "png": "https://flagcdn.com/w320/kr.png",
+            "svg": "https://flagcdn.com/kr.svg"
+          },
+          "capital": [
+            "Seoul"
+          ],
+          "region": "Asia",
+          "subregion": "Eastern Asia",
+          "latlng": [
+            37,
+            127.5
+          ],
+          "area": 100210,
+          "population": 51780579
+        },
+        {
+          "name": {
+            "common": "Spain",
+            "official": "Kingdom of Spain"
+          },
+          "cca2": "ES",
+          "cca3": "ESP",
+          "flag": "🇪🇸",
+          "flags": {
+            "png": "https://flagcdn.com/w320/es.png",
+            "svg": "https://flagcdn.com/es.svg"
+          },
+          "capital": [
+            "Madrid"
+          ],
+          "region": "Europe",
+          "subregion": "Southern Europe",
+          "latlng": [
+            40,
+            -4
+          ],
+          "area": 505992,
+          "population": 47351567
+        },
+        {
+          "name": {
+            "common": "Canada",
+            "official": "Canada"
+          },
+          "cca2": "CA",
+          "cca3": "CAN",
+          "flag": "🇨🇦",
+          "flags": {
+            "png": "https://flagcdn.com/w320/ca.png",
+            "svg": "https://flagcdn.com/ca.svg"
+          },
+          "capital": [
+            "Ottawa"
+          ],
+          "region": "Americas",
+          "subregion": "North America",
+          "latlng": [
+            60,
+            -95
+          ],
+          "area": 9984670,
+          "population": 38005238
+        },
+        {
+          "name": {
+            "common": "Australia",
+            "official": "Commonwealth of Australia"
+          },
+          "cca2": "AU",
+          "cca3": "AUS",
+          "flag": "🇦🇺",
+          "flags": {
+            "png": "https://flagcdn.com/w320/au.png",
+            "svg": "https://flagcdn.com/au.svg"
+          },
+          "capital": [
+            "Canberra"
+          ],
+          "region": "Oceania",
+          "subregion": "Australia and New Zealand",
+          "latlng": [
+            -27,
+            133
+          ],
+          "area": 7692024,
+          "population": 25687041
+        }
+      ],
+      "count": 15,
+      "questionsCount": 15,
+      "regions": [
+        "Europe",
+        "Asia",
+        "Americas",
+        "Oceania"
+      ],
+      "description": "Intermediate level countries"
+    },
+    "advanced": {
+      "countries": [
+        {
+          "name": {
+            "common": "China",
+            "official": "People's Republic of China"
+          },
+          "cca2": "CN",
+          "cca3": "CHN",
+          "flag": "🇨🇳",
+          "flags": {
+            "png": "https://flagcdn.com/w320/cn.png",
+            "svg": "https://flagcdn.com/cn.svg"
+          },
+          "capital": [
+            "Beijing"
+          ],
+          "region": "Asia",
+          "subregion": "Eastern Asia",
+          "latlng": [
+            35,
+            105
+          ],
+          "area": 9596961,
+          "population": 1402112000
+        },
+        {
+          "name": {
+            "common": "India",
+            "official": "Republic of India"
+          },
+          "cca2": "IN",
+          "cca3": "IND",
+          "flag": "🇮🇳",
+          "flags": {
+            "png": "https://flagcdn.com/w320/in.png",
+            "svg": "https://flagcdn.com/in.svg"
+          },
+          "capital": [
+            "New Delhi"
+          ],
+          "region": "Asia",
+          "subregion": "Southern Asia",
+          "latlng": [
+            20,
+            77
+          ],
+          "area": 3287263,
+          "population": 1380004385
+        },
+        {
+          "name": {
+            "common": "United States",
+            "official": "United States of America"
+          },
+          "cca2": "US",
+          "cca3": "USA",
+          "flag": "🇺🇸",
+          "flags": {
+            "png": "https://flagcdn.com/w320/us.png",
+            "svg": "https://flagcdn.com/us.svg"
+          },
+          "capital": [
+            "Washington, D.C."
+          ],
+          "region": "Americas",
+          "subregion": "North America",
+          "latlng": [
+            38,
+            -97
+          ],
+          "area": 9372610,
+          "population": 329484123
+        },
+        {
+          "name": {
+            "common": "Brazil",
+            "official": "Federative Republic of Brazil"
+          },
+          "cca2": "BR",
+          "cca3": "BRA",
+          "flag": "🇧🇷",
+          "flags": {
+            "png": "https://flagcdn.com/w320/br.png",
+            "svg": "https://flagcdn.com/br.svg"
+          },
+          "capital": [
+            "Brasília"
+          ],
+          "region": "Americas",
+          "subregion": "South America",
+          "latlng": [
+            -10,
+            -55
+          ],
+          "area": 8515767,
+          "population": 214326223
+        },
+        {
+          "name": {
+            "common": "Russia",
+            "official": "Russian Federation"
+          },
+          "cca2": "RU",
+          "cca3": "RUS",
+          "flag": "🇷🇺",
+          "flags": {
+            "png": "https://flagcdn.com/w320/ru.png",
+            "svg": "https://flagcdn.com/ru.svg"
+          },
+          "capital": [
+            "Moscow"
+          ],
+          "region": "Europe",
+          "subregion": "Eastern Europe",
+          "latlng": [
+            60,
+            100
+          ],
+          "area": 17098242,
+          "population": 144104080
+        },
+        {
+          "name": {
+            "common": "Mexico",
+            "official": "United Mexican States"
+          },
+          "cca2": "MX",
+          "cca3": "MEX",
+          "flag": "🇲🇽",
+          "flags": {
+            "png": "https://flagcdn.com/w320/mx.png",
+            "svg": "https://flagcdn.com/mx.svg"
+          },
+          "capital": [
+            "Mexico City"
+          ],
+          "region": "Americas",
+          "subregion": "North America",
+          "latlng": [
+            23,
+            -102
+          ],
+          "area": 1964375,
+          "population": 128932753
+        },
+        {
+          "name": {
+            "common": "Japan",
+            "official": "Japan"
+          },
+          "cca2": "JP",
+          "cca3": "JPN",
+          "flag": "🇯🇵",
+          "flags": {
+            "png": "https://flagcdn.com/w320/jp.png",
+            "svg": "https://flagcdn.com/jp.svg"
+          },
+          "capital": [
+            "Tokyo"
+          ],
+          "region": "Asia",
+          "subregion": "Eastern Asia",
+          "latlng": [
+            36,
+            138
+          ],
+          "area": 377930,
+          "population": 125836021
+        },
+        {
+          "name": {
+            "common": "Germany",
+            "official": "Federal Republic of Germany"
+          },
+          "cca2": "DE",
+          "cca3": "DEU",
+          "flag": "🇩🇪",
+          "flags": {
+            "png": "https://flagcdn.com/w320/de.png",
+            "svg": "https://flagcdn.com/de.svg"
+          },
+          "capital": [
+            "Berlin"
+          ],
+          "region": "Europe",
+          "subregion": "Western Europe",
+          "latlng": [
+            51,
+            9
+          ],
+          "area": 357114,
+          "population": 83240525
+        },
+        {
+          "name": {
+            "common": "United Kingdom",
+            "official": "United Kingdom of Great Britain and Northern Ireland"
+          },
+          "cca2": "GB",
+          "cca3": "GBR",
+          "flag": "🇬🇧",
+          "flags": {
+            "png": "https://flagcdn.com/w320/gb.png",
+            "svg": "https://flagcdn.com/gb.svg"
+          },
+          "capital": [
+            "London"
+          ],
+          "region": "Europe",
+          "subregion": "Northern Europe",
+          "latlng": [
+            54,
+            -2
+          ],
+          "area": 242495,
+          "population": 67886011
+        },
+        {
+          "name": {
+            "common": "France",
+            "official": "French Republic"
+          },
+          "cca2": "FR",
+          "cca3": "FRA",
+          "flag": "🇫🇷",
+          "flags": {
+            "png": "https://flagcdn.com/w320/fr.png",
+            "svg": "https://flagcdn.com/fr.svg"
+          },
+          "capital": [
+            "Paris"
+          ],
+          "region": "Europe",
+          "subregion": "Western Europe",
+          "latlng": [
+            46,
+            2
+          ],
+          "area": 551695,
+          "population": 67391582
+        },
+        {
+          "name": {
+            "common": "Italy",
+            "official": "Italian Republic"
+          },
+          "cca2": "IT",
+          "cca3": "ITA",
+          "flag": "🇮🇹",
+          "flags": {
+            "png": "https://flagcdn.com/w320/it.png",
+            "svg": "https://flagcdn.com/it.svg"
+          },
+          "capital": [
+            "Rome"
+          ],
+          "region": "Europe",
+          "subregion": "Southern Europe",
+          "latlng": [
+            42.83333333,
+            12.83333333
+          ],
+          "area": 301336,
+          "population": 59554023
+        },
+        {
+          "name": {
+            "common": "South Korea",
+            "official": "Republic of Korea"
+          },
+          "cca2": "KR",
+          "cca3": "KOR",
+          "flag": "🇰🇷",
+          "flags": {
+            "png": "https://flagcdn.com/w320/kr.png",
+            "svg": "https://flagcdn.com/kr.svg"
+          },
+          "capital": [
+            "Seoul"
+          ],
+          "region": "Asia",
+          "subregion": "Eastern Asia",
+          "latlng": [
+            37,
+            127.5
+          ],
+          "area": 100210,
+          "population": 51780579
+        },
+        {
+          "name": {
+            "common": "Spain",
+            "official": "Kingdom of Spain"
+          },
+          "cca2": "ES",
+          "cca3": "ESP",
+          "flag": "🇪🇸",
+          "flags": {
+            "png": "https://flagcdn.com/w320/es.png",
+            "svg": "https://flagcdn.com/es.svg"
+          },
+          "capital": [
+            "Madrid"
+          ],
+          "region": "Europe",
+          "subregion": "Southern Europe",
+          "latlng": [
+            40,
+            -4
+          ],
+          "area": 505992,
+          "population": 47351567
+        },
+        {
+          "name": {
+            "common": "Canada",
+            "official": "Canada"
+          },
+          "cca2": "CA",
+          "cca3": "CAN",
+          "flag": "🇨🇦",
+          "flags": {
+            "png": "https://flagcdn.com/w320/ca.png",
+            "svg": "https://flagcdn.com/ca.svg"
+          },
+          "capital": [
+            "Ottawa"
+          ],
+          "region": "Americas",
+          "subregion": "North America",
+          "latlng": [
+            60,
+            -95
+          ],
+          "area": 9984670,
+          "population": 38005238
+        },
+        {
+          "name": {
+            "common": "Australia",
+            "official": "Commonwealth of Australia"
+          },
+          "cca2": "AU",
+          "cca3": "AUS",
+          "flag": "🇦🇺",
+          "flags": {
+            "png": "https://flagcdn.com/w320/au.png",
+            "svg": "https://flagcdn.com/au.svg"
+          },
+          "capital": [
+            "Canberra"
+          ],
+          "region": "Oceania",
+          "subregion": "Australia and New Zealand",
+          "latlng": [
+            -27,
+            133
+          ],
+          "area": 7692024,
+          "population": 25687041
+        }
+      ],
+      "count": 15,
+      "questionsCount": 20,
+      "regions": "all",
+      "description": "Advanced level countries"
+    }
+  },
+  "allCountries": [
+    {
+      "name": {
+        "common": "United States",
+        "official": "United States of America"
+      },
+      "cca2": "US",
+      "cca3": "USA",
+      "flag": "🇺🇸",
+      "flags": {
+        "png": "https://flagcdn.com/w320/us.png",
+        "svg": "https://flagcdn.com/us.svg"
+      },
+      "capital": [
+        "Washington, D.C."
+      ],
+      "region": "Americas",
+      "subregion": "North America",
+      "latlng": [
+        38,
+        -97
+      ],
+      "area": 9372610,
+      "population": 329484123
+    },
+    {
+      "name": {
+        "common": "Canada",
+        "official": "Canada"
+      },
+      "cca2": "CA",
+      "cca3": "CAN",
+      "flag": "🇨🇦",
+      "flags": {
+        "png": "https://flagcdn.com/w320/ca.png",
+        "svg": "https://flagcdn.com/ca.svg"
+      },
+      "capital": [
+        "Ottawa"
+      ],
+      "region": "Americas",
+      "subregion": "North America",
+      "latlng": [
+        60,
+        -95
+      ],
+      "area": 9984670,
+      "population": 38005238
+    },
+    {
+      "name": {
+        "common": "Germany",
+        "official": "Federal Republic of Germany"
+      },
+      "cca2": "DE",
+      "cca3": "DEU",
+      "flag": "🇩🇪",
+      "flags": {
+        "png": "https://flagcdn.com/w320/de.png",
+        "svg": "https://flagcdn.com/de.svg"
+      },
+      "capital": [
+        "Berlin"
+      ],
+      "region": "Europe",
+      "subregion": "Western Europe",
+      "latlng": [
+        51,
+        9
+      ],
+      "area": 357114,
+      "population": 83240525
+    },
+    {
+      "name": {
+        "common": "France",
+        "official": "French Republic"
+      },
+      "cca2": "FR",
+      "cca3": "FRA",
+      "flag": "🇫🇷",
+      "flags": {
+        "png": "https://flagcdn.com/w320/fr.png",
+        "svg": "https://flagcdn.com/fr.svg"
+      },
+      "capital": [
+        "Paris"
+      ],
+      "region": "Europe",
+      "subregion": "Western Europe",
+      "latlng": [
+        46,
+        2
+      ],
+      "area": 551695,
+      "population": 67391582
+    },
+    {
+      "name": {
+        "common": "United Kingdom",
+        "official": "United Kingdom of Great Britain and Northern Ireland"
+      },
+      "cca2": "GB",
+      "cca3": "GBR",
+      "flag": "🇬🇧",
+      "flags": {
+        "png": "https://flagcdn.com/w320/gb.png",
+        "svg": "https://flagcdn.com/gb.svg"
+      },
+      "capital": [
+        "London"
+      ],
+      "region": "Europe",
+      "subregion": "Northern Europe",
+      "latlng": [
+        54,
+        -2
+      ],
+      "area": 242495,
+      "population": 67886011
+    },
+    {
+      "name": {
+        "common": "Italy",
+        "official": "Italian Republic"
+      },
+      "cca2": "IT",
+      "cca3": "ITA",
+      "flag": "🇮🇹",
+      "flags": {
+        "png": "https://flagcdn.com/w320/it.png",
+        "svg": "https://flagcdn.com/it.svg"
+      },
+      "capital": [
+        "Rome"
+      ],
+      "region": "Europe",
+      "subregion": "Southern Europe",
+      "latlng": [
+        42.83333333,
+        12.83333333
+      ],
+      "area": 301336,
+      "population": 59554023
+    },
+    {
+      "name": {
+        "common": "Spain",
+        "official": "Kingdom of Spain"
+      },
+      "cca2": "ES",
+      "cca3": "ESP",
+      "flag": "🇪🇸",
+      "flags": {
+        "png": "https://flagcdn.com/w320/es.png",
+        "svg": "https://flagcdn.com/es.svg"
+      },
+      "capital": [
+        "Madrid"
+      ],
+      "region": "Europe",
+      "subregion": "Southern Europe",
+      "latlng": [
+        40,
+        -4
+      ],
+      "area": 505992,
+      "population": 47351567
+    },
+    {
+      "name": {
+        "common": "Brazil",
+        "official": "Federative Republic of Brazil"
+      },
+      "cca2": "BR",
+      "cca3": "BRA",
+      "flag": "🇧🇷",
+      "flags": {
+        "png": "https://flagcdn.com/w320/br.png",
+        "svg": "https://flagcdn.com/br.svg"
+      },
+      "capital": [
+        "Brasília"
+      ],
+      "region": "Americas",
+      "subregion": "South America",
+      "latlng": [
+        -10,
+        -55
+      ],
+      "area": 8515767,
+      "population": 214326223
+    },
+    {
+      "name": {
+        "common": "Russia",
+        "official": "Russian Federation"
+      },
+      "cca2": "RU",
+      "cca3": "RUS",
+      "flag": "🇷🇺",
+      "flags": {
+        "png": "https://flagcdn.com/w320/ru.png",
+        "svg": "https://flagcdn.com/ru.svg"
+      },
+      "capital": [
+        "Moscow"
+      ],
+      "region": "Europe",
+      "subregion": "Eastern Europe",
+      "latlng": [
+        60,
+        100
+      ],
+      "area": 17098242,
+      "population": 144104080
+    },
+    {
+      "name": {
+        "common": "Mexico",
+        "official": "United Mexican States"
+      },
+      "cca2": "MX",
+      "cca3": "MEX",
+      "flag": "🇲🇽",
+      "flags": {
+        "png": "https://flagcdn.com/w320/mx.png",
+        "svg": "https://flagcdn.com/mx.svg"
+      },
+      "capital": [
+        "Mexico City"
+      ],
+      "region": "Americas",
+      "subregion": "North America",
+      "latlng": [
+        23,
+        -102
+      ],
+      "area": 1964375,
+      "population": 128932753
+    },
+    {
+      "name": {
+        "common": "China",
+        "official": "People's Republic of China"
+      },
+      "cca2": "CN",
+      "cca3": "CHN",
+      "flag": "🇨🇳",
+      "flags": {
+        "png": "https://flagcdn.com/w320/cn.png",
+        "svg": "https://flagcdn.com/cn.svg"
+      },
+      "capital": [
+        "Beijing"
+      ],
+      "region": "Asia",
+      "subregion": "Eastern Asia",
+      "latlng": [
+        35,
+        105
+      ],
+      "area": 9596961,
+      "population": 1402112000
+    },
+    {
+      "name": {
+        "common": "India",
+        "official": "Republic of India"
+      },
+      "cca2": "IN",
+      "cca3": "IND",
+      "flag": "🇮🇳",
+      "flags": {
+        "png": "https://flagcdn.com/w320/in.png",
+        "svg": "https://flagcdn.com/in.svg"
+      },
+      "capital": [
+        "New Delhi"
+      ],
+      "region": "Asia",
+      "subregion": "Southern Asia",
+      "latlng": [
+        20,
+        77
+      ],
+      "area": 3287263,
+      "population": 1380004385
+    },
+    {
+      "name": {
+        "common": "Japan",
+        "official": "Japan"
+      },
+      "cca2": "JP",
+      "cca3": "JPN",
+      "flag": "🇯🇵",
+      "flags": {
+        "png": "https://flagcdn.com/w320/jp.png",
+        "svg": "https://flagcdn.com/jp.svg"
+      },
+      "capital": [
+        "Tokyo"
+      ],
+      "region": "Asia",
+      "subregion": "Eastern Asia",
+      "latlng": [
+        36,
+        138
+      ],
+      "area": 377930,
+      "population": 125836021
+    },
+    {
+      "name": {
+        "common": "South Korea",
+        "official": "Republic of Korea"
+      },
+      "cca2": "KR",
+      "cca3": "KOR",
+      "flag": "🇰🇷",
+      "flags": {
+        "png": "https://flagcdn.com/w320/kr.png",
+        "svg": "https://flagcdn.com/kr.svg"
+      },
+      "capital": [
+        "Seoul"
+      ],
+      "region": "Asia",
+      "subregion": "Eastern Asia",
+      "latlng": [
+        37,
+        127.5
+      ],
+      "area": 100210,
+      "population": 51780579
+    },
+    {
+      "name": {
+        "common": "Australia",
+        "official": "Commonwealth of Australia"
+      },
+      "cca2": "AU",
+      "cca3": "AUS",
+      "flag": "🇦🇺",
+      "flags": {
+        "png": "https://flagcdn.com/w320/au.png",
+        "svg": "https://flagcdn.com/au.svg"
+      },
+      "capital": [
+        "Canberra"
+      ],
+      "region": "Oceania",
+      "subregion": "Australia and New Zealand",
+      "latlng": [
+        -27,
+        133
+      ],
+      "area": 7692024,
+      "population": 25687041
+    }
+  ],
+  "totalCountries": 15
+}

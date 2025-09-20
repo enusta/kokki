@@ -37,19 +37,22 @@ const gameState = {
   score: 0,
   totalQuestions: 10,
   difficulty: 'beginner',
-  isGameActive: false
+  isGameActive: false,
+  usedCountries: [] // 重複防止のための出題済み国リスト
 };
 
 function startGame(difficulty) { /* ... */ }
 function nextQuestion() { /* ... */ }
 function checkAnswer(selectedCountry) { /* ... */ }
+function getRandomUnusedCountry(countries, usedCountries) { /* ... */ }
 ```
 
 #### 3. countryService.js (データ取得)
 ```javascript
 async function fetchCountries() { /* ... */ }
 function getRandomCountry(countries, difficulty) { /* ... */ }
-function generateWrongAnswers(correctCountry, allCountries) { /* ... */ }
+function generateWrongAnswers(correctCountry, allCountries, count, usedCountries) { /* ... */ }
+function getCountriesByDifficulty(countries, difficulty) { /* ... */ }
 ```
 
 #### 4. ui.js (UI操作)
@@ -104,7 +107,8 @@ function showCountryInfo(country) { /* ... */ }
   countries: [],
   currentCountry: null,
   options: [],
-  isGameActive: false
+  isGameActive: false,
+  usedCountries: [] // 出題済み国のコードリスト（重複防止）
 }
 ```
 
@@ -196,6 +200,131 @@ const DIFFICULTY_CONFIG = {
 - 国データをlocalStorageにキャッシュ
 - 選択された難易度の国旗画像をプリロード
 - Leafletによるマップタイルキャッシュ
+
+### フォールバックデータ管理システム
+
+#### データ階層構造
+```
+1. プライマリ: REST Countries API (リアルタイム)
+2. セカンダリ: LocalStorage キャッシュ (24時間有効)
+3. ターシャリ: 静的JSONファイル (data/countries.json)
+4. 最終: 最小限埋め込みデータ (緊急時のみ)
+```
+
+#### ファイル構造
+```
+data/
+├── countries.json              # 静的フォールバックデータ（手動生成）
+└── scripts/
+    └── generate-countries.js   # 一度きりのデータ生成スクリプト
+```
+
+#### データ生成戦略
+```javascript
+// 開発時一度きりのデータ生成
+class CountryDataGenerator {
+  async generateStaticData() {
+    // 1. REST Countries APIから全データ取得
+    // 2. 難易度別に国を分類・選択
+    // 3. 必要なフィールドのみ抽出
+    // 4. 静的JSONファイルとして保存
+    // 5. 開発者が必要と判断した時のみ再実行
+  }
+}
+```
+
+#### フォールバック読み込みロジック
+```javascript
+async function loadFallbackData() {
+  try {
+    // 静的JSONファイルを読み込み（常に存在する前提）
+    const response = await fetch('./data/countries.json');
+    if (response.ok) {
+      return await response.json();
+    }
+    throw new Error('Failed to load countries.json');
+  } catch (error) {
+    console.error('Critical error: countries.json not available', error);
+    // 開発環境でのみ最小限埋め込みデータを使用
+    return getMinimalEmbeddedData();
+  }
+}
+```
+
+### 重複防止システム
+
+#### 設計原則
+- 同一ゲームセッション内で同じ国旗が重複して出題されることを防ぐ
+- 選択肢でも可能な限り出題済みの国を避ける
+- 全ての国が出題済みになった場合は、リストをリセットして継続
+
+#### 実装詳細
+```javascript
+// 重複防止のデータ構造
+const gameState = {
+  usedCountries: [], // 出題済み国のcca2コードを格納
+  // ... その他のゲーム状態
+};
+
+// 未使用国の選択アルゴリズム
+function getRandomUnusedCountry(countries, usedCountries) {
+  // 1. 未使用の国をフィルタリング
+  const availableCountries = countries.filter(country => 
+    !usedCountries.includes(country.cca2)
+  );
+  
+  // 2. 未使用国がない場合はリセット
+  if (availableCountries.length === 0) {
+    gameState.usedCountries = [];
+    return getRandomCountry(countries);
+  }
+  
+  // 3. ランダム選択
+  return availableCountries[Math.floor(Math.random() * availableCountries.length)];
+}
+
+// 選択肢生成での重複回避
+function generateWrongAnswers(correctCountry, allCountries, count, usedCountries) {
+  // 正解国と出題済み国を除外してから選択肢を生成
+  const availableCountries = allCountries.filter(country => 
+    country.cca2 !== correctCountry.cca2 && 
+    !usedCountries.includes(country.cca2)
+  );
+  
+  // 十分な選択肢がない場合は出題済み制限を緩和
+  const countriesToUse = availableCountries.length >= count 
+    ? availableCountries 
+    : allCountries.filter(country => country.cca2 !== correctCountry.cca2);
+    
+  return shuffleAndSelect(countriesToUse, count);
+}
+```
+
+#### 状態管理
+```javascript
+// ゲーム開始時
+function startGame(difficulty) {
+  gameState.usedCountries = []; // リセット
+  // ... ゲーム初期化
+}
+
+// 問題生成時
+function nextQuestion() {
+  // 1. 未使用国を選択
+  const country = getRandomUnusedCountry(gameState.countries, gameState.usedCountries);
+  
+  // 2. 使用済みリストに追加
+  gameState.usedCountries.push(country.cca2);
+  
+  // 3. 選択肢生成（重複回避）
+  const wrongAnswers = generateWrongAnswers(
+    country, 
+    gameState.countries, 
+    3, 
+    gameState.usedCountries
+  );
+}
+```
 
 ## エラーハンドリング
 
