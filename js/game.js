@@ -9,6 +9,7 @@ const gameState = {
     totalQuestions: 10,
     score: 0,
     difficulty: 'beginner',
+    languageMode: 'japanese', // 言語表示モード（hiragana/japanese/english）
     countries: [],
     currentCountry: null,
     options: [],
@@ -43,10 +44,20 @@ async function startGame(difficulty) {
         console.log(`Starting ${config.name} game with ${config.questionsCount} questions`);
 
         // Load countries data based on difficulty
+        console.log('Fetching countries data...');
         const allCountries = await fetchCountries();
+        console.log(`Fetched ${allCountries ? allCountries.length : 0} countries from API/cache`);
+        
         gameState.countries = getCountriesByDifficulty(allCountries, difficulty);
+        console.log(`Filtered to ${gameState.countries.length} countries for ${difficulty} difficulty`);
 
         if (gameState.countries.length < 4) {
+            console.error('Insufficient countries data:', {
+                allCountriesCount: allCountries ? allCountries.length : 0,
+                filteredCount: gameState.countries.length,
+                difficulty: difficulty,
+                config: getDifficultyConfig(difficulty)
+            });
             throw new Error('Insufficient countries data for quiz');
         }
 
@@ -123,15 +134,26 @@ async function nextQuestion() {
 
         // Add current country to used countries list
         gameState.usedCountries.push(gameState.currentCountry.cca2);
+        console.log(`Question ${gameState.currentQuestion + 1}: ${gameState.currentCountry.name.common} (${gameState.currentCountry.cca2})`);
+        console.log(`Used countries: [${gameState.usedCountries.join(', ')}] (${gameState.usedCountries.length}/${gameState.countries.length})`);
+        console.log(`Available countries remaining: ${gameState.countries.length - gameState.usedCountries.length}`);
 
         // Generate answer options (1 correct + 3 wrong)
         const answerOptions = generateAnswerOptions(gameState.currentCountry, gameState.countries);
         gameState.options = answerOptions.options;
         gameState.correctOptionIndex = answerOptions.correctIndex;
 
-        // Update UI with new question (pass country object for better error handling)
-        displayFlag(gameState.currentCountry.flags.png, gameState.currentCountry.name.common, gameState.currentCountry);
-        showOptions(gameState.options.map(country => country.name.common));
+        // Update UI with new question using multilingual names (Requirement 8.2, 8.3, 8.4)
+        const countryDisplayName = getCountryName(gameState.currentCountry);
+        console.log(`Displaying flag for: ${countryDisplayName}`);
+        console.log(`Flag URL: ${gameState.currentCountry.flags.png}`);
+        displayFlag(gameState.currentCountry.flags.png, countryDisplayName, gameState.currentCountry);
+
+        // Generate multilingual options for display (Requirement 8.2)
+        const multilingualOptions = gameState.options.map(country => getCountryName(country));
+        console.log(`Showing options:`, multilingualOptions);
+        showOptions(multilingualOptions);
+
         updateQuestionCounter(gameState.currentQuestion + 1, gameState.totalQuestions);
         updateProgress(calculateProgress());
 
@@ -162,12 +184,15 @@ function checkAnswer(selectedIndex) {
     if (isCorrect) {
         handleCorrectAnswer();
     } else {
-        handleIncorrectAnswer(correctCountry.name.common);
+        // Use multilingual name for feedback (Requirement 8.6)
+        const correctCountryName = getCountryName(correctCountry);
+        handleIncorrectAnswer(correctCountryName);
     }
 
-    // Show visual feedback
+    // Show visual feedback with multilingual name (Requirement 8.6)
     highlightOptions(gameState.correctOptionIndex, selectedIndex);
-    showFeedback(isCorrect, correctCountry.name.common);
+    const correctCountryName = getCountryName(correctCountry);
+    showFeedback(isCorrect, correctCountryName);
 
     // Move to next question after a delay
     setTimeout(() => {
@@ -334,9 +359,9 @@ function handleCorrectAnswer() {
     updateScoreDisplay();
     updateProgressDisplay();
 
-    // Highlight country on map when correct (Requirement 2.1)
+    // Highlight country on map when correct (Requirement 2.1, 8.8)
     if (typeof highlightCountry === 'function' && gameState.currentCountry.latlng) {
-        highlightCountry(gameState.currentCountry.cca2, gameState.currentCountry.latlng);
+        highlightCountry(gameState.currentCountry.cca2, gameState.currentCountry.latlng, gameState.languageMode);
     }
 
     console.log(`Correct! Score: ${gameState.score}/${gameState.currentQuestion + 1}`);
@@ -350,9 +375,9 @@ function handleIncorrectAnswer(correctAnswer) {
     // Update progress display (score doesn't increase, but question count does) (Requirement 3.3)
     updateProgressDisplay();
 
-    // Still highlight country on map for learning purposes (Requirement 2.1)
+    // Still highlight country on map for learning purposes (Requirement 2.1, 8.8)
     if (typeof highlightCountry === 'function' && gameState.currentCountry.latlng) {
-        highlightCountry(gameState.currentCountry.cca2, gameState.currentCountry.latlng);
+        highlightCountry(gameState.currentCountry.cca2, gameState.currentCountry.latlng, gameState.languageMode);
     }
 
     console.log(`Incorrect. Correct answer: ${correctAnswer}. Score: ${gameState.score}/${gameState.currentQuestion + 1}`);
@@ -444,12 +469,13 @@ function getRandomUnusedCountry(countries, usedCountries) {
     }
 
     // Filter out countries that have already been used
-    const availableCountries = countries.filter(country => 
+    const availableCountries = countries.filter(country =>
         !usedCountries.includes(country.cca2)
     );
 
     if (availableCountries.length === 0) {
-        console.warn('No unused countries available, resetting used countries list');
+        console.warn('🔄 All countries have been used! Resetting used countries list to continue...');
+        console.log(`Total countries available: ${countries.length}, All used: [${usedCountries.join(', ')}]`);
         // If all countries have been used, reset the used list and start over
         gameState.usedCountries = [];
         return getRandomCountry(countries);
@@ -468,6 +494,7 @@ function resetGameState() {
     gameState.score = 0;
     gameState.totalQuestions = 10;
     gameState.difficulty = 'beginner';
+    // 言語モードはリセットしない（ユーザーの選択を保持）
     gameState.countries = [];
     gameState.currentCountry = null;
     gameState.options = [];
@@ -556,6 +583,94 @@ function validateGameState() {
     }
 
     return isValid;
+}
+
+/**
+ * Get country name based on selected language mode (Requirement 8.2, 8.3, 8.4)
+ * @param {Object} country - Country object with multilingual names
+ * @param {string} languageMode - Language mode (hiragana/japanese/english)
+ * @returns {string} Country name in selected language
+ */
+function getCountryName(country, languageMode = gameState.languageMode) {
+    if (!country || !country.name) {
+        return '不明な国';
+    }
+
+    switch (languageMode) {
+        case 'hiragana':
+            return country.name.hiragana || country.name.japanese || country.name.common;
+        case 'japanese':
+            return country.name.japanese || country.name.common;
+        case 'english':
+        default:
+            return country.name.common;
+    }
+}
+
+/**
+ * Get capital name based on selected language mode (Requirement 8.10, 8.11)
+ * @param {Object} country - Country object with multilingual capital names
+ * @param {string} languageMode - Language mode (hiragana/japanese/english)
+ * @returns {string} Capital name in selected language
+ */
+function getCapitalName(country, languageMode = gameState.languageMode) {
+    if (!country || !country.capital) {
+        return '不明';
+    }
+
+    switch (languageMode) {
+        case 'hiragana':
+            return country.capital.hiragana?.[0] || country.capital.japanese?.[0] || country.capital.english?.[0] || country.capital[0] || '不明';
+        case 'japanese':
+            return country.capital.japanese?.[0] || country.capital.english?.[0] || country.capital[0] || '不明';
+        case 'english':
+        default:
+            return country.capital.english?.[0] || country.capital[0] || 'Unknown';
+    }
+}
+
+/**
+ * Get region name based on selected language mode (Requirement 8.11)
+ * @param {Object} country - Country object with multilingual region names
+ * @param {string} languageMode - Language mode (hiragana/japanese/english)
+ * @returns {string} Region name in selected language
+ */
+function getRegionName(country, languageMode = gameState.languageMode) {
+    if (!country || !country.region) {
+        return '不明';
+    }
+
+    switch (languageMode) {
+        case 'hiragana':
+            return country.region.hiragana || country.region.japanese || country.region.english || country.region || '不明';
+        case 'japanese':
+            return country.region.japanese || country.region.english || country.region || '不明';
+        case 'english':
+        default:
+            return country.region.english || country.region || 'Unknown';
+    }
+}
+
+/**
+ * Get subregion name based on selected language mode (Requirement 8.11)
+ * @param {Object} country - Country object with multilingual subregion names
+ * @param {string} languageMode - Language mode (hiragana/japanese/english)
+ * @returns {string} Subregion name in selected language
+ */
+function getSubregionName(country, languageMode = gameState.languageMode) {
+    if (!country || !country.subregion) {
+        return '不明';
+    }
+
+    switch (languageMode) {
+        case 'hiragana':
+            return country.subregion.hiragana || country.subregion.japanese || country.subregion.english || country.subregion || '不明';
+        case 'japanese':
+            return country.subregion.japanese || country.subregion.english || country.subregion || '不明';
+        case 'english':
+        default:
+            return country.subregion.english || country.subregion || 'Unknown';
+    }
 }
 
 /**

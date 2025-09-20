@@ -1,5 +1,5 @@
 {
-  "generated": "2025-09-20T04:59:18.318Z",
+  "generated": "2025-09-20T09:21:42.389Z",
   "version": "1.0.0",
   "source": "REST Countries API v3.1",
   "description": "Static fallback data for Flag Guessing Game",
@@ -9,7 +9,9 @@
         {
           "name": {
             "common": "United States",
-            "official": "United States of America"
+            "official": "United States of America",
+            "japanese": "アメリカ合衆国",
+            "hiragana": "あめりかがっしゅうこく"
           },
           "cca2": "US",
           "cca3": "USA",
@@ -18,11 +20,27 @@
             "png": "https://flagcdn.com/w320/us.png",
             "svg": "https://flagcdn.com/us.svg"
           },
-          "capital": [
-            "Washington, D.C."
-          ],
-          "region": "Americas",
-          "subregion": "North America",
+          "capital": {
+            "english": [
+              "Washington, D.C."
+            ],
+            "japanese": [
+              "ワシントンD.C."
+            ],
+            "hiragana": [
+              "わしんとんでぃーしー"
+            ]
+          },
+          "region": {
+            "english": "Americas",
+            "japanese": "アメリカ大陸",
+            "hiragana": "あめりかたいりく"
+          },
+          "subregion": {
+            "english": "North America",
+            "japanese": "北アメリカ",
+            "hiragana": "きたあめりか"
+          },
           "latlng": [
             38,
             -97
@@ -33,7 +51,9 @@
         {
           "name": {
             "common": "Canada",
-            "official": "Canada"
+            "official": "Canada",
+            "japanese": "カナダ",
+            "hiragana": "かなだ"
           },
           "cca2": "CA",
           "cca3": "CAN",
@@ -42,11 +62,27 @@
             "png": "https://flagcdn.com/w320/ca.png",
             "svg": "https://flagcdn.com/ca.svg"
           },
-          "capital": [
-            "Ottawa"
-          ],
-          "region": "Americas",
-          "subregion": "North America",
+          "capital": {
+            "english": [
+              "Ottawa"
+            ],
+            "japanese": [
+              "オタワ"
+            ],
+            "hiragana": [
+              "おたわ"
+            ]
+          },
+          "region": {
+            "english": "Americas",
+            "japanese": "アメリカ大陸",
+            "hiragana": "あめりかたいりく"
+          },
+          "subregion": {
+            "english": "North America",
+            "japanese": "北アメリカ",
+            "hiragana": "きたあめりか"
+          },
           "latlng": [
             60,
             -95
@@ -57,7 +93,9 @@
         {
           "name": {
             "common": "Germany",
-            "official": "Federal Republic of Germany"
+            "official": "Federal Republic of Germany",
+            "japanese": "ドイツ",
+            "hiragana": "どいつ"
           },
           "cca2": "DE",
           "cca3": "DEU",
@@ -66,11 +104,27 @@
             "png": "https://flagcdn.com/w320/de.png",
             "svg": "https://flagcdn.com/de.svg"
           },
-          "capital": [
-            "Berlin"
-          ],
-          "region": "Europe",
-          "subregion": "Western Europe",
+          "capital": {
+            "english": [
+              "Berlin"
+            ],
+            "japanese": [
+              "ベルリン"
+            ],
+            "hiragana": [
+              "べるりん"
+            ]
+          },
+          "region": {
+            "english": "Europe",
+            "japanese": "ヨーロッパ",
+            "hiragana": "よーろっぱ"
+          },
+          "subregion": {
+            "english": "Western Europe",
+            "japanese": "西ヨーロッパ",
+            "hiragana": "にしよーろっぱ"
+          },
           "latlng": [
             51,
             9
@@ -81,7 +135,9 @@
         {
           "name": {
             "common": "France",
-            "official": "French Republic"
+            "official": "French Republic",
+            "japanese": "フランス",
+            "hiragana": "ふらんす"
           },
           "cca2": "FR",
           "cca3": "FRA",
@@ -90,11 +146,27 @@
             "png": "https://flagcdn.com/w320/fr.png",
             "svg": "https://flagcdn.com/fr.svg"
           },
-          "capital": [
-            "Paris"
-          ],
-          "region": "Europe",
-          "subregion": "Western Europe",
+          "capital": {
+            "english": [
+              "Paris"
+            ],
+            "japanese": [
+              "パリ"
+            ],
+            "hiragana": [
+              "ぱり"
+            ]
+          },
+          "region": {
+            "english": "Europe",
+            "japanese": "ヨーロッパ",
+            "hiragana": "よーろっぱ"
+          },
+          "subregion": {
+            "english": "Western Europe",
+            "japanese": "西ヨーロッパ",
+            "hiragana": "にしよーろっぱ"
+          },
           "latlng": [
             46,
             2
@@ -105,7 +177,9 @@
         {
           "name": {
             "common": "United Kingdom",
-            "official": "United Kingdom of Great Britain and Northern Ireland"
+            "official": "United Kingdom of Great Britain and Northern Ireland",
+            "japanese": "イギリス",
+            "hiragana": "いぎりす"
           },
           "cca2": "GB",
           "cca3": "GBR",
@@ -114,11 +188,27 @@
             "png": "https://flagcdn.com/w320/gb.png",
             "svg": "https://flagcdn.com/gb.svg"
           },
-          "capital": [
-            "London"
-          ],
-          "region": "Europe",
-          "subregion": "Northern Europe",
+          "capital": {
+            "english": [
+              "London"
+            ],
+            "japanese": [
+              "ロンドン"
+            ],
+            "hiragana": [
+              "ろんどん"
+            ]
+          },
+          "region": {
+            "english": "Europe",
+            "japanese": "ヨーロッパ",
+            "hiragana": "よーろっぱ"
+          },
+          "subregion": {
+            "english": "Northern Europe",
+            "japanese": "北ヨーロッパ",
+            "hiragana": "きたよーろっぱ"
+          },
           "latlng": [
             54,
             -2
@@ -129,7 +219,9 @@
         {
           "name": {
             "common": "Italy",
-            "official": "Italian Republic"
+            "official": "Italian Republic",
+            "japanese": "イタリア",
+            "hiragana": "いたりあ"
           },
           "cca2": "IT",
           "cca3": "ITA",
@@ -138,11 +230,27 @@
             "png": "https://flagcdn.com/w320/it.png",
             "svg": "https://flagcdn.com/it.svg"
           },
-          "capital": [
-            "Rome"
-          ],
-          "region": "Europe",
-          "subregion": "Southern Europe",
+          "capital": {
+            "english": [
+              "Rome"
+            ],
+            "japanese": [
+              "ローマ"
+            ],
+            "hiragana": [
+              "ろーま"
+            ]
+          },
+          "region": {
+            "english": "Europe",
+            "japanese": "ヨーロッパ",
+            "hiragana": "よーろっぱ"
+          },
+          "subregion": {
+            "english": "Southern Europe",
+            "japanese": "南ヨーロッパ",
+            "hiragana": "みなみよーろっぱ"
+          },
           "latlng": [
             42.83333333,
             12.83333333
@@ -153,7 +261,9 @@
         {
           "name": {
             "common": "Spain",
-            "official": "Kingdom of Spain"
+            "official": "Kingdom of Spain",
+            "japanese": "スペイン",
+            "hiragana": "すぺいん"
           },
           "cca2": "ES",
           "cca3": "ESP",
@@ -162,11 +272,27 @@
             "png": "https://flagcdn.com/w320/es.png",
             "svg": "https://flagcdn.com/es.svg"
           },
-          "capital": [
-            "Madrid"
-          ],
-          "region": "Europe",
-          "subregion": "Southern Europe",
+          "capital": {
+            "english": [
+              "Madrid"
+            ],
+            "japanese": [
+              "マドリード"
+            ],
+            "hiragana": [
+              "まどりーど"
+            ]
+          },
+          "region": {
+            "english": "Europe",
+            "japanese": "ヨーロッパ",
+            "hiragana": "よーろっぱ"
+          },
+          "subregion": {
+            "english": "Southern Europe",
+            "japanese": "南ヨーロッパ",
+            "hiragana": "みなみよーろっぱ"
+          },
           "latlng": [
             40,
             -4
@@ -177,7 +303,9 @@
         {
           "name": {
             "common": "Brazil",
-            "official": "Federative Republic of Brazil"
+            "official": "Federative Republic of Brazil",
+            "japanese": "ブラジル",
+            "hiragana": "ぶらじる"
           },
           "cca2": "BR",
           "cca3": "BRA",
@@ -186,11 +314,27 @@
             "png": "https://flagcdn.com/w320/br.png",
             "svg": "https://flagcdn.com/br.svg"
           },
-          "capital": [
-            "Brasília"
-          ],
-          "region": "Americas",
-          "subregion": "South America",
+          "capital": {
+            "english": [
+              "Brasília"
+            ],
+            "japanese": [
+              "ブラジリア"
+            ],
+            "hiragana": [
+              "ぶらじりあ"
+            ]
+          },
+          "region": {
+            "english": "Americas",
+            "japanese": "アメリカ大陸",
+            "hiragana": "あめりかたいりく"
+          },
+          "subregion": {
+            "english": "South America",
+            "japanese": "南アメリカ",
+            "hiragana": "みなみあめりか"
+          },
           "latlng": [
             -10,
             -55
@@ -201,7 +345,9 @@
         {
           "name": {
             "common": "Russia",
-            "official": "Russian Federation"
+            "official": "Russian Federation",
+            "japanese": "ロシア",
+            "hiragana": "ろしあ"
           },
           "cca2": "RU",
           "cca3": "RUS",
@@ -210,11 +356,27 @@
             "png": "https://flagcdn.com/w320/ru.png",
             "svg": "https://flagcdn.com/ru.svg"
           },
-          "capital": [
-            "Moscow"
-          ],
-          "region": "Europe",
-          "subregion": "Eastern Europe",
+          "capital": {
+            "english": [
+              "Moscow"
+            ],
+            "japanese": [
+              "モスクワ"
+            ],
+            "hiragana": [
+              "もすくわ"
+            ]
+          },
+          "region": {
+            "english": "Europe",
+            "japanese": "ヨーロッパ",
+            "hiragana": "よーろっぱ"
+          },
+          "subregion": {
+            "english": "Eastern Europe",
+            "japanese": "東ヨーロッパ",
+            "hiragana": "ひがしよーろっぱ"
+          },
           "latlng": [
             60,
             100
@@ -225,7 +387,9 @@
         {
           "name": {
             "common": "Mexico",
-            "official": "United Mexican States"
+            "official": "United Mexican States",
+            "japanese": "メキシコ",
+            "hiragana": "めきしこ"
           },
           "cca2": "MX",
           "cca3": "MEX",
@@ -234,20 +398,498 @@
             "png": "https://flagcdn.com/w320/mx.png",
             "svg": "https://flagcdn.com/mx.svg"
           },
-          "capital": [
-            "Mexico City"
-          ],
-          "region": "Americas",
-          "subregion": "North America",
+          "capital": {
+            "english": [
+              "Mexico City"
+            ],
+            "japanese": [
+              "メキシコシティ"
+            ],
+            "hiragana": [
+              "めきしこしてぃ"
+            ]
+          },
+          "region": {
+            "english": "Americas",
+            "japanese": "アメリカ大陸",
+            "hiragana": "あめりかたいりく"
+          },
+          "subregion": {
+            "english": "North America",
+            "japanese": "北アメリカ",
+            "hiragana": "きたあめりか"
+          },
           "latlng": [
             23,
             -102
           ],
           "area": 1964375,
           "population": 128932753
+        },
+        {
+          "name": {
+            "common": "Poland",
+            "official": "Republic of Poland",
+            "japanese": "ポーランド",
+            "hiragana": "ぽーらんど"
+          },
+          "cca2": "PL",
+          "cca3": "POL",
+          "flag": "🇵🇱",
+          "flags": {
+            "png": "https://flagcdn.com/w320/pl.png",
+            "svg": "https://flagcdn.com/pl.svg"
+          },
+          "capital": {
+            "english": [
+              "Warsaw"
+            ],
+            "japanese": [
+              "ワルシャワ"
+            ],
+            "hiragana": [
+              "わるしゃわ"
+            ]
+          },
+          "region": {
+            "english": "Europe",
+            "japanese": "ヨーロッパ",
+            "hiragana": "よーろっぱ"
+          },
+          "subregion": {
+            "english": "Central Europe",
+            "japanese": "中央ヨーロッパ",
+            "hiragana": "ちゅうおうよーろっぱ"
+          },
+          "latlng": [
+            52,
+            20
+          ],
+          "area": 312679,
+          "population": 37950802
+        },
+        {
+          "name": {
+            "common": "Netherlands",
+            "official": "Kingdom of the Netherlands",
+            "japanese": "オランダ",
+            "hiragana": "おらんだ"
+          },
+          "cca2": "NL",
+          "cca3": "NLD",
+          "flag": "🇳🇱",
+          "flags": {
+            "png": "https://flagcdn.com/w320/nl.png",
+            "svg": "https://flagcdn.com/nl.svg"
+          },
+          "capital": {
+            "english": [
+              "Amsterdam"
+            ],
+            "japanese": [
+              "アムステルダム"
+            ],
+            "hiragana": [
+              "あむすてるだむ"
+            ]
+          },
+          "region": {
+            "english": "Europe",
+            "japanese": "ヨーロッパ",
+            "hiragana": "よーろっぱ"
+          },
+          "subregion": {
+            "english": "Western Europe",
+            "japanese": "西ヨーロッパ",
+            "hiragana": "にしよーろっぱ"
+          },
+          "latlng": [
+            52.5,
+            5.75
+          ],
+          "area": 41850,
+          "population": 17441139
+        },
+        {
+          "name": {
+            "common": "Belgium",
+            "official": "Kingdom of Belgium",
+            "japanese": "Belgium",
+            "hiragana": "Belgium"
+          },
+          "cca2": "BE",
+          "cca3": "BEL",
+          "flag": "🇧🇪",
+          "flags": {
+            "png": "https://flagcdn.com/w320/be.png",
+            "svg": "https://flagcdn.com/be.svg"
+          },
+          "capital": {
+            "english": [
+              "Brussels"
+            ],
+            "japanese": [
+              "Brussels"
+            ],
+            "hiragana": [
+              "Brussels"
+            ]
+          },
+          "region": {
+            "english": "Europe",
+            "japanese": "ヨーロッパ",
+            "hiragana": "よーろっぱ"
+          },
+          "subregion": {
+            "english": "Western Europe",
+            "japanese": "西ヨーロッパ",
+            "hiragana": "にしよーろっぱ"
+          },
+          "latlng": [
+            50.83333333,
+            4
+          ],
+          "area": 30528,
+          "population": 11555997
+        },
+        {
+          "name": {
+            "common": "Greece",
+            "official": "Hellenic Republic",
+            "japanese": "Greece",
+            "hiragana": "Greece"
+          },
+          "cca2": "GR",
+          "cca3": "GRC",
+          "flag": "🇬🇷",
+          "flags": {
+            "png": "https://flagcdn.com/w320/gr.png",
+            "svg": "https://flagcdn.com/gr.svg"
+          },
+          "capital": {
+            "english": [
+              "Athens"
+            ],
+            "japanese": [
+              "Athens"
+            ],
+            "hiragana": [
+              "Athens"
+            ]
+          },
+          "region": {
+            "english": "Europe",
+            "japanese": "ヨーロッパ",
+            "hiragana": "よーろっぱ"
+          },
+          "subregion": {
+            "english": "Southern Europe",
+            "japanese": "南ヨーロッパ",
+            "hiragana": "みなみよーろっぱ"
+          },
+          "latlng": [
+            39,
+            22
+          ],
+          "area": 131957,
+          "population": 10715549
+        },
+        {
+          "name": {
+            "common": "Sweden",
+            "official": "Kingdom of Sweden",
+            "japanese": "スウェーデン",
+            "hiragana": "すうぇーでん"
+          },
+          "cca2": "SE",
+          "cca3": "SWE",
+          "flag": "🇸🇪",
+          "flags": {
+            "png": "https://flagcdn.com/w320/se.png",
+            "svg": "https://flagcdn.com/se.svg"
+          },
+          "capital": {
+            "english": [
+              "Stockholm"
+            ],
+            "japanese": [
+              "ストックホルム"
+            ],
+            "hiragana": [
+              "すとっくほるむ"
+            ]
+          },
+          "region": {
+            "english": "Europe",
+            "japanese": "ヨーロッパ",
+            "hiragana": "よーろっぱ"
+          },
+          "subregion": {
+            "english": "Northern Europe",
+            "japanese": "北ヨーロッパ",
+            "hiragana": "きたよーろっぱ"
+          },
+          "latlng": [
+            62,
+            15
+          ],
+          "area": 450295,
+          "population": 10353442
+        },
+        {
+          "name": {
+            "common": "Portugal",
+            "official": "Portuguese Republic",
+            "japanese": "Portugal",
+            "hiragana": "Portugal"
+          },
+          "cca2": "PT",
+          "cca3": "PRT",
+          "flag": "🇵🇹",
+          "flags": {
+            "png": "https://flagcdn.com/w320/pt.png",
+            "svg": "https://flagcdn.com/pt.svg"
+          },
+          "capital": {
+            "english": [
+              "Lisbon"
+            ],
+            "japanese": [
+              "Lisbon"
+            ],
+            "hiragana": [
+              "Lisbon"
+            ]
+          },
+          "region": {
+            "english": "Europe",
+            "japanese": "ヨーロッパ",
+            "hiragana": "よーろっぱ"
+          },
+          "subregion": {
+            "english": "Southern Europe",
+            "japanese": "南ヨーロッパ",
+            "hiragana": "みなみよーろっぱ"
+          },
+          "latlng": [
+            39.5,
+            -8
+          ],
+          "area": 92090,
+          "population": 10305564
+        },
+        {
+          "name": {
+            "common": "Austria",
+            "official": "Republic of Austria",
+            "japanese": "Austria",
+            "hiragana": "Austria"
+          },
+          "cca2": "AT",
+          "cca3": "AUT",
+          "flag": "🇦🇹",
+          "flags": {
+            "png": "https://flagcdn.com/w320/at.png",
+            "svg": "https://flagcdn.com/at.svg"
+          },
+          "capital": {
+            "english": [
+              "Vienna"
+            ],
+            "japanese": [
+              "Vienna"
+            ],
+            "hiragana": [
+              "Vienna"
+            ]
+          },
+          "region": {
+            "english": "Europe",
+            "japanese": "ヨーロッパ",
+            "hiragana": "よーろっぱ"
+          },
+          "subregion": {
+            "english": "Western Europe",
+            "japanese": "西ヨーロッパ",
+            "hiragana": "にしよーろっぱ"
+          },
+          "latlng": [
+            47.33333333,
+            13.33333333
+          ],
+          "area": 83871,
+          "population": 8917205
+        },
+        {
+          "name": {
+            "common": "Switzerland",
+            "official": "Swiss Confederation",
+            "japanese": "スイス",
+            "hiragana": "すいす"
+          },
+          "cca2": "CH",
+          "cca3": "CHE",
+          "flag": "🇨🇭",
+          "flags": {
+            "png": "https://flagcdn.com/w320/ch.png",
+            "svg": "https://flagcdn.com/ch.svg"
+          },
+          "capital": {
+            "english": [
+              "Bern"
+            ],
+            "japanese": [
+              "ベルン"
+            ],
+            "hiragana": [
+              "べるん"
+            ]
+          },
+          "region": {
+            "english": "Europe",
+            "japanese": "ヨーロッパ",
+            "hiragana": "よーろっぱ"
+          },
+          "subregion": {
+            "english": "Western Europe",
+            "japanese": "西ヨーロッパ",
+            "hiragana": "にしよーろっぱ"
+          },
+          "latlng": [
+            47,
+            8
+          ],
+          "area": 41285,
+          "population": 8636896
+        },
+        {
+          "name": {
+            "common": "Denmark",
+            "official": "Kingdom of Denmark",
+            "japanese": "Denmark",
+            "hiragana": "Denmark"
+          },
+          "cca2": "DK",
+          "cca3": "DNK",
+          "flag": "🇩🇰",
+          "flags": {
+            "png": "https://flagcdn.com/w320/dk.png",
+            "svg": "https://flagcdn.com/dk.svg"
+          },
+          "capital": {
+            "english": [
+              "Copenhagen"
+            ],
+            "japanese": [
+              "Copenhagen"
+            ],
+            "hiragana": [
+              "Copenhagen"
+            ]
+          },
+          "region": {
+            "english": "Europe",
+            "japanese": "ヨーロッパ",
+            "hiragana": "よーろっぱ"
+          },
+          "subregion": {
+            "english": "Northern Europe",
+            "japanese": "北ヨーロッパ",
+            "hiragana": "きたよーろっぱ"
+          },
+          "latlng": [
+            56,
+            10
+          ],
+          "area": 43094,
+          "population": 5831404
+        },
+        {
+          "name": {
+            "common": "Finland",
+            "official": "Republic of Finland",
+            "japanese": "Finland",
+            "hiragana": "Finland"
+          },
+          "cca2": "FI",
+          "cca3": "FIN",
+          "flag": "🇫🇮",
+          "flags": {
+            "png": "https://flagcdn.com/w320/fi.png",
+            "svg": "https://flagcdn.com/fi.svg"
+          },
+          "capital": {
+            "english": [
+              "Helsinki"
+            ],
+            "japanese": [
+              "Helsinki"
+            ],
+            "hiragana": [
+              "Helsinki"
+            ]
+          },
+          "region": {
+            "english": "Europe",
+            "japanese": "ヨーロッパ",
+            "hiragana": "よーろっぱ"
+          },
+          "subregion": {
+            "english": "Northern Europe",
+            "japanese": "北ヨーロッパ",
+            "hiragana": "きたよーろっぱ"
+          },
+          "latlng": [
+            64,
+            26
+          ],
+          "area": 338424,
+          "population": 5530719
+        },
+        {
+          "name": {
+            "common": "Norway",
+            "official": "Kingdom of Norway",
+            "japanese": "ノルウェー",
+            "hiragana": "のるうぇー"
+          },
+          "cca2": "NO",
+          "cca3": "NOR",
+          "flag": "🇳🇴",
+          "flags": {
+            "png": "https://flagcdn.com/w320/no.png",
+            "svg": "https://flagcdn.com/no.svg"
+          },
+          "capital": {
+            "english": [
+              "Oslo"
+            ],
+            "japanese": [
+              "オスロ"
+            ],
+            "hiragana": [
+              "おすろ"
+            ]
+          },
+          "region": {
+            "english": "Europe",
+            "japanese": "ヨーロッパ",
+            "hiragana": "よーろっぱ"
+          },
+          "subregion": {
+            "english": "Northern Europe",
+            "japanese": "北ヨーロッパ",
+            "hiragana": "きたよーろっぱ"
+          },
+          "latlng": [
+            62,
+            10
+          ],
+          "area": 323802,
+          "population": 5379475
         }
       ],
-      "count": 10,
+      "count": 21,
       "questionsCount": 10,
       "regions": [
         "Europe",
@@ -260,7 +902,9 @@
         {
           "name": {
             "common": "China",
-            "official": "People's Republic of China"
+            "official": "People's Republic of China",
+            "japanese": "中国",
+            "hiragana": "ちゅうごく"
           },
           "cca2": "CN",
           "cca3": "CHN",
@@ -269,11 +913,27 @@
             "png": "https://flagcdn.com/w320/cn.png",
             "svg": "https://flagcdn.com/cn.svg"
           },
-          "capital": [
-            "Beijing"
-          ],
-          "region": "Asia",
-          "subregion": "Eastern Asia",
+          "capital": {
+            "english": [
+              "Beijing"
+            ],
+            "japanese": [
+              "北京"
+            ],
+            "hiragana": [
+              "ぺきん"
+            ]
+          },
+          "region": {
+            "english": "Asia",
+            "japanese": "アジア",
+            "hiragana": "あじあ"
+          },
+          "subregion": {
+            "english": "Eastern Asia",
+            "japanese": "東アジア",
+            "hiragana": "ひがしあじあ"
+          },
           "latlng": [
             35,
             105
@@ -284,7 +944,9 @@
         {
           "name": {
             "common": "India",
-            "official": "Republic of India"
+            "official": "Republic of India",
+            "japanese": "インド",
+            "hiragana": "いんど"
           },
           "cca2": "IN",
           "cca3": "IND",
@@ -293,11 +955,27 @@
             "png": "https://flagcdn.com/w320/in.png",
             "svg": "https://flagcdn.com/in.svg"
           },
-          "capital": [
-            "New Delhi"
-          ],
-          "region": "Asia",
-          "subregion": "Southern Asia",
+          "capital": {
+            "english": [
+              "New Delhi"
+            ],
+            "japanese": [
+              "ニューデリー"
+            ],
+            "hiragana": [
+              "にゅーでりー"
+            ]
+          },
+          "region": {
+            "english": "Asia",
+            "japanese": "アジア",
+            "hiragana": "あじあ"
+          },
+          "subregion": {
+            "english": "Southern Asia",
+            "japanese": "南アジア",
+            "hiragana": "みなみあじあ"
+          },
           "latlng": [
             20,
             77
@@ -308,7 +986,9 @@
         {
           "name": {
             "common": "United States",
-            "official": "United States of America"
+            "official": "United States of America",
+            "japanese": "アメリカ合衆国",
+            "hiragana": "あめりかがっしゅうこく"
           },
           "cca2": "US",
           "cca3": "USA",
@@ -317,11 +997,27 @@
             "png": "https://flagcdn.com/w320/us.png",
             "svg": "https://flagcdn.com/us.svg"
           },
-          "capital": [
-            "Washington, D.C."
-          ],
-          "region": "Americas",
-          "subregion": "North America",
+          "capital": {
+            "english": [
+              "Washington, D.C."
+            ],
+            "japanese": [
+              "ワシントンD.C."
+            ],
+            "hiragana": [
+              "わしんとんでぃーしー"
+            ]
+          },
+          "region": {
+            "english": "Americas",
+            "japanese": "アメリカ大陸",
+            "hiragana": "あめりかたいりく"
+          },
+          "subregion": {
+            "english": "North America",
+            "japanese": "北アメリカ",
+            "hiragana": "きたあめりか"
+          },
           "latlng": [
             38,
             -97
@@ -331,8 +1027,52 @@
         },
         {
           "name": {
+            "common": "Indonesia",
+            "official": "Republic of Indonesia",
+            "japanese": "Indonesia",
+            "hiragana": "Indonesia"
+          },
+          "cca2": "ID",
+          "cca3": "IDN",
+          "flag": "🇮🇩",
+          "flags": {
+            "png": "https://flagcdn.com/w320/id.png",
+            "svg": "https://flagcdn.com/id.svg"
+          },
+          "capital": {
+            "english": [
+              "Jakarta"
+            ],
+            "japanese": [
+              "Jakarta"
+            ],
+            "hiragana": [
+              "Jakarta"
+            ]
+          },
+          "region": {
+            "english": "Asia",
+            "japanese": "アジア",
+            "hiragana": "あじあ"
+          },
+          "subregion": {
+            "english": "South-Eastern Asia",
+            "japanese": "東南アジア",
+            "hiragana": "とうなんあじあ"
+          },
+          "latlng": [
+            -5,
+            120
+          ],
+          "area": 1904569,
+          "population": 273523615
+        },
+        {
+          "name": {
             "common": "Brazil",
-            "official": "Federative Republic of Brazil"
+            "official": "Federative Republic of Brazil",
+            "japanese": "ブラジル",
+            "hiragana": "ぶらじる"
           },
           "cca2": "BR",
           "cca3": "BRA",
@@ -341,11 +1081,27 @@
             "png": "https://flagcdn.com/w320/br.png",
             "svg": "https://flagcdn.com/br.svg"
           },
-          "capital": [
-            "Brasília"
-          ],
-          "region": "Americas",
-          "subregion": "South America",
+          "capital": {
+            "english": [
+              "Brasília"
+            ],
+            "japanese": [
+              "ブラジリア"
+            ],
+            "hiragana": [
+              "ぶらじりあ"
+            ]
+          },
+          "region": {
+            "english": "Americas",
+            "japanese": "アメリカ大陸",
+            "hiragana": "あめりかたいりく"
+          },
+          "subregion": {
+            "english": "South America",
+            "japanese": "南アメリカ",
+            "hiragana": "みなみあめりか"
+          },
           "latlng": [
             -10,
             -55
@@ -356,7 +1112,9 @@
         {
           "name": {
             "common": "Russia",
-            "official": "Russian Federation"
+            "official": "Russian Federation",
+            "japanese": "ロシア",
+            "hiragana": "ろしあ"
           },
           "cca2": "RU",
           "cca3": "RUS",
@@ -365,11 +1123,27 @@
             "png": "https://flagcdn.com/w320/ru.png",
             "svg": "https://flagcdn.com/ru.svg"
           },
-          "capital": [
-            "Moscow"
-          ],
-          "region": "Europe",
-          "subregion": "Eastern Europe",
+          "capital": {
+            "english": [
+              "Moscow"
+            ],
+            "japanese": [
+              "モスクワ"
+            ],
+            "hiragana": [
+              "もすくわ"
+            ]
+          },
+          "region": {
+            "english": "Europe",
+            "japanese": "ヨーロッパ",
+            "hiragana": "よーろっぱ"
+          },
+          "subregion": {
+            "english": "Eastern Europe",
+            "japanese": "東ヨーロッパ",
+            "hiragana": "ひがしよーろっぱ"
+          },
           "latlng": [
             60,
             100
@@ -380,7 +1154,9 @@
         {
           "name": {
             "common": "Mexico",
-            "official": "United Mexican States"
+            "official": "United Mexican States",
+            "japanese": "メキシコ",
+            "hiragana": "めきしこ"
           },
           "cca2": "MX",
           "cca3": "MEX",
@@ -389,11 +1165,27 @@
             "png": "https://flagcdn.com/w320/mx.png",
             "svg": "https://flagcdn.com/mx.svg"
           },
-          "capital": [
-            "Mexico City"
-          ],
-          "region": "Americas",
-          "subregion": "North America",
+          "capital": {
+            "english": [
+              "Mexico City"
+            ],
+            "japanese": [
+              "メキシコシティ"
+            ],
+            "hiragana": [
+              "めきしこしてぃ"
+            ]
+          },
+          "region": {
+            "english": "Americas",
+            "japanese": "アメリカ大陸",
+            "hiragana": "あめりかたいりく"
+          },
+          "subregion": {
+            "english": "North America",
+            "japanese": "北アメリカ",
+            "hiragana": "きたあめりか"
+          },
           "latlng": [
             23,
             -102
@@ -404,7 +1196,9 @@
         {
           "name": {
             "common": "Japan",
-            "official": "Japan"
+            "official": "Japan",
+            "japanese": "日本",
+            "hiragana": "にほん"
           },
           "cca2": "JP",
           "cca3": "JPN",
@@ -413,11 +1207,27 @@
             "png": "https://flagcdn.com/w320/jp.png",
             "svg": "https://flagcdn.com/jp.svg"
           },
-          "capital": [
-            "Tokyo"
-          ],
-          "region": "Asia",
-          "subregion": "Eastern Asia",
+          "capital": {
+            "english": [
+              "Tokyo"
+            ],
+            "japanese": [
+              "東京"
+            ],
+            "hiragana": [
+              "とうきょう"
+            ]
+          },
+          "region": {
+            "english": "Asia",
+            "japanese": "アジア",
+            "hiragana": "あじあ"
+          },
+          "subregion": {
+            "english": "Eastern Asia",
+            "japanese": "東アジア",
+            "hiragana": "ひがしあじあ"
+          },
           "latlng": [
             36,
             138
@@ -427,8 +1237,136 @@
         },
         {
           "name": {
+            "common": "Philippines",
+            "official": "Republic of the Philippines",
+            "japanese": "Philippines",
+            "hiragana": "Philippines"
+          },
+          "cca2": "PH",
+          "cca3": "PHL",
+          "flag": "🇵🇭",
+          "flags": {
+            "png": "https://flagcdn.com/w320/ph.png",
+            "svg": "https://flagcdn.com/ph.svg"
+          },
+          "capital": {
+            "english": [
+              "Manila"
+            ],
+            "japanese": [
+              "Manila"
+            ],
+            "hiragana": [
+              "Manila"
+            ]
+          },
+          "region": {
+            "english": "Asia",
+            "japanese": "アジア",
+            "hiragana": "あじあ"
+          },
+          "subregion": {
+            "english": "South-Eastern Asia",
+            "japanese": "東南アジア",
+            "hiragana": "とうなんあじあ"
+          },
+          "latlng": [
+            13,
+            122
+          ],
+          "area": 300000,
+          "population": 109581078
+        },
+        {
+          "name": {
+            "common": "Vietnam",
+            "official": "Socialist Republic of Vietnam",
+            "japanese": "Vietnam",
+            "hiragana": "Vietnam"
+          },
+          "cca2": "VN",
+          "cca3": "VNM",
+          "flag": "🇻🇳",
+          "flags": {
+            "png": "https://flagcdn.com/w320/vn.png",
+            "svg": "https://flagcdn.com/vn.svg"
+          },
+          "capital": {
+            "english": [
+              "Hanoi"
+            ],
+            "japanese": [
+              "Hanoi"
+            ],
+            "hiragana": [
+              "Hanoi"
+            ]
+          },
+          "region": {
+            "english": "Asia",
+            "japanese": "アジア",
+            "hiragana": "あじあ"
+          },
+          "subregion": {
+            "english": "South-Eastern Asia",
+            "japanese": "東南アジア",
+            "hiragana": "とうなんあじあ"
+          },
+          "latlng": [
+            16.16666666,
+            107.83333333
+          ],
+          "area": 331212,
+          "population": 97338579
+        },
+        {
+          "name": {
+            "common": "Turkey",
+            "official": "Republic of Turkey",
+            "japanese": "トルコ",
+            "hiragana": "とるこ"
+          },
+          "cca2": "TR",
+          "cca3": "TUR",
+          "flag": "🇹🇷",
+          "flags": {
+            "png": "https://flagcdn.com/w320/tr.png",
+            "svg": "https://flagcdn.com/tr.svg"
+          },
+          "capital": {
+            "english": [
+              "Ankara"
+            ],
+            "japanese": [
+              "アンカラ"
+            ],
+            "hiragana": [
+              "あんから"
+            ]
+          },
+          "region": {
+            "english": "Asia",
+            "japanese": "アジア",
+            "hiragana": "あじあ"
+          },
+          "subregion": {
+            "english": "Western Asia",
+            "japanese": "西アジア",
+            "hiragana": "にしあじあ"
+          },
+          "latlng": [
+            39,
+            35
+          ],
+          "area": 783562,
+          "population": 84339067
+        },
+        {
+          "name": {
             "common": "Germany",
-            "official": "Federal Republic of Germany"
+            "official": "Federal Republic of Germany",
+            "japanese": "ドイツ",
+            "hiragana": "どいつ"
           },
           "cca2": "DE",
           "cca3": "DEU",
@@ -437,11 +1375,27 @@
             "png": "https://flagcdn.com/w320/de.png",
             "svg": "https://flagcdn.com/de.svg"
           },
-          "capital": [
-            "Berlin"
-          ],
-          "region": "Europe",
-          "subregion": "Western Europe",
+          "capital": {
+            "english": [
+              "Berlin"
+            ],
+            "japanese": [
+              "ベルリン"
+            ],
+            "hiragana": [
+              "べるりん"
+            ]
+          },
+          "region": {
+            "english": "Europe",
+            "japanese": "ヨーロッパ",
+            "hiragana": "よーろっぱ"
+          },
+          "subregion": {
+            "english": "Western Europe",
+            "japanese": "西ヨーロッパ",
+            "hiragana": "にしよーろっぱ"
+          },
           "latlng": [
             51,
             9
@@ -451,8 +1405,52 @@
         },
         {
           "name": {
+            "common": "Thailand",
+            "official": "Kingdom of Thailand",
+            "japanese": "タイ",
+            "hiragana": "たい"
+          },
+          "cca2": "TH",
+          "cca3": "THA",
+          "flag": "🇹🇭",
+          "flags": {
+            "png": "https://flagcdn.com/w320/th.png",
+            "svg": "https://flagcdn.com/th.svg"
+          },
+          "capital": {
+            "english": [
+              "Bangkok"
+            ],
+            "japanese": [
+              "バンコク"
+            ],
+            "hiragana": [
+              "ばんこく"
+            ]
+          },
+          "region": {
+            "english": "Asia",
+            "japanese": "アジア",
+            "hiragana": "あじあ"
+          },
+          "subregion": {
+            "english": "South-Eastern Asia",
+            "japanese": "東南アジア",
+            "hiragana": "とうなんあじあ"
+          },
+          "latlng": [
+            15,
+            100
+          ],
+          "area": 513120,
+          "population": 69799978
+        },
+        {
+          "name": {
             "common": "United Kingdom",
-            "official": "United Kingdom of Great Britain and Northern Ireland"
+            "official": "United Kingdom of Great Britain and Northern Ireland",
+            "japanese": "イギリス",
+            "hiragana": "いぎりす"
           },
           "cca2": "GB",
           "cca3": "GBR",
@@ -461,11 +1459,27 @@
             "png": "https://flagcdn.com/w320/gb.png",
             "svg": "https://flagcdn.com/gb.svg"
           },
-          "capital": [
-            "London"
-          ],
-          "region": "Europe",
-          "subregion": "Northern Europe",
+          "capital": {
+            "english": [
+              "London"
+            ],
+            "japanese": [
+              "ロンドン"
+            ],
+            "hiragana": [
+              "ろんどん"
+            ]
+          },
+          "region": {
+            "english": "Europe",
+            "japanese": "ヨーロッパ",
+            "hiragana": "よーろっぱ"
+          },
+          "subregion": {
+            "english": "Northern Europe",
+            "japanese": "北ヨーロッパ",
+            "hiragana": "きたよーろっぱ"
+          },
           "latlng": [
             54,
             -2
@@ -476,7 +1490,9 @@
         {
           "name": {
             "common": "France",
-            "official": "French Republic"
+            "official": "French Republic",
+            "japanese": "フランス",
+            "hiragana": "ふらんす"
           },
           "cca2": "FR",
           "cca3": "FRA",
@@ -485,11 +1501,27 @@
             "png": "https://flagcdn.com/w320/fr.png",
             "svg": "https://flagcdn.com/fr.svg"
           },
-          "capital": [
-            "Paris"
-          ],
-          "region": "Europe",
-          "subregion": "Western Europe",
+          "capital": {
+            "english": [
+              "Paris"
+            ],
+            "japanese": [
+              "パリ"
+            ],
+            "hiragana": [
+              "ぱり"
+            ]
+          },
+          "region": {
+            "english": "Europe",
+            "japanese": "ヨーロッパ",
+            "hiragana": "よーろっぱ"
+          },
+          "subregion": {
+            "english": "Western Europe",
+            "japanese": "西ヨーロッパ",
+            "hiragana": "にしよーろっぱ"
+          },
           "latlng": [
             46,
             2
@@ -500,7 +1532,9 @@
         {
           "name": {
             "common": "Italy",
-            "official": "Italian Republic"
+            "official": "Italian Republic",
+            "japanese": "イタリア",
+            "hiragana": "いたりあ"
           },
           "cca2": "IT",
           "cca3": "ITA",
@@ -509,11 +1543,27 @@
             "png": "https://flagcdn.com/w320/it.png",
             "svg": "https://flagcdn.com/it.svg"
           },
-          "capital": [
-            "Rome"
-          ],
-          "region": "Europe",
-          "subregion": "Southern Europe",
+          "capital": {
+            "english": [
+              "Rome"
+            ],
+            "japanese": [
+              "ローマ"
+            ],
+            "hiragana": [
+              "ろーま"
+            ]
+          },
+          "region": {
+            "english": "Europe",
+            "japanese": "ヨーロッパ",
+            "hiragana": "よーろっぱ"
+          },
+          "subregion": {
+            "english": "Southern Europe",
+            "japanese": "南ヨーロッパ",
+            "hiragana": "みなみよーろっぱ"
+          },
           "latlng": [
             42.83333333,
             12.83333333
@@ -524,7 +1574,9 @@
         {
           "name": {
             "common": "South Korea",
-            "official": "Republic of Korea"
+            "official": "Republic of Korea",
+            "japanese": "韓国",
+            "hiragana": "かんこく"
           },
           "cca2": "KR",
           "cca3": "KOR",
@@ -533,11 +1585,27 @@
             "png": "https://flagcdn.com/w320/kr.png",
             "svg": "https://flagcdn.com/kr.svg"
           },
-          "capital": [
-            "Seoul"
-          ],
-          "region": "Asia",
-          "subregion": "Eastern Asia",
+          "capital": {
+            "english": [
+              "Seoul"
+            ],
+            "japanese": [
+              "ソウル"
+            ],
+            "hiragana": [
+              "そうる"
+            ]
+          },
+          "region": {
+            "english": "Asia",
+            "japanese": "アジア",
+            "hiragana": "あじあ"
+          },
+          "subregion": {
+            "english": "Eastern Asia",
+            "japanese": "東アジア",
+            "hiragana": "ひがしあじあ"
+          },
           "latlng": [
             37,
             127.5
@@ -548,7 +1616,9 @@
         {
           "name": {
             "common": "Spain",
-            "official": "Kingdom of Spain"
+            "official": "Kingdom of Spain",
+            "japanese": "スペイン",
+            "hiragana": "すぺいん"
           },
           "cca2": "ES",
           "cca3": "ESP",
@@ -557,11 +1627,27 @@
             "png": "https://flagcdn.com/w320/es.png",
             "svg": "https://flagcdn.com/es.svg"
           },
-          "capital": [
-            "Madrid"
-          ],
-          "region": "Europe",
-          "subregion": "Southern Europe",
+          "capital": {
+            "english": [
+              "Madrid"
+            ],
+            "japanese": [
+              "マドリード"
+            ],
+            "hiragana": [
+              "まどりーど"
+            ]
+          },
+          "region": {
+            "english": "Europe",
+            "japanese": "ヨーロッパ",
+            "hiragana": "よーろっぱ"
+          },
+          "subregion": {
+            "english": "Southern Europe",
+            "japanese": "南ヨーロッパ",
+            "hiragana": "みなみよーろっぱ"
+          },
           "latlng": [
             40,
             -4
@@ -572,7 +1658,9 @@
         {
           "name": {
             "common": "Canada",
-            "official": "Canada"
+            "official": "Canada",
+            "japanese": "カナダ",
+            "hiragana": "かなだ"
           },
           "cca2": "CA",
           "cca3": "CAN",
@@ -581,11 +1669,27 @@
             "png": "https://flagcdn.com/w320/ca.png",
             "svg": "https://flagcdn.com/ca.svg"
           },
-          "capital": [
-            "Ottawa"
-          ],
-          "region": "Americas",
-          "subregion": "North America",
+          "capital": {
+            "english": [
+              "Ottawa"
+            ],
+            "japanese": [
+              "オタワ"
+            ],
+            "hiragana": [
+              "おたわ"
+            ]
+          },
+          "region": {
+            "english": "Americas",
+            "japanese": "アメリカ大陸",
+            "hiragana": "あめりかたいりく"
+          },
+          "subregion": {
+            "english": "North America",
+            "japanese": "北アメリカ",
+            "hiragana": "きたあめりか"
+          },
           "latlng": [
             60,
             -95
@@ -595,8 +1699,94 @@
         },
         {
           "name": {
+            "common": "Poland",
+            "official": "Republic of Poland",
+            "japanese": "ポーランド",
+            "hiragana": "ぽーらんど"
+          },
+          "cca2": "PL",
+          "cca3": "POL",
+          "flag": "🇵🇱",
+          "flags": {
+            "png": "https://flagcdn.com/w320/pl.png",
+            "svg": "https://flagcdn.com/pl.svg"
+          },
+          "capital": {
+            "english": [
+              "Warsaw"
+            ],
+            "japanese": [
+              "ワルシャワ"
+            ],
+            "hiragana": [
+              "わるしゃわ"
+            ]
+          },
+          "region": {
+            "english": "Europe",
+            "japanese": "ヨーロッパ",
+            "hiragana": "よーろっぱ"
+          },
+          "subregion": {
+            "english": "Central Europe",
+            "japanese": "中央ヨーロッパ",
+            "hiragana": "ちゅうおうよーろっぱ"
+          },
+          "latlng": [
+            52,
+            20
+          ],
+          "area": 312679,
+          "population": 37950802
+        },
+        {
+          "name": {
+            "common": "Malaysia",
+            "official": "Malaysia",
+            "japanese": "Malaysia",
+            "hiragana": "Malaysia"
+          },
+          "cca2": "MY",
+          "cca3": "MYS",
+          "flag": "🇲🇾",
+          "flags": {
+            "png": "https://flagcdn.com/w320/my.png",
+            "svg": "https://flagcdn.com/my.svg"
+          },
+          "capital": {
+            "english": [
+              "Kuala Lumpur"
+            ],
+            "japanese": [
+              "Kuala Lumpur"
+            ],
+            "hiragana": [
+              "Kuala Lumpur"
+            ]
+          },
+          "region": {
+            "english": "Asia",
+            "japanese": "アジア",
+            "hiragana": "あじあ"
+          },
+          "subregion": {
+            "english": "South-Eastern Asia",
+            "japanese": "東南アジア",
+            "hiragana": "とうなんあじあ"
+          },
+          "latlng": [
+            2.5,
+            112.5
+          ],
+          "area": 329847,
+          "population": 32365999
+        },
+        {
+          "name": {
             "common": "Australia",
-            "official": "Commonwealth of Australia"
+            "official": "Commonwealth of Australia",
+            "japanese": "オーストラリア",
+            "hiragana": "おーすとらりあ"
           },
           "cca2": "AU",
           "cca3": "AUS",
@@ -605,20 +1795,540 @@
             "png": "https://flagcdn.com/w320/au.png",
             "svg": "https://flagcdn.com/au.svg"
           },
-          "capital": [
-            "Canberra"
-          ],
-          "region": "Oceania",
-          "subregion": "Australia and New Zealand",
+          "capital": {
+            "english": [
+              "Canberra"
+            ],
+            "japanese": [
+              "キャンベラ"
+            ],
+            "hiragana": [
+              "きゃんべら"
+            ]
+          },
+          "region": {
+            "english": "Oceania",
+            "japanese": "オセアニア",
+            "hiragana": "おせあにあ"
+          },
+          "subregion": {
+            "english": "Australia and New Zealand",
+            "japanese": "オーストラリア・ニュージーランド",
+            "hiragana": "おーすとらりあ・にゅーじーらんど"
+          },
           "latlng": [
             -27,
             133
           ],
           "area": 7692024,
           "population": 25687041
+        },
+        {
+          "name": {
+            "common": "Netherlands",
+            "official": "Kingdom of the Netherlands",
+            "japanese": "オランダ",
+            "hiragana": "おらんだ"
+          },
+          "cca2": "NL",
+          "cca3": "NLD",
+          "flag": "🇳🇱",
+          "flags": {
+            "png": "https://flagcdn.com/w320/nl.png",
+            "svg": "https://flagcdn.com/nl.svg"
+          },
+          "capital": {
+            "english": [
+              "Amsterdam"
+            ],
+            "japanese": [
+              "アムステルダム"
+            ],
+            "hiragana": [
+              "あむすてるだむ"
+            ]
+          },
+          "region": {
+            "english": "Europe",
+            "japanese": "ヨーロッパ",
+            "hiragana": "よーろっぱ"
+          },
+          "subregion": {
+            "english": "Western Europe",
+            "japanese": "西ヨーロッパ",
+            "hiragana": "にしよーろっぱ"
+          },
+          "latlng": [
+            52.5,
+            5.75
+          ],
+          "area": 41850,
+          "population": 17441139
+        },
+        {
+          "name": {
+            "common": "Belgium",
+            "official": "Kingdom of Belgium",
+            "japanese": "Belgium",
+            "hiragana": "Belgium"
+          },
+          "cca2": "BE",
+          "cca3": "BEL",
+          "flag": "🇧🇪",
+          "flags": {
+            "png": "https://flagcdn.com/w320/be.png",
+            "svg": "https://flagcdn.com/be.svg"
+          },
+          "capital": {
+            "english": [
+              "Brussels"
+            ],
+            "japanese": [
+              "Brussels"
+            ],
+            "hiragana": [
+              "Brussels"
+            ]
+          },
+          "region": {
+            "english": "Europe",
+            "japanese": "ヨーロッパ",
+            "hiragana": "よーろっぱ"
+          },
+          "subregion": {
+            "english": "Western Europe",
+            "japanese": "西ヨーロッパ",
+            "hiragana": "にしよーろっぱ"
+          },
+          "latlng": [
+            50.83333333,
+            4
+          ],
+          "area": 30528,
+          "population": 11555997
+        },
+        {
+          "name": {
+            "common": "Greece",
+            "official": "Hellenic Republic",
+            "japanese": "Greece",
+            "hiragana": "Greece"
+          },
+          "cca2": "GR",
+          "cca3": "GRC",
+          "flag": "🇬🇷",
+          "flags": {
+            "png": "https://flagcdn.com/w320/gr.png",
+            "svg": "https://flagcdn.com/gr.svg"
+          },
+          "capital": {
+            "english": [
+              "Athens"
+            ],
+            "japanese": [
+              "Athens"
+            ],
+            "hiragana": [
+              "Athens"
+            ]
+          },
+          "region": {
+            "english": "Europe",
+            "japanese": "ヨーロッパ",
+            "hiragana": "よーろっぱ"
+          },
+          "subregion": {
+            "english": "Southern Europe",
+            "japanese": "南ヨーロッパ",
+            "hiragana": "みなみよーろっぱ"
+          },
+          "latlng": [
+            39,
+            22
+          ],
+          "area": 131957,
+          "population": 10715549
+        },
+        {
+          "name": {
+            "common": "Sweden",
+            "official": "Kingdom of Sweden",
+            "japanese": "スウェーデン",
+            "hiragana": "すうぇーでん"
+          },
+          "cca2": "SE",
+          "cca3": "SWE",
+          "flag": "🇸🇪",
+          "flags": {
+            "png": "https://flagcdn.com/w320/se.png",
+            "svg": "https://flagcdn.com/se.svg"
+          },
+          "capital": {
+            "english": [
+              "Stockholm"
+            ],
+            "japanese": [
+              "ストックホルム"
+            ],
+            "hiragana": [
+              "すとっくほるむ"
+            ]
+          },
+          "region": {
+            "english": "Europe",
+            "japanese": "ヨーロッパ",
+            "hiragana": "よーろっぱ"
+          },
+          "subregion": {
+            "english": "Northern Europe",
+            "japanese": "北ヨーロッパ",
+            "hiragana": "きたよーろっぱ"
+          },
+          "latlng": [
+            62,
+            15
+          ],
+          "area": 450295,
+          "population": 10353442
+        },
+        {
+          "name": {
+            "common": "Portugal",
+            "official": "Portuguese Republic",
+            "japanese": "Portugal",
+            "hiragana": "Portugal"
+          },
+          "cca2": "PT",
+          "cca3": "PRT",
+          "flag": "🇵🇹",
+          "flags": {
+            "png": "https://flagcdn.com/w320/pt.png",
+            "svg": "https://flagcdn.com/pt.svg"
+          },
+          "capital": {
+            "english": [
+              "Lisbon"
+            ],
+            "japanese": [
+              "Lisbon"
+            ],
+            "hiragana": [
+              "Lisbon"
+            ]
+          },
+          "region": {
+            "english": "Europe",
+            "japanese": "ヨーロッパ",
+            "hiragana": "よーろっぱ"
+          },
+          "subregion": {
+            "english": "Southern Europe",
+            "japanese": "南ヨーロッパ",
+            "hiragana": "みなみよーろっぱ"
+          },
+          "latlng": [
+            39.5,
+            -8
+          ],
+          "area": 92090,
+          "population": 10305564
+        },
+        {
+          "name": {
+            "common": "Austria",
+            "official": "Republic of Austria",
+            "japanese": "Austria",
+            "hiragana": "Austria"
+          },
+          "cca2": "AT",
+          "cca3": "AUT",
+          "flag": "🇦🇹",
+          "flags": {
+            "png": "https://flagcdn.com/w320/at.png",
+            "svg": "https://flagcdn.com/at.svg"
+          },
+          "capital": {
+            "english": [
+              "Vienna"
+            ],
+            "japanese": [
+              "Vienna"
+            ],
+            "hiragana": [
+              "Vienna"
+            ]
+          },
+          "region": {
+            "english": "Europe",
+            "japanese": "ヨーロッパ",
+            "hiragana": "よーろっぱ"
+          },
+          "subregion": {
+            "english": "Western Europe",
+            "japanese": "西ヨーロッパ",
+            "hiragana": "にしよーろっぱ"
+          },
+          "latlng": [
+            47.33333333,
+            13.33333333
+          ],
+          "area": 83871,
+          "population": 8917205
+        },
+        {
+          "name": {
+            "common": "Switzerland",
+            "official": "Swiss Confederation",
+            "japanese": "スイス",
+            "hiragana": "すいす"
+          },
+          "cca2": "CH",
+          "cca3": "CHE",
+          "flag": "🇨🇭",
+          "flags": {
+            "png": "https://flagcdn.com/w320/ch.png",
+            "svg": "https://flagcdn.com/ch.svg"
+          },
+          "capital": {
+            "english": [
+              "Bern"
+            ],
+            "japanese": [
+              "ベルン"
+            ],
+            "hiragana": [
+              "べるん"
+            ]
+          },
+          "region": {
+            "english": "Europe",
+            "japanese": "ヨーロッパ",
+            "hiragana": "よーろっぱ"
+          },
+          "subregion": {
+            "english": "Western Europe",
+            "japanese": "西ヨーロッパ",
+            "hiragana": "にしよーろっぱ"
+          },
+          "latlng": [
+            47,
+            8
+          ],
+          "area": 41285,
+          "population": 8636896
+        },
+        {
+          "name": {
+            "common": "Denmark",
+            "official": "Kingdom of Denmark",
+            "japanese": "Denmark",
+            "hiragana": "Denmark"
+          },
+          "cca2": "DK",
+          "cca3": "DNK",
+          "flag": "🇩🇰",
+          "flags": {
+            "png": "https://flagcdn.com/w320/dk.png",
+            "svg": "https://flagcdn.com/dk.svg"
+          },
+          "capital": {
+            "english": [
+              "Copenhagen"
+            ],
+            "japanese": [
+              "Copenhagen"
+            ],
+            "hiragana": [
+              "Copenhagen"
+            ]
+          },
+          "region": {
+            "english": "Europe",
+            "japanese": "ヨーロッパ",
+            "hiragana": "よーろっぱ"
+          },
+          "subregion": {
+            "english": "Northern Europe",
+            "japanese": "北ヨーロッパ",
+            "hiragana": "きたよーろっぱ"
+          },
+          "latlng": [
+            56,
+            10
+          ],
+          "area": 43094,
+          "population": 5831404
+        },
+        {
+          "name": {
+            "common": "Singapore",
+            "official": "Republic of Singapore",
+            "japanese": "Singapore",
+            "hiragana": "Singapore"
+          },
+          "cca2": "SG",
+          "cca3": "SGP",
+          "flag": "🇸🇬",
+          "flags": {
+            "png": "https://flagcdn.com/w320/sg.png",
+            "svg": "https://flagcdn.com/sg.svg"
+          },
+          "capital": {
+            "english": [
+              "Singapore"
+            ],
+            "japanese": [
+              "Singapore"
+            ],
+            "hiragana": [
+              "Singapore"
+            ]
+          },
+          "region": {
+            "english": "Asia",
+            "japanese": "アジア",
+            "hiragana": "あじあ"
+          },
+          "subregion": {
+            "english": "South-Eastern Asia",
+            "japanese": "東南アジア",
+            "hiragana": "とうなんあじあ"
+          },
+          "latlng": [
+            1.36666666,
+            103.8
+          ],
+          "area": 710,
+          "population": 5685807
+        },
+        {
+          "name": {
+            "common": "Finland",
+            "official": "Republic of Finland",
+            "japanese": "Finland",
+            "hiragana": "Finland"
+          },
+          "cca2": "FI",
+          "cca3": "FIN",
+          "flag": "🇫🇮",
+          "flags": {
+            "png": "https://flagcdn.com/w320/fi.png",
+            "svg": "https://flagcdn.com/fi.svg"
+          },
+          "capital": {
+            "english": [
+              "Helsinki"
+            ],
+            "japanese": [
+              "Helsinki"
+            ],
+            "hiragana": [
+              "Helsinki"
+            ]
+          },
+          "region": {
+            "english": "Europe",
+            "japanese": "ヨーロッパ",
+            "hiragana": "よーろっぱ"
+          },
+          "subregion": {
+            "english": "Northern Europe",
+            "japanese": "北ヨーロッパ",
+            "hiragana": "きたよーろっぱ"
+          },
+          "latlng": [
+            64,
+            26
+          ],
+          "area": 338424,
+          "population": 5530719
+        },
+        {
+          "name": {
+            "common": "Norway",
+            "official": "Kingdom of Norway",
+            "japanese": "ノルウェー",
+            "hiragana": "のるうぇー"
+          },
+          "cca2": "NO",
+          "cca3": "NOR",
+          "flag": "🇳🇴",
+          "flags": {
+            "png": "https://flagcdn.com/w320/no.png",
+            "svg": "https://flagcdn.com/no.svg"
+          },
+          "capital": {
+            "english": [
+              "Oslo"
+            ],
+            "japanese": [
+              "オスロ"
+            ],
+            "hiragana": [
+              "おすろ"
+            ]
+          },
+          "region": {
+            "english": "Europe",
+            "japanese": "ヨーロッパ",
+            "hiragana": "よーろっぱ"
+          },
+          "subregion": {
+            "english": "Northern Europe",
+            "japanese": "北ヨーロッパ",
+            "hiragana": "きたよーろっぱ"
+          },
+          "latlng": [
+            62,
+            10
+          ],
+          "area": 323802,
+          "population": 5379475
+        },
+        {
+          "name": {
+            "common": "New Zealand",
+            "official": "New Zealand",
+            "japanese": "New Zealand",
+            "hiragana": "New Zealand"
+          },
+          "cca2": "NZ",
+          "cca3": "NZL",
+          "flag": "🇳🇿",
+          "flags": {
+            "png": "https://flagcdn.com/w320/nz.png",
+            "svg": "https://flagcdn.com/nz.svg"
+          },
+          "capital": {
+            "english": [
+              "Wellington"
+            ],
+            "japanese": [
+              "Wellington"
+            ],
+            "hiragana": [
+              "Wellington"
+            ]
+          },
+          "region": {
+            "english": "Oceania",
+            "japanese": "オセアニア",
+            "hiragana": "おせあにあ"
+          },
+          "subregion": {
+            "english": "Australia and New Zealand",
+            "japanese": "オーストラリア・ニュージーランド",
+            "hiragana": "おーすとらりあ・にゅーじーらんど"
+          },
+          "latlng": [
+            -41,
+            174
+          ],
+          "area": 270467,
+          "population": 5084300
         }
       ],
-      "count": 15,
+      "count": 34,
       "questionsCount": 15,
       "regions": [
         "Europe",
@@ -633,7 +2343,9 @@
         {
           "name": {
             "common": "China",
-            "official": "People's Republic of China"
+            "official": "People's Republic of China",
+            "japanese": "中国",
+            "hiragana": "ちゅうごく"
           },
           "cca2": "CN",
           "cca3": "CHN",
@@ -642,11 +2354,27 @@
             "png": "https://flagcdn.com/w320/cn.png",
             "svg": "https://flagcdn.com/cn.svg"
           },
-          "capital": [
-            "Beijing"
-          ],
-          "region": "Asia",
-          "subregion": "Eastern Asia",
+          "capital": {
+            "english": [
+              "Beijing"
+            ],
+            "japanese": [
+              "北京"
+            ],
+            "hiragana": [
+              "ぺきん"
+            ]
+          },
+          "region": {
+            "english": "Asia",
+            "japanese": "アジア",
+            "hiragana": "あじあ"
+          },
+          "subregion": {
+            "english": "Eastern Asia",
+            "japanese": "東アジア",
+            "hiragana": "ひがしあじあ"
+          },
           "latlng": [
             35,
             105
@@ -657,7 +2385,9 @@
         {
           "name": {
             "common": "India",
-            "official": "Republic of India"
+            "official": "Republic of India",
+            "japanese": "インド",
+            "hiragana": "いんど"
           },
           "cca2": "IN",
           "cca3": "IND",
@@ -666,11 +2396,27 @@
             "png": "https://flagcdn.com/w320/in.png",
             "svg": "https://flagcdn.com/in.svg"
           },
-          "capital": [
-            "New Delhi"
-          ],
-          "region": "Asia",
-          "subregion": "Southern Asia",
+          "capital": {
+            "english": [
+              "New Delhi"
+            ],
+            "japanese": [
+              "ニューデリー"
+            ],
+            "hiragana": [
+              "にゅーでりー"
+            ]
+          },
+          "region": {
+            "english": "Asia",
+            "japanese": "アジア",
+            "hiragana": "あじあ"
+          },
+          "subregion": {
+            "english": "Southern Asia",
+            "japanese": "南アジア",
+            "hiragana": "みなみあじあ"
+          },
           "latlng": [
             20,
             77
@@ -681,7 +2427,9 @@
         {
           "name": {
             "common": "United States",
-            "official": "United States of America"
+            "official": "United States of America",
+            "japanese": "アメリカ合衆国",
+            "hiragana": "あめりかがっしゅうこく"
           },
           "cca2": "US",
           "cca3": "USA",
@@ -690,11 +2438,27 @@
             "png": "https://flagcdn.com/w320/us.png",
             "svg": "https://flagcdn.com/us.svg"
           },
-          "capital": [
-            "Washington, D.C."
-          ],
-          "region": "Americas",
-          "subregion": "North America",
+          "capital": {
+            "english": [
+              "Washington, D.C."
+            ],
+            "japanese": [
+              "ワシントンD.C."
+            ],
+            "hiragana": [
+              "わしんとんでぃーしー"
+            ]
+          },
+          "region": {
+            "english": "Americas",
+            "japanese": "アメリカ大陸",
+            "hiragana": "あめりかたいりく"
+          },
+          "subregion": {
+            "english": "North America",
+            "japanese": "北アメリカ",
+            "hiragana": "きたあめりか"
+          },
           "latlng": [
             38,
             -97
@@ -704,8 +2468,52 @@
         },
         {
           "name": {
+            "common": "Indonesia",
+            "official": "Republic of Indonesia",
+            "japanese": "Indonesia",
+            "hiragana": "Indonesia"
+          },
+          "cca2": "ID",
+          "cca3": "IDN",
+          "flag": "🇮🇩",
+          "flags": {
+            "png": "https://flagcdn.com/w320/id.png",
+            "svg": "https://flagcdn.com/id.svg"
+          },
+          "capital": {
+            "english": [
+              "Jakarta"
+            ],
+            "japanese": [
+              "Jakarta"
+            ],
+            "hiragana": [
+              "Jakarta"
+            ]
+          },
+          "region": {
+            "english": "Asia",
+            "japanese": "アジア",
+            "hiragana": "あじあ"
+          },
+          "subregion": {
+            "english": "South-Eastern Asia",
+            "japanese": "東南アジア",
+            "hiragana": "とうなんあじあ"
+          },
+          "latlng": [
+            -5,
+            120
+          ],
+          "area": 1904569,
+          "population": 273523615
+        },
+        {
+          "name": {
             "common": "Brazil",
-            "official": "Federative Republic of Brazil"
+            "official": "Federative Republic of Brazil",
+            "japanese": "ブラジル",
+            "hiragana": "ぶらじる"
           },
           "cca2": "BR",
           "cca3": "BRA",
@@ -714,11 +2522,27 @@
             "png": "https://flagcdn.com/w320/br.png",
             "svg": "https://flagcdn.com/br.svg"
           },
-          "capital": [
-            "Brasília"
-          ],
-          "region": "Americas",
-          "subregion": "South America",
+          "capital": {
+            "english": [
+              "Brasília"
+            ],
+            "japanese": [
+              "ブラジリア"
+            ],
+            "hiragana": [
+              "ぶらじりあ"
+            ]
+          },
+          "region": {
+            "english": "Americas",
+            "japanese": "アメリカ大陸",
+            "hiragana": "あめりかたいりく"
+          },
+          "subregion": {
+            "english": "South America",
+            "japanese": "南アメリカ",
+            "hiragana": "みなみあめりか"
+          },
           "latlng": [
             -10,
             -55
@@ -728,8 +2552,52 @@
         },
         {
           "name": {
+            "common": "Nigeria",
+            "official": "Federal Republic of Nigeria",
+            "japanese": "Nigeria",
+            "hiragana": "Nigeria"
+          },
+          "cca2": "NG",
+          "cca3": "NGA",
+          "flag": "🇳🇬",
+          "flags": {
+            "png": "https://flagcdn.com/w320/ng.png",
+            "svg": "https://flagcdn.com/ng.svg"
+          },
+          "capital": {
+            "english": [
+              "Abuja"
+            ],
+            "japanese": [
+              "Abuja"
+            ],
+            "hiragana": [
+              "Abuja"
+            ]
+          },
+          "region": {
+            "english": "Africa",
+            "japanese": "アフリカ",
+            "hiragana": "あふりか"
+          },
+          "subregion": {
+            "english": "Western Africa",
+            "japanese": "Western Africa",
+            "hiragana": "Western Africa"
+          },
+          "latlng": [
+            10,
+            8
+          ],
+          "area": 923768,
+          "population": 206139589
+        },
+        {
+          "name": {
             "common": "Russia",
-            "official": "Russian Federation"
+            "official": "Russian Federation",
+            "japanese": "ロシア",
+            "hiragana": "ろしあ"
           },
           "cca2": "RU",
           "cca3": "RUS",
@@ -738,11 +2606,27 @@
             "png": "https://flagcdn.com/w320/ru.png",
             "svg": "https://flagcdn.com/ru.svg"
           },
-          "capital": [
-            "Moscow"
-          ],
-          "region": "Europe",
-          "subregion": "Eastern Europe",
+          "capital": {
+            "english": [
+              "Moscow"
+            ],
+            "japanese": [
+              "モスクワ"
+            ],
+            "hiragana": [
+              "もすくわ"
+            ]
+          },
+          "region": {
+            "english": "Europe",
+            "japanese": "ヨーロッパ",
+            "hiragana": "よーろっぱ"
+          },
+          "subregion": {
+            "english": "Eastern Europe",
+            "japanese": "東ヨーロッパ",
+            "hiragana": "ひがしよーろっぱ"
+          },
           "latlng": [
             60,
             100
@@ -753,7 +2637,9 @@
         {
           "name": {
             "common": "Mexico",
-            "official": "United Mexican States"
+            "official": "United Mexican States",
+            "japanese": "メキシコ",
+            "hiragana": "めきしこ"
           },
           "cca2": "MX",
           "cca3": "MEX",
@@ -762,11 +2648,27 @@
             "png": "https://flagcdn.com/w320/mx.png",
             "svg": "https://flagcdn.com/mx.svg"
           },
-          "capital": [
-            "Mexico City"
-          ],
-          "region": "Americas",
-          "subregion": "North America",
+          "capital": {
+            "english": [
+              "Mexico City"
+            ],
+            "japanese": [
+              "メキシコシティ"
+            ],
+            "hiragana": [
+              "めきしこしてぃ"
+            ]
+          },
+          "region": {
+            "english": "Americas",
+            "japanese": "アメリカ大陸",
+            "hiragana": "あめりかたいりく"
+          },
+          "subregion": {
+            "english": "North America",
+            "japanese": "北アメリカ",
+            "hiragana": "きたあめりか"
+          },
           "latlng": [
             23,
             -102
@@ -777,7 +2679,9 @@
         {
           "name": {
             "common": "Japan",
-            "official": "Japan"
+            "official": "Japan",
+            "japanese": "日本",
+            "hiragana": "にほん"
           },
           "cca2": "JP",
           "cca3": "JPN",
@@ -786,11 +2690,27 @@
             "png": "https://flagcdn.com/w320/jp.png",
             "svg": "https://flagcdn.com/jp.svg"
           },
-          "capital": [
-            "Tokyo"
-          ],
-          "region": "Asia",
-          "subregion": "Eastern Asia",
+          "capital": {
+            "english": [
+              "Tokyo"
+            ],
+            "japanese": [
+              "東京"
+            ],
+            "hiragana": [
+              "とうきょう"
+            ]
+          },
+          "region": {
+            "english": "Asia",
+            "japanese": "アジア",
+            "hiragana": "あじあ"
+          },
+          "subregion": {
+            "english": "Eastern Asia",
+            "japanese": "東アジア",
+            "hiragana": "ひがしあじあ"
+          },
           "latlng": [
             36,
             138
@@ -800,8 +2720,178 @@
         },
         {
           "name": {
+            "common": "Philippines",
+            "official": "Republic of the Philippines",
+            "japanese": "Philippines",
+            "hiragana": "Philippines"
+          },
+          "cca2": "PH",
+          "cca3": "PHL",
+          "flag": "🇵🇭",
+          "flags": {
+            "png": "https://flagcdn.com/w320/ph.png",
+            "svg": "https://flagcdn.com/ph.svg"
+          },
+          "capital": {
+            "english": [
+              "Manila"
+            ],
+            "japanese": [
+              "Manila"
+            ],
+            "hiragana": [
+              "Manila"
+            ]
+          },
+          "region": {
+            "english": "Asia",
+            "japanese": "アジア",
+            "hiragana": "あじあ"
+          },
+          "subregion": {
+            "english": "South-Eastern Asia",
+            "japanese": "東南アジア",
+            "hiragana": "とうなんあじあ"
+          },
+          "latlng": [
+            13,
+            122
+          ],
+          "area": 300000,
+          "population": 109581078
+        },
+        {
+          "name": {
+            "common": "Egypt",
+            "official": "Arab Republic of Egypt",
+            "japanese": "エジプト",
+            "hiragana": "えじぷと"
+          },
+          "cca2": "EG",
+          "cca3": "EGY",
+          "flag": "🇪🇬",
+          "flags": {
+            "png": "https://flagcdn.com/w320/eg.png",
+            "svg": "https://flagcdn.com/eg.svg"
+          },
+          "capital": {
+            "english": [
+              "Cairo"
+            ],
+            "japanese": [
+              "カイロ"
+            ],
+            "hiragana": [
+              "かいろ"
+            ]
+          },
+          "region": {
+            "english": "Africa",
+            "japanese": "アフリカ",
+            "hiragana": "あふりか"
+          },
+          "subregion": {
+            "english": "Northern Africa",
+            "japanese": "北アフリカ",
+            "hiragana": "きたあふりか"
+          },
+          "latlng": [
+            27,
+            30
+          ],
+          "area": 1002450,
+          "population": 102334403
+        },
+        {
+          "name": {
+            "common": "Vietnam",
+            "official": "Socialist Republic of Vietnam",
+            "japanese": "Vietnam",
+            "hiragana": "Vietnam"
+          },
+          "cca2": "VN",
+          "cca3": "VNM",
+          "flag": "🇻🇳",
+          "flags": {
+            "png": "https://flagcdn.com/w320/vn.png",
+            "svg": "https://flagcdn.com/vn.svg"
+          },
+          "capital": {
+            "english": [
+              "Hanoi"
+            ],
+            "japanese": [
+              "Hanoi"
+            ],
+            "hiragana": [
+              "Hanoi"
+            ]
+          },
+          "region": {
+            "english": "Asia",
+            "japanese": "アジア",
+            "hiragana": "あじあ"
+          },
+          "subregion": {
+            "english": "South-Eastern Asia",
+            "japanese": "東南アジア",
+            "hiragana": "とうなんあじあ"
+          },
+          "latlng": [
+            16.16666666,
+            107.83333333
+          ],
+          "area": 331212,
+          "population": 97338579
+        },
+        {
+          "name": {
+            "common": "Turkey",
+            "official": "Republic of Turkey",
+            "japanese": "トルコ",
+            "hiragana": "とるこ"
+          },
+          "cca2": "TR",
+          "cca3": "TUR",
+          "flag": "🇹🇷",
+          "flags": {
+            "png": "https://flagcdn.com/w320/tr.png",
+            "svg": "https://flagcdn.com/tr.svg"
+          },
+          "capital": {
+            "english": [
+              "Ankara"
+            ],
+            "japanese": [
+              "アンカラ"
+            ],
+            "hiragana": [
+              "あんから"
+            ]
+          },
+          "region": {
+            "english": "Asia",
+            "japanese": "アジア",
+            "hiragana": "あじあ"
+          },
+          "subregion": {
+            "english": "Western Asia",
+            "japanese": "西アジア",
+            "hiragana": "にしあじあ"
+          },
+          "latlng": [
+            39,
+            35
+          ],
+          "area": 783562,
+          "population": 84339067
+        },
+        {
+          "name": {
             "common": "Germany",
-            "official": "Federal Republic of Germany"
+            "official": "Federal Republic of Germany",
+            "japanese": "ドイツ",
+            "hiragana": "どいつ"
           },
           "cca2": "DE",
           "cca3": "DEU",
@@ -810,11 +2900,27 @@
             "png": "https://flagcdn.com/w320/de.png",
             "svg": "https://flagcdn.com/de.svg"
           },
-          "capital": [
-            "Berlin"
-          ],
-          "region": "Europe",
-          "subregion": "Western Europe",
+          "capital": {
+            "english": [
+              "Berlin"
+            ],
+            "japanese": [
+              "ベルリン"
+            ],
+            "hiragana": [
+              "べるりん"
+            ]
+          },
+          "region": {
+            "english": "Europe",
+            "japanese": "ヨーロッパ",
+            "hiragana": "よーろっぱ"
+          },
+          "subregion": {
+            "english": "Western Europe",
+            "japanese": "西ヨーロッパ",
+            "hiragana": "にしよーろっぱ"
+          },
           "latlng": [
             51,
             9
@@ -824,8 +2930,52 @@
         },
         {
           "name": {
+            "common": "Thailand",
+            "official": "Kingdom of Thailand",
+            "japanese": "タイ",
+            "hiragana": "たい"
+          },
+          "cca2": "TH",
+          "cca3": "THA",
+          "flag": "🇹🇭",
+          "flags": {
+            "png": "https://flagcdn.com/w320/th.png",
+            "svg": "https://flagcdn.com/th.svg"
+          },
+          "capital": {
+            "english": [
+              "Bangkok"
+            ],
+            "japanese": [
+              "バンコク"
+            ],
+            "hiragana": [
+              "ばんこく"
+            ]
+          },
+          "region": {
+            "english": "Asia",
+            "japanese": "アジア",
+            "hiragana": "あじあ"
+          },
+          "subregion": {
+            "english": "South-Eastern Asia",
+            "japanese": "東南アジア",
+            "hiragana": "とうなんあじあ"
+          },
+          "latlng": [
+            15,
+            100
+          ],
+          "area": 513120,
+          "population": 69799978
+        },
+        {
+          "name": {
             "common": "United Kingdom",
-            "official": "United Kingdom of Great Britain and Northern Ireland"
+            "official": "United Kingdom of Great Britain and Northern Ireland",
+            "japanese": "イギリス",
+            "hiragana": "いぎりす"
           },
           "cca2": "GB",
           "cca3": "GBR",
@@ -834,11 +2984,27 @@
             "png": "https://flagcdn.com/w320/gb.png",
             "svg": "https://flagcdn.com/gb.svg"
           },
-          "capital": [
-            "London"
-          ],
-          "region": "Europe",
-          "subregion": "Northern Europe",
+          "capital": {
+            "english": [
+              "London"
+            ],
+            "japanese": [
+              "ロンドン"
+            ],
+            "hiragana": [
+              "ろんどん"
+            ]
+          },
+          "region": {
+            "english": "Europe",
+            "japanese": "ヨーロッパ",
+            "hiragana": "よーろっぱ"
+          },
+          "subregion": {
+            "english": "Northern Europe",
+            "japanese": "北ヨーロッパ",
+            "hiragana": "きたよーろっぱ"
+          },
           "latlng": [
             54,
             -2
@@ -849,7 +3015,9 @@
         {
           "name": {
             "common": "France",
-            "official": "French Republic"
+            "official": "French Republic",
+            "japanese": "フランス",
+            "hiragana": "ふらんす"
           },
           "cca2": "FR",
           "cca3": "FRA",
@@ -858,11 +3026,27 @@
             "png": "https://flagcdn.com/w320/fr.png",
             "svg": "https://flagcdn.com/fr.svg"
           },
-          "capital": [
-            "Paris"
-          ],
-          "region": "Europe",
-          "subregion": "Western Europe",
+          "capital": {
+            "english": [
+              "Paris"
+            ],
+            "japanese": [
+              "パリ"
+            ],
+            "hiragana": [
+              "ぱり"
+            ]
+          },
+          "region": {
+            "english": "Europe",
+            "japanese": "ヨーロッパ",
+            "hiragana": "よーろっぱ"
+          },
+          "subregion": {
+            "english": "Western Europe",
+            "japanese": "西ヨーロッパ",
+            "hiragana": "にしよーろっぱ"
+          },
           "latlng": [
             46,
             2
@@ -873,7 +3057,9 @@
         {
           "name": {
             "common": "Italy",
-            "official": "Italian Republic"
+            "official": "Italian Republic",
+            "japanese": "イタリア",
+            "hiragana": "いたりあ"
           },
           "cca2": "IT",
           "cca3": "ITA",
@@ -882,11 +3068,27 @@
             "png": "https://flagcdn.com/w320/it.png",
             "svg": "https://flagcdn.com/it.svg"
           },
-          "capital": [
-            "Rome"
-          ],
-          "region": "Europe",
-          "subregion": "Southern Europe",
+          "capital": {
+            "english": [
+              "Rome"
+            ],
+            "japanese": [
+              "ローマ"
+            ],
+            "hiragana": [
+              "ろーま"
+            ]
+          },
+          "region": {
+            "english": "Europe",
+            "japanese": "ヨーロッパ",
+            "hiragana": "よーろっぱ"
+          },
+          "subregion": {
+            "english": "Southern Europe",
+            "japanese": "南ヨーロッパ",
+            "hiragana": "みなみよーろっぱ"
+          },
           "latlng": [
             42.83333333,
             12.83333333
@@ -896,8 +3098,54 @@
         },
         {
           "name": {
+            "common": "South Africa",
+            "official": "Republic of South Africa",
+            "japanese": "南アフリカ",
+            "hiragana": "みなみあふりか"
+          },
+          "cca2": "ZA",
+          "cca3": "ZAF",
+          "flag": "🇿🇦",
+          "flags": {
+            "png": "https://flagcdn.com/w320/za.png",
+            "svg": "https://flagcdn.com/za.svg"
+          },
+          "capital": {
+            "english": [
+              "Cape Town",
+              "Pretoria",
+              "Bloemfontein"
+            ],
+            "japanese": [
+              "ケープタウン"
+            ],
+            "hiragana": [
+              "けーぷたうん"
+            ]
+          },
+          "region": {
+            "english": "Africa",
+            "japanese": "アフリカ",
+            "hiragana": "あふりか"
+          },
+          "subregion": {
+            "english": "Southern Africa",
+            "japanese": "南アフリカ",
+            "hiragana": "みなみあふりか"
+          },
+          "latlng": [
+            -29,
+            24
+          ],
+          "area": 1221037,
+          "population": 59308690
+        },
+        {
+          "name": {
             "common": "South Korea",
-            "official": "Republic of Korea"
+            "official": "Republic of Korea",
+            "japanese": "韓国",
+            "hiragana": "かんこく"
           },
           "cca2": "KR",
           "cca3": "KOR",
@@ -906,11 +3154,27 @@
             "png": "https://flagcdn.com/w320/kr.png",
             "svg": "https://flagcdn.com/kr.svg"
           },
-          "capital": [
-            "Seoul"
-          ],
-          "region": "Asia",
-          "subregion": "Eastern Asia",
+          "capital": {
+            "english": [
+              "Seoul"
+            ],
+            "japanese": [
+              "ソウル"
+            ],
+            "hiragana": [
+              "そうる"
+            ]
+          },
+          "region": {
+            "english": "Asia",
+            "japanese": "アジア",
+            "hiragana": "あじあ"
+          },
+          "subregion": {
+            "english": "Eastern Asia",
+            "japanese": "東アジア",
+            "hiragana": "ひがしあじあ"
+          },
           "latlng": [
             37,
             127.5
@@ -921,7 +3185,9 @@
         {
           "name": {
             "common": "Spain",
-            "official": "Kingdom of Spain"
+            "official": "Kingdom of Spain",
+            "japanese": "スペイン",
+            "hiragana": "すぺいん"
           },
           "cca2": "ES",
           "cca3": "ESP",
@@ -930,11 +3196,27 @@
             "png": "https://flagcdn.com/w320/es.png",
             "svg": "https://flagcdn.com/es.svg"
           },
-          "capital": [
-            "Madrid"
-          ],
-          "region": "Europe",
-          "subregion": "Southern Europe",
+          "capital": {
+            "english": [
+              "Madrid"
+            ],
+            "japanese": [
+              "マドリード"
+            ],
+            "hiragana": [
+              "まどりーど"
+            ]
+          },
+          "region": {
+            "english": "Europe",
+            "japanese": "ヨーロッパ",
+            "hiragana": "よーろっぱ"
+          },
+          "subregion": {
+            "english": "Southern Europe",
+            "japanese": "南ヨーロッパ",
+            "hiragana": "みなみよーろっぱ"
+          },
           "latlng": [
             40,
             -4
@@ -945,7 +3227,9 @@
         {
           "name": {
             "common": "Canada",
-            "official": "Canada"
+            "official": "Canada",
+            "japanese": "カナダ",
+            "hiragana": "かなだ"
           },
           "cca2": "CA",
           "cca3": "CAN",
@@ -954,11 +3238,27 @@
             "png": "https://flagcdn.com/w320/ca.png",
             "svg": "https://flagcdn.com/ca.svg"
           },
-          "capital": [
-            "Ottawa"
-          ],
-          "region": "Americas",
-          "subregion": "North America",
+          "capital": {
+            "english": [
+              "Ottawa"
+            ],
+            "japanese": [
+              "オタワ"
+            ],
+            "hiragana": [
+              "おたわ"
+            ]
+          },
+          "region": {
+            "english": "Americas",
+            "japanese": "アメリカ大陸",
+            "hiragana": "あめりかたいりく"
+          },
+          "subregion": {
+            "english": "North America",
+            "japanese": "北アメリカ",
+            "hiragana": "きたあめりか"
+          },
           "latlng": [
             60,
             -95
@@ -968,8 +3268,94 @@
         },
         {
           "name": {
+            "common": "Poland",
+            "official": "Republic of Poland",
+            "japanese": "ポーランド",
+            "hiragana": "ぽーらんど"
+          },
+          "cca2": "PL",
+          "cca3": "POL",
+          "flag": "🇵🇱",
+          "flags": {
+            "png": "https://flagcdn.com/w320/pl.png",
+            "svg": "https://flagcdn.com/pl.svg"
+          },
+          "capital": {
+            "english": [
+              "Warsaw"
+            ],
+            "japanese": [
+              "ワルシャワ"
+            ],
+            "hiragana": [
+              "わるしゃわ"
+            ]
+          },
+          "region": {
+            "english": "Europe",
+            "japanese": "ヨーロッパ",
+            "hiragana": "よーろっぱ"
+          },
+          "subregion": {
+            "english": "Central Europe",
+            "japanese": "中央ヨーロッパ",
+            "hiragana": "ちゅうおうよーろっぱ"
+          },
+          "latlng": [
+            52,
+            20
+          ],
+          "area": 312679,
+          "population": 37950802
+        },
+        {
+          "name": {
+            "common": "Malaysia",
+            "official": "Malaysia",
+            "japanese": "Malaysia",
+            "hiragana": "Malaysia"
+          },
+          "cca2": "MY",
+          "cca3": "MYS",
+          "flag": "🇲🇾",
+          "flags": {
+            "png": "https://flagcdn.com/w320/my.png",
+            "svg": "https://flagcdn.com/my.svg"
+          },
+          "capital": {
+            "english": [
+              "Kuala Lumpur"
+            ],
+            "japanese": [
+              "Kuala Lumpur"
+            ],
+            "hiragana": [
+              "Kuala Lumpur"
+            ]
+          },
+          "region": {
+            "english": "Asia",
+            "japanese": "アジア",
+            "hiragana": "あじあ"
+          },
+          "subregion": {
+            "english": "South-Eastern Asia",
+            "japanese": "東南アジア",
+            "hiragana": "とうなんあじあ"
+          },
+          "latlng": [
+            2.5,
+            112.5
+          ],
+          "area": 329847,
+          "population": 32365999
+        },
+        {
+          "name": {
             "common": "Australia",
-            "official": "Commonwealth of Australia"
+            "official": "Commonwealth of Australia",
+            "japanese": "オーストラリア",
+            "hiragana": "おーすとらりあ"
           },
           "cca2": "AU",
           "cca3": "AUS",
@@ -978,20 +3364,540 @@
             "png": "https://flagcdn.com/w320/au.png",
             "svg": "https://flagcdn.com/au.svg"
           },
-          "capital": [
-            "Canberra"
-          ],
-          "region": "Oceania",
-          "subregion": "Australia and New Zealand",
+          "capital": {
+            "english": [
+              "Canberra"
+            ],
+            "japanese": [
+              "キャンベラ"
+            ],
+            "hiragana": [
+              "きゃんべら"
+            ]
+          },
+          "region": {
+            "english": "Oceania",
+            "japanese": "オセアニア",
+            "hiragana": "おせあにあ"
+          },
+          "subregion": {
+            "english": "Australia and New Zealand",
+            "japanese": "オーストラリア・ニュージーランド",
+            "hiragana": "おーすとらりあ・にゅーじーらんど"
+          },
           "latlng": [
             -27,
             133
           ],
           "area": 7692024,
           "population": 25687041
+        },
+        {
+          "name": {
+            "common": "Netherlands",
+            "official": "Kingdom of the Netherlands",
+            "japanese": "オランダ",
+            "hiragana": "おらんだ"
+          },
+          "cca2": "NL",
+          "cca3": "NLD",
+          "flag": "🇳🇱",
+          "flags": {
+            "png": "https://flagcdn.com/w320/nl.png",
+            "svg": "https://flagcdn.com/nl.svg"
+          },
+          "capital": {
+            "english": [
+              "Amsterdam"
+            ],
+            "japanese": [
+              "アムステルダム"
+            ],
+            "hiragana": [
+              "あむすてるだむ"
+            ]
+          },
+          "region": {
+            "english": "Europe",
+            "japanese": "ヨーロッパ",
+            "hiragana": "よーろっぱ"
+          },
+          "subregion": {
+            "english": "Western Europe",
+            "japanese": "西ヨーロッパ",
+            "hiragana": "にしよーろっぱ"
+          },
+          "latlng": [
+            52.5,
+            5.75
+          ],
+          "area": 41850,
+          "population": 17441139
+        },
+        {
+          "name": {
+            "common": "Belgium",
+            "official": "Kingdom of Belgium",
+            "japanese": "Belgium",
+            "hiragana": "Belgium"
+          },
+          "cca2": "BE",
+          "cca3": "BEL",
+          "flag": "🇧🇪",
+          "flags": {
+            "png": "https://flagcdn.com/w320/be.png",
+            "svg": "https://flagcdn.com/be.svg"
+          },
+          "capital": {
+            "english": [
+              "Brussels"
+            ],
+            "japanese": [
+              "Brussels"
+            ],
+            "hiragana": [
+              "Brussels"
+            ]
+          },
+          "region": {
+            "english": "Europe",
+            "japanese": "ヨーロッパ",
+            "hiragana": "よーろっぱ"
+          },
+          "subregion": {
+            "english": "Western Europe",
+            "japanese": "西ヨーロッパ",
+            "hiragana": "にしよーろっぱ"
+          },
+          "latlng": [
+            50.83333333,
+            4
+          ],
+          "area": 30528,
+          "population": 11555997
+        },
+        {
+          "name": {
+            "common": "Greece",
+            "official": "Hellenic Republic",
+            "japanese": "Greece",
+            "hiragana": "Greece"
+          },
+          "cca2": "GR",
+          "cca3": "GRC",
+          "flag": "🇬🇷",
+          "flags": {
+            "png": "https://flagcdn.com/w320/gr.png",
+            "svg": "https://flagcdn.com/gr.svg"
+          },
+          "capital": {
+            "english": [
+              "Athens"
+            ],
+            "japanese": [
+              "Athens"
+            ],
+            "hiragana": [
+              "Athens"
+            ]
+          },
+          "region": {
+            "english": "Europe",
+            "japanese": "ヨーロッパ",
+            "hiragana": "よーろっぱ"
+          },
+          "subregion": {
+            "english": "Southern Europe",
+            "japanese": "南ヨーロッパ",
+            "hiragana": "みなみよーろっぱ"
+          },
+          "latlng": [
+            39,
+            22
+          ],
+          "area": 131957,
+          "population": 10715549
+        },
+        {
+          "name": {
+            "common": "Sweden",
+            "official": "Kingdom of Sweden",
+            "japanese": "スウェーデン",
+            "hiragana": "すうぇーでん"
+          },
+          "cca2": "SE",
+          "cca3": "SWE",
+          "flag": "🇸🇪",
+          "flags": {
+            "png": "https://flagcdn.com/w320/se.png",
+            "svg": "https://flagcdn.com/se.svg"
+          },
+          "capital": {
+            "english": [
+              "Stockholm"
+            ],
+            "japanese": [
+              "ストックホルム"
+            ],
+            "hiragana": [
+              "すとっくほるむ"
+            ]
+          },
+          "region": {
+            "english": "Europe",
+            "japanese": "ヨーロッパ",
+            "hiragana": "よーろっぱ"
+          },
+          "subregion": {
+            "english": "Northern Europe",
+            "japanese": "北ヨーロッパ",
+            "hiragana": "きたよーろっぱ"
+          },
+          "latlng": [
+            62,
+            15
+          ],
+          "area": 450295,
+          "population": 10353442
+        },
+        {
+          "name": {
+            "common": "Portugal",
+            "official": "Portuguese Republic",
+            "japanese": "Portugal",
+            "hiragana": "Portugal"
+          },
+          "cca2": "PT",
+          "cca3": "PRT",
+          "flag": "🇵🇹",
+          "flags": {
+            "png": "https://flagcdn.com/w320/pt.png",
+            "svg": "https://flagcdn.com/pt.svg"
+          },
+          "capital": {
+            "english": [
+              "Lisbon"
+            ],
+            "japanese": [
+              "Lisbon"
+            ],
+            "hiragana": [
+              "Lisbon"
+            ]
+          },
+          "region": {
+            "english": "Europe",
+            "japanese": "ヨーロッパ",
+            "hiragana": "よーろっぱ"
+          },
+          "subregion": {
+            "english": "Southern Europe",
+            "japanese": "南ヨーロッパ",
+            "hiragana": "みなみよーろっぱ"
+          },
+          "latlng": [
+            39.5,
+            -8
+          ],
+          "area": 92090,
+          "population": 10305564
+        },
+        {
+          "name": {
+            "common": "Austria",
+            "official": "Republic of Austria",
+            "japanese": "Austria",
+            "hiragana": "Austria"
+          },
+          "cca2": "AT",
+          "cca3": "AUT",
+          "flag": "🇦🇹",
+          "flags": {
+            "png": "https://flagcdn.com/w320/at.png",
+            "svg": "https://flagcdn.com/at.svg"
+          },
+          "capital": {
+            "english": [
+              "Vienna"
+            ],
+            "japanese": [
+              "Vienna"
+            ],
+            "hiragana": [
+              "Vienna"
+            ]
+          },
+          "region": {
+            "english": "Europe",
+            "japanese": "ヨーロッパ",
+            "hiragana": "よーろっぱ"
+          },
+          "subregion": {
+            "english": "Western Europe",
+            "japanese": "西ヨーロッパ",
+            "hiragana": "にしよーろっぱ"
+          },
+          "latlng": [
+            47.33333333,
+            13.33333333
+          ],
+          "area": 83871,
+          "population": 8917205
+        },
+        {
+          "name": {
+            "common": "Switzerland",
+            "official": "Swiss Confederation",
+            "japanese": "スイス",
+            "hiragana": "すいす"
+          },
+          "cca2": "CH",
+          "cca3": "CHE",
+          "flag": "🇨🇭",
+          "flags": {
+            "png": "https://flagcdn.com/w320/ch.png",
+            "svg": "https://flagcdn.com/ch.svg"
+          },
+          "capital": {
+            "english": [
+              "Bern"
+            ],
+            "japanese": [
+              "ベルン"
+            ],
+            "hiragana": [
+              "べるん"
+            ]
+          },
+          "region": {
+            "english": "Europe",
+            "japanese": "ヨーロッパ",
+            "hiragana": "よーろっぱ"
+          },
+          "subregion": {
+            "english": "Western Europe",
+            "japanese": "西ヨーロッパ",
+            "hiragana": "にしよーろっぱ"
+          },
+          "latlng": [
+            47,
+            8
+          ],
+          "area": 41285,
+          "population": 8636896
+        },
+        {
+          "name": {
+            "common": "Denmark",
+            "official": "Kingdom of Denmark",
+            "japanese": "Denmark",
+            "hiragana": "Denmark"
+          },
+          "cca2": "DK",
+          "cca3": "DNK",
+          "flag": "🇩🇰",
+          "flags": {
+            "png": "https://flagcdn.com/w320/dk.png",
+            "svg": "https://flagcdn.com/dk.svg"
+          },
+          "capital": {
+            "english": [
+              "Copenhagen"
+            ],
+            "japanese": [
+              "Copenhagen"
+            ],
+            "hiragana": [
+              "Copenhagen"
+            ]
+          },
+          "region": {
+            "english": "Europe",
+            "japanese": "ヨーロッパ",
+            "hiragana": "よーろっぱ"
+          },
+          "subregion": {
+            "english": "Northern Europe",
+            "japanese": "北ヨーロッパ",
+            "hiragana": "きたよーろっぱ"
+          },
+          "latlng": [
+            56,
+            10
+          ],
+          "area": 43094,
+          "population": 5831404
+        },
+        {
+          "name": {
+            "common": "Singapore",
+            "official": "Republic of Singapore",
+            "japanese": "Singapore",
+            "hiragana": "Singapore"
+          },
+          "cca2": "SG",
+          "cca3": "SGP",
+          "flag": "🇸🇬",
+          "flags": {
+            "png": "https://flagcdn.com/w320/sg.png",
+            "svg": "https://flagcdn.com/sg.svg"
+          },
+          "capital": {
+            "english": [
+              "Singapore"
+            ],
+            "japanese": [
+              "Singapore"
+            ],
+            "hiragana": [
+              "Singapore"
+            ]
+          },
+          "region": {
+            "english": "Asia",
+            "japanese": "アジア",
+            "hiragana": "あじあ"
+          },
+          "subregion": {
+            "english": "South-Eastern Asia",
+            "japanese": "東南アジア",
+            "hiragana": "とうなんあじあ"
+          },
+          "latlng": [
+            1.36666666,
+            103.8
+          ],
+          "area": 710,
+          "population": 5685807
+        },
+        {
+          "name": {
+            "common": "Finland",
+            "official": "Republic of Finland",
+            "japanese": "Finland",
+            "hiragana": "Finland"
+          },
+          "cca2": "FI",
+          "cca3": "FIN",
+          "flag": "🇫🇮",
+          "flags": {
+            "png": "https://flagcdn.com/w320/fi.png",
+            "svg": "https://flagcdn.com/fi.svg"
+          },
+          "capital": {
+            "english": [
+              "Helsinki"
+            ],
+            "japanese": [
+              "Helsinki"
+            ],
+            "hiragana": [
+              "Helsinki"
+            ]
+          },
+          "region": {
+            "english": "Europe",
+            "japanese": "ヨーロッパ",
+            "hiragana": "よーろっぱ"
+          },
+          "subregion": {
+            "english": "Northern Europe",
+            "japanese": "北ヨーロッパ",
+            "hiragana": "きたよーろっぱ"
+          },
+          "latlng": [
+            64,
+            26
+          ],
+          "area": 338424,
+          "population": 5530719
+        },
+        {
+          "name": {
+            "common": "Norway",
+            "official": "Kingdom of Norway",
+            "japanese": "ノルウェー",
+            "hiragana": "のるうぇー"
+          },
+          "cca2": "NO",
+          "cca3": "NOR",
+          "flag": "🇳🇴",
+          "flags": {
+            "png": "https://flagcdn.com/w320/no.png",
+            "svg": "https://flagcdn.com/no.svg"
+          },
+          "capital": {
+            "english": [
+              "Oslo"
+            ],
+            "japanese": [
+              "オスロ"
+            ],
+            "hiragana": [
+              "おすろ"
+            ]
+          },
+          "region": {
+            "english": "Europe",
+            "japanese": "ヨーロッパ",
+            "hiragana": "よーろっぱ"
+          },
+          "subregion": {
+            "english": "Northern Europe",
+            "japanese": "北ヨーロッパ",
+            "hiragana": "きたよーろっぱ"
+          },
+          "latlng": [
+            62,
+            10
+          ],
+          "area": 323802,
+          "population": 5379475
+        },
+        {
+          "name": {
+            "common": "New Zealand",
+            "official": "New Zealand",
+            "japanese": "New Zealand",
+            "hiragana": "New Zealand"
+          },
+          "cca2": "NZ",
+          "cca3": "NZL",
+          "flag": "🇳🇿",
+          "flags": {
+            "png": "https://flagcdn.com/w320/nz.png",
+            "svg": "https://flagcdn.com/nz.svg"
+          },
+          "capital": {
+            "english": [
+              "Wellington"
+            ],
+            "japanese": [
+              "Wellington"
+            ],
+            "hiragana": [
+              "Wellington"
+            ]
+          },
+          "region": {
+            "english": "Oceania",
+            "japanese": "オセアニア",
+            "hiragana": "おせあにあ"
+          },
+          "subregion": {
+            "english": "Australia and New Zealand",
+            "japanese": "オーストラリア・ニュージーランド",
+            "hiragana": "おーすとらりあ・にゅーじーらんど"
+          },
+          "latlng": [
+            -41,
+            174
+          ],
+          "area": 270467,
+          "population": 5084300
         }
       ],
-      "count": 15,
+      "count": 37,
       "questionsCount": 20,
       "regions": "all",
       "description": "Advanced level countries"
@@ -1001,7 +3907,9 @@
     {
       "name": {
         "common": "United States",
-        "official": "United States of America"
+        "official": "United States of America",
+        "japanese": "アメリカ合衆国",
+        "hiragana": "あめりかがっしゅうこく"
       },
       "cca2": "US",
       "cca3": "USA",
@@ -1010,11 +3918,27 @@
         "png": "https://flagcdn.com/w320/us.png",
         "svg": "https://flagcdn.com/us.svg"
       },
-      "capital": [
-        "Washington, D.C."
-      ],
-      "region": "Americas",
-      "subregion": "North America",
+      "capital": {
+        "english": [
+          "Washington, D.C."
+        ],
+        "japanese": [
+          "ワシントンD.C."
+        ],
+        "hiragana": [
+          "わしんとんでぃーしー"
+        ]
+      },
+      "region": {
+        "english": "Americas",
+        "japanese": "アメリカ大陸",
+        "hiragana": "あめりかたいりく"
+      },
+      "subregion": {
+        "english": "North America",
+        "japanese": "北アメリカ",
+        "hiragana": "きたあめりか"
+      },
       "latlng": [
         38,
         -97
@@ -1025,7 +3949,9 @@
     {
       "name": {
         "common": "Canada",
-        "official": "Canada"
+        "official": "Canada",
+        "japanese": "カナダ",
+        "hiragana": "かなだ"
       },
       "cca2": "CA",
       "cca3": "CAN",
@@ -1034,11 +3960,27 @@
         "png": "https://flagcdn.com/w320/ca.png",
         "svg": "https://flagcdn.com/ca.svg"
       },
-      "capital": [
-        "Ottawa"
-      ],
-      "region": "Americas",
-      "subregion": "North America",
+      "capital": {
+        "english": [
+          "Ottawa"
+        ],
+        "japanese": [
+          "オタワ"
+        ],
+        "hiragana": [
+          "おたわ"
+        ]
+      },
+      "region": {
+        "english": "Americas",
+        "japanese": "アメリカ大陸",
+        "hiragana": "あめりかたいりく"
+      },
+      "subregion": {
+        "english": "North America",
+        "japanese": "北アメリカ",
+        "hiragana": "きたあめりか"
+      },
       "latlng": [
         60,
         -95
@@ -1049,7 +3991,9 @@
     {
       "name": {
         "common": "Germany",
-        "official": "Federal Republic of Germany"
+        "official": "Federal Republic of Germany",
+        "japanese": "ドイツ",
+        "hiragana": "どいつ"
       },
       "cca2": "DE",
       "cca3": "DEU",
@@ -1058,11 +4002,27 @@
         "png": "https://flagcdn.com/w320/de.png",
         "svg": "https://flagcdn.com/de.svg"
       },
-      "capital": [
-        "Berlin"
-      ],
-      "region": "Europe",
-      "subregion": "Western Europe",
+      "capital": {
+        "english": [
+          "Berlin"
+        ],
+        "japanese": [
+          "ベルリン"
+        ],
+        "hiragana": [
+          "べるりん"
+        ]
+      },
+      "region": {
+        "english": "Europe",
+        "japanese": "ヨーロッパ",
+        "hiragana": "よーろっぱ"
+      },
+      "subregion": {
+        "english": "Western Europe",
+        "japanese": "西ヨーロッパ",
+        "hiragana": "にしよーろっぱ"
+      },
       "latlng": [
         51,
         9
@@ -1073,7 +4033,9 @@
     {
       "name": {
         "common": "France",
-        "official": "French Republic"
+        "official": "French Republic",
+        "japanese": "フランス",
+        "hiragana": "ふらんす"
       },
       "cca2": "FR",
       "cca3": "FRA",
@@ -1082,11 +4044,27 @@
         "png": "https://flagcdn.com/w320/fr.png",
         "svg": "https://flagcdn.com/fr.svg"
       },
-      "capital": [
-        "Paris"
-      ],
-      "region": "Europe",
-      "subregion": "Western Europe",
+      "capital": {
+        "english": [
+          "Paris"
+        ],
+        "japanese": [
+          "パリ"
+        ],
+        "hiragana": [
+          "ぱり"
+        ]
+      },
+      "region": {
+        "english": "Europe",
+        "japanese": "ヨーロッパ",
+        "hiragana": "よーろっぱ"
+      },
+      "subregion": {
+        "english": "Western Europe",
+        "japanese": "西ヨーロッパ",
+        "hiragana": "にしよーろっぱ"
+      },
       "latlng": [
         46,
         2
@@ -1097,7 +4075,9 @@
     {
       "name": {
         "common": "United Kingdom",
-        "official": "United Kingdom of Great Britain and Northern Ireland"
+        "official": "United Kingdom of Great Britain and Northern Ireland",
+        "japanese": "イギリス",
+        "hiragana": "いぎりす"
       },
       "cca2": "GB",
       "cca3": "GBR",
@@ -1106,11 +4086,27 @@
         "png": "https://flagcdn.com/w320/gb.png",
         "svg": "https://flagcdn.com/gb.svg"
       },
-      "capital": [
-        "London"
-      ],
-      "region": "Europe",
-      "subregion": "Northern Europe",
+      "capital": {
+        "english": [
+          "London"
+        ],
+        "japanese": [
+          "ロンドン"
+        ],
+        "hiragana": [
+          "ろんどん"
+        ]
+      },
+      "region": {
+        "english": "Europe",
+        "japanese": "ヨーロッパ",
+        "hiragana": "よーろっぱ"
+      },
+      "subregion": {
+        "english": "Northern Europe",
+        "japanese": "北ヨーロッパ",
+        "hiragana": "きたよーろっぱ"
+      },
       "latlng": [
         54,
         -2
@@ -1121,7 +4117,9 @@
     {
       "name": {
         "common": "Italy",
-        "official": "Italian Republic"
+        "official": "Italian Republic",
+        "japanese": "イタリア",
+        "hiragana": "いたりあ"
       },
       "cca2": "IT",
       "cca3": "ITA",
@@ -1130,11 +4128,27 @@
         "png": "https://flagcdn.com/w320/it.png",
         "svg": "https://flagcdn.com/it.svg"
       },
-      "capital": [
-        "Rome"
-      ],
-      "region": "Europe",
-      "subregion": "Southern Europe",
+      "capital": {
+        "english": [
+          "Rome"
+        ],
+        "japanese": [
+          "ローマ"
+        ],
+        "hiragana": [
+          "ろーま"
+        ]
+      },
+      "region": {
+        "english": "Europe",
+        "japanese": "ヨーロッパ",
+        "hiragana": "よーろっぱ"
+      },
+      "subregion": {
+        "english": "Southern Europe",
+        "japanese": "南ヨーロッパ",
+        "hiragana": "みなみよーろっぱ"
+      },
       "latlng": [
         42.83333333,
         12.83333333
@@ -1145,7 +4159,9 @@
     {
       "name": {
         "common": "Spain",
-        "official": "Kingdom of Spain"
+        "official": "Kingdom of Spain",
+        "japanese": "スペイン",
+        "hiragana": "すぺいん"
       },
       "cca2": "ES",
       "cca3": "ESP",
@@ -1154,11 +4170,27 @@
         "png": "https://flagcdn.com/w320/es.png",
         "svg": "https://flagcdn.com/es.svg"
       },
-      "capital": [
-        "Madrid"
-      ],
-      "region": "Europe",
-      "subregion": "Southern Europe",
+      "capital": {
+        "english": [
+          "Madrid"
+        ],
+        "japanese": [
+          "マドリード"
+        ],
+        "hiragana": [
+          "まどりーど"
+        ]
+      },
+      "region": {
+        "english": "Europe",
+        "japanese": "ヨーロッパ",
+        "hiragana": "よーろっぱ"
+      },
+      "subregion": {
+        "english": "Southern Europe",
+        "japanese": "南ヨーロッパ",
+        "hiragana": "みなみよーろっぱ"
+      },
       "latlng": [
         40,
         -4
@@ -1169,7 +4201,9 @@
     {
       "name": {
         "common": "Brazil",
-        "official": "Federative Republic of Brazil"
+        "official": "Federative Republic of Brazil",
+        "japanese": "ブラジル",
+        "hiragana": "ぶらじる"
       },
       "cca2": "BR",
       "cca3": "BRA",
@@ -1178,11 +4212,27 @@
         "png": "https://flagcdn.com/w320/br.png",
         "svg": "https://flagcdn.com/br.svg"
       },
-      "capital": [
-        "Brasília"
-      ],
-      "region": "Americas",
-      "subregion": "South America",
+      "capital": {
+        "english": [
+          "Brasília"
+        ],
+        "japanese": [
+          "ブラジリア"
+        ],
+        "hiragana": [
+          "ぶらじりあ"
+        ]
+      },
+      "region": {
+        "english": "Americas",
+        "japanese": "アメリカ大陸",
+        "hiragana": "あめりかたいりく"
+      },
+      "subregion": {
+        "english": "South America",
+        "japanese": "南アメリカ",
+        "hiragana": "みなみあめりか"
+      },
       "latlng": [
         -10,
         -55
@@ -1193,7 +4243,9 @@
     {
       "name": {
         "common": "Russia",
-        "official": "Russian Federation"
+        "official": "Russian Federation",
+        "japanese": "ロシア",
+        "hiragana": "ろしあ"
       },
       "cca2": "RU",
       "cca3": "RUS",
@@ -1202,11 +4254,27 @@
         "png": "https://flagcdn.com/w320/ru.png",
         "svg": "https://flagcdn.com/ru.svg"
       },
-      "capital": [
-        "Moscow"
-      ],
-      "region": "Europe",
-      "subregion": "Eastern Europe",
+      "capital": {
+        "english": [
+          "Moscow"
+        ],
+        "japanese": [
+          "モスクワ"
+        ],
+        "hiragana": [
+          "もすくわ"
+        ]
+      },
+      "region": {
+        "english": "Europe",
+        "japanese": "ヨーロッパ",
+        "hiragana": "よーろっぱ"
+      },
+      "subregion": {
+        "english": "Eastern Europe",
+        "japanese": "東ヨーロッパ",
+        "hiragana": "ひがしよーろっぱ"
+      },
       "latlng": [
         60,
         100
@@ -1217,7 +4285,9 @@
     {
       "name": {
         "common": "Mexico",
-        "official": "United Mexican States"
+        "official": "United Mexican States",
+        "japanese": "メキシコ",
+        "hiragana": "めきしこ"
       },
       "cca2": "MX",
       "cca3": "MEX",
@@ -1226,11 +4296,27 @@
         "png": "https://flagcdn.com/w320/mx.png",
         "svg": "https://flagcdn.com/mx.svg"
       },
-      "capital": [
-        "Mexico City"
-      ],
-      "region": "Americas",
-      "subregion": "North America",
+      "capital": {
+        "english": [
+          "Mexico City"
+        ],
+        "japanese": [
+          "メキシコシティ"
+        ],
+        "hiragana": [
+          "めきしこしてぃ"
+        ]
+      },
+      "region": {
+        "english": "Americas",
+        "japanese": "アメリカ大陸",
+        "hiragana": "あめりかたいりく"
+      },
+      "subregion": {
+        "english": "North America",
+        "japanese": "北アメリカ",
+        "hiragana": "きたあめりか"
+      },
       "latlng": [
         23,
         -102
@@ -1240,8 +4326,472 @@
     },
     {
       "name": {
+        "common": "Poland",
+        "official": "Republic of Poland",
+        "japanese": "ポーランド",
+        "hiragana": "ぽーらんど"
+      },
+      "cca2": "PL",
+      "cca3": "POL",
+      "flag": "🇵🇱",
+      "flags": {
+        "png": "https://flagcdn.com/w320/pl.png",
+        "svg": "https://flagcdn.com/pl.svg"
+      },
+      "capital": {
+        "english": [
+          "Warsaw"
+        ],
+        "japanese": [
+          "ワルシャワ"
+        ],
+        "hiragana": [
+          "わるしゃわ"
+        ]
+      },
+      "region": {
+        "english": "Europe",
+        "japanese": "ヨーロッパ",
+        "hiragana": "よーろっぱ"
+      },
+      "subregion": {
+        "english": "Central Europe",
+        "japanese": "中央ヨーロッパ",
+        "hiragana": "ちゅうおうよーろっぱ"
+      },
+      "latlng": [
+        52,
+        20
+      ],
+      "area": 312679,
+      "population": 37950802
+    },
+    {
+      "name": {
+        "common": "Netherlands",
+        "official": "Kingdom of the Netherlands",
+        "japanese": "オランダ",
+        "hiragana": "おらんだ"
+      },
+      "cca2": "NL",
+      "cca3": "NLD",
+      "flag": "🇳🇱",
+      "flags": {
+        "png": "https://flagcdn.com/w320/nl.png",
+        "svg": "https://flagcdn.com/nl.svg"
+      },
+      "capital": {
+        "english": [
+          "Amsterdam"
+        ],
+        "japanese": [
+          "アムステルダム"
+        ],
+        "hiragana": [
+          "あむすてるだむ"
+        ]
+      },
+      "region": {
+        "english": "Europe",
+        "japanese": "ヨーロッパ",
+        "hiragana": "よーろっぱ"
+      },
+      "subregion": {
+        "english": "Western Europe",
+        "japanese": "西ヨーロッパ",
+        "hiragana": "にしよーろっぱ"
+      },
+      "latlng": [
+        52.5,
+        5.75
+      ],
+      "area": 41850,
+      "population": 17441139
+    },
+    {
+      "name": {
+        "common": "Belgium",
+        "official": "Kingdom of Belgium",
+        "japanese": "Belgium",
+        "hiragana": "Belgium"
+      },
+      "cca2": "BE",
+      "cca3": "BEL",
+      "flag": "🇧🇪",
+      "flags": {
+        "png": "https://flagcdn.com/w320/be.png",
+        "svg": "https://flagcdn.com/be.svg"
+      },
+      "capital": {
+        "english": [
+          "Brussels"
+        ],
+        "japanese": [
+          "Brussels"
+        ],
+        "hiragana": [
+          "Brussels"
+        ]
+      },
+      "region": {
+        "english": "Europe",
+        "japanese": "ヨーロッパ",
+        "hiragana": "よーろっぱ"
+      },
+      "subregion": {
+        "english": "Western Europe",
+        "japanese": "西ヨーロッパ",
+        "hiragana": "にしよーろっぱ"
+      },
+      "latlng": [
+        50.83333333,
+        4
+      ],
+      "area": 30528,
+      "population": 11555997
+    },
+    {
+      "name": {
+        "common": "Greece",
+        "official": "Hellenic Republic",
+        "japanese": "Greece",
+        "hiragana": "Greece"
+      },
+      "cca2": "GR",
+      "cca3": "GRC",
+      "flag": "🇬🇷",
+      "flags": {
+        "png": "https://flagcdn.com/w320/gr.png",
+        "svg": "https://flagcdn.com/gr.svg"
+      },
+      "capital": {
+        "english": [
+          "Athens"
+        ],
+        "japanese": [
+          "Athens"
+        ],
+        "hiragana": [
+          "Athens"
+        ]
+      },
+      "region": {
+        "english": "Europe",
+        "japanese": "ヨーロッパ",
+        "hiragana": "よーろっぱ"
+      },
+      "subregion": {
+        "english": "Southern Europe",
+        "japanese": "南ヨーロッパ",
+        "hiragana": "みなみよーろっぱ"
+      },
+      "latlng": [
+        39,
+        22
+      ],
+      "area": 131957,
+      "population": 10715549
+    },
+    {
+      "name": {
+        "common": "Sweden",
+        "official": "Kingdom of Sweden",
+        "japanese": "スウェーデン",
+        "hiragana": "すうぇーでん"
+      },
+      "cca2": "SE",
+      "cca3": "SWE",
+      "flag": "🇸🇪",
+      "flags": {
+        "png": "https://flagcdn.com/w320/se.png",
+        "svg": "https://flagcdn.com/se.svg"
+      },
+      "capital": {
+        "english": [
+          "Stockholm"
+        ],
+        "japanese": [
+          "ストックホルム"
+        ],
+        "hiragana": [
+          "すとっくほるむ"
+        ]
+      },
+      "region": {
+        "english": "Europe",
+        "japanese": "ヨーロッパ",
+        "hiragana": "よーろっぱ"
+      },
+      "subregion": {
+        "english": "Northern Europe",
+        "japanese": "北ヨーロッパ",
+        "hiragana": "きたよーろっぱ"
+      },
+      "latlng": [
+        62,
+        15
+      ],
+      "area": 450295,
+      "population": 10353442
+    },
+    {
+      "name": {
+        "common": "Portugal",
+        "official": "Portuguese Republic",
+        "japanese": "Portugal",
+        "hiragana": "Portugal"
+      },
+      "cca2": "PT",
+      "cca3": "PRT",
+      "flag": "🇵🇹",
+      "flags": {
+        "png": "https://flagcdn.com/w320/pt.png",
+        "svg": "https://flagcdn.com/pt.svg"
+      },
+      "capital": {
+        "english": [
+          "Lisbon"
+        ],
+        "japanese": [
+          "Lisbon"
+        ],
+        "hiragana": [
+          "Lisbon"
+        ]
+      },
+      "region": {
+        "english": "Europe",
+        "japanese": "ヨーロッパ",
+        "hiragana": "よーろっぱ"
+      },
+      "subregion": {
+        "english": "Southern Europe",
+        "japanese": "南ヨーロッパ",
+        "hiragana": "みなみよーろっぱ"
+      },
+      "latlng": [
+        39.5,
+        -8
+      ],
+      "area": 92090,
+      "population": 10305564
+    },
+    {
+      "name": {
+        "common": "Austria",
+        "official": "Republic of Austria",
+        "japanese": "Austria",
+        "hiragana": "Austria"
+      },
+      "cca2": "AT",
+      "cca3": "AUT",
+      "flag": "🇦🇹",
+      "flags": {
+        "png": "https://flagcdn.com/w320/at.png",
+        "svg": "https://flagcdn.com/at.svg"
+      },
+      "capital": {
+        "english": [
+          "Vienna"
+        ],
+        "japanese": [
+          "Vienna"
+        ],
+        "hiragana": [
+          "Vienna"
+        ]
+      },
+      "region": {
+        "english": "Europe",
+        "japanese": "ヨーロッパ",
+        "hiragana": "よーろっぱ"
+      },
+      "subregion": {
+        "english": "Western Europe",
+        "japanese": "西ヨーロッパ",
+        "hiragana": "にしよーろっぱ"
+      },
+      "latlng": [
+        47.33333333,
+        13.33333333
+      ],
+      "area": 83871,
+      "population": 8917205
+    },
+    {
+      "name": {
+        "common": "Switzerland",
+        "official": "Swiss Confederation",
+        "japanese": "スイス",
+        "hiragana": "すいす"
+      },
+      "cca2": "CH",
+      "cca3": "CHE",
+      "flag": "🇨🇭",
+      "flags": {
+        "png": "https://flagcdn.com/w320/ch.png",
+        "svg": "https://flagcdn.com/ch.svg"
+      },
+      "capital": {
+        "english": [
+          "Bern"
+        ],
+        "japanese": [
+          "ベルン"
+        ],
+        "hiragana": [
+          "べるん"
+        ]
+      },
+      "region": {
+        "english": "Europe",
+        "japanese": "ヨーロッパ",
+        "hiragana": "よーろっぱ"
+      },
+      "subregion": {
+        "english": "Western Europe",
+        "japanese": "西ヨーロッパ",
+        "hiragana": "にしよーろっぱ"
+      },
+      "latlng": [
+        47,
+        8
+      ],
+      "area": 41285,
+      "population": 8636896
+    },
+    {
+      "name": {
+        "common": "Denmark",
+        "official": "Kingdom of Denmark",
+        "japanese": "Denmark",
+        "hiragana": "Denmark"
+      },
+      "cca2": "DK",
+      "cca3": "DNK",
+      "flag": "🇩🇰",
+      "flags": {
+        "png": "https://flagcdn.com/w320/dk.png",
+        "svg": "https://flagcdn.com/dk.svg"
+      },
+      "capital": {
+        "english": [
+          "Copenhagen"
+        ],
+        "japanese": [
+          "Copenhagen"
+        ],
+        "hiragana": [
+          "Copenhagen"
+        ]
+      },
+      "region": {
+        "english": "Europe",
+        "japanese": "ヨーロッパ",
+        "hiragana": "よーろっぱ"
+      },
+      "subregion": {
+        "english": "Northern Europe",
+        "japanese": "北ヨーロッパ",
+        "hiragana": "きたよーろっぱ"
+      },
+      "latlng": [
+        56,
+        10
+      ],
+      "area": 43094,
+      "population": 5831404
+    },
+    {
+      "name": {
+        "common": "Finland",
+        "official": "Republic of Finland",
+        "japanese": "Finland",
+        "hiragana": "Finland"
+      },
+      "cca2": "FI",
+      "cca3": "FIN",
+      "flag": "🇫🇮",
+      "flags": {
+        "png": "https://flagcdn.com/w320/fi.png",
+        "svg": "https://flagcdn.com/fi.svg"
+      },
+      "capital": {
+        "english": [
+          "Helsinki"
+        ],
+        "japanese": [
+          "Helsinki"
+        ],
+        "hiragana": [
+          "Helsinki"
+        ]
+      },
+      "region": {
+        "english": "Europe",
+        "japanese": "ヨーロッパ",
+        "hiragana": "よーろっぱ"
+      },
+      "subregion": {
+        "english": "Northern Europe",
+        "japanese": "北ヨーロッパ",
+        "hiragana": "きたよーろっぱ"
+      },
+      "latlng": [
+        64,
+        26
+      ],
+      "area": 338424,
+      "population": 5530719
+    },
+    {
+      "name": {
+        "common": "Norway",
+        "official": "Kingdom of Norway",
+        "japanese": "ノルウェー",
+        "hiragana": "のるうぇー"
+      },
+      "cca2": "NO",
+      "cca3": "NOR",
+      "flag": "🇳🇴",
+      "flags": {
+        "png": "https://flagcdn.com/w320/no.png",
+        "svg": "https://flagcdn.com/no.svg"
+      },
+      "capital": {
+        "english": [
+          "Oslo"
+        ],
+        "japanese": [
+          "オスロ"
+        ],
+        "hiragana": [
+          "おすろ"
+        ]
+      },
+      "region": {
+        "english": "Europe",
+        "japanese": "ヨーロッパ",
+        "hiragana": "よーろっぱ"
+      },
+      "subregion": {
+        "english": "Northern Europe",
+        "japanese": "北ヨーロッパ",
+        "hiragana": "きたよーろっぱ"
+      },
+      "latlng": [
+        62,
+        10
+      ],
+      "area": 323802,
+      "population": 5379475
+    },
+    {
+      "name": {
         "common": "China",
-        "official": "People's Republic of China"
+        "official": "People's Republic of China",
+        "japanese": "中国",
+        "hiragana": "ちゅうごく"
       },
       "cca2": "CN",
       "cca3": "CHN",
@@ -1250,11 +4800,27 @@
         "png": "https://flagcdn.com/w320/cn.png",
         "svg": "https://flagcdn.com/cn.svg"
       },
-      "capital": [
-        "Beijing"
-      ],
-      "region": "Asia",
-      "subregion": "Eastern Asia",
+      "capital": {
+        "english": [
+          "Beijing"
+        ],
+        "japanese": [
+          "北京"
+        ],
+        "hiragana": [
+          "ぺきん"
+        ]
+      },
+      "region": {
+        "english": "Asia",
+        "japanese": "アジア",
+        "hiragana": "あじあ"
+      },
+      "subregion": {
+        "english": "Eastern Asia",
+        "japanese": "東アジア",
+        "hiragana": "ひがしあじあ"
+      },
       "latlng": [
         35,
         105
@@ -1265,7 +4831,9 @@
     {
       "name": {
         "common": "India",
-        "official": "Republic of India"
+        "official": "Republic of India",
+        "japanese": "インド",
+        "hiragana": "いんど"
       },
       "cca2": "IN",
       "cca3": "IND",
@@ -1274,11 +4842,27 @@
         "png": "https://flagcdn.com/w320/in.png",
         "svg": "https://flagcdn.com/in.svg"
       },
-      "capital": [
-        "New Delhi"
-      ],
-      "region": "Asia",
-      "subregion": "Southern Asia",
+      "capital": {
+        "english": [
+          "New Delhi"
+        ],
+        "japanese": [
+          "ニューデリー"
+        ],
+        "hiragana": [
+          "にゅーでりー"
+        ]
+      },
+      "region": {
+        "english": "Asia",
+        "japanese": "アジア",
+        "hiragana": "あじあ"
+      },
+      "subregion": {
+        "english": "Southern Asia",
+        "japanese": "南アジア",
+        "hiragana": "みなみあじあ"
+      },
       "latlng": [
         20,
         77
@@ -1288,8 +4872,52 @@
     },
     {
       "name": {
+        "common": "Indonesia",
+        "official": "Republic of Indonesia",
+        "japanese": "Indonesia",
+        "hiragana": "Indonesia"
+      },
+      "cca2": "ID",
+      "cca3": "IDN",
+      "flag": "🇮🇩",
+      "flags": {
+        "png": "https://flagcdn.com/w320/id.png",
+        "svg": "https://flagcdn.com/id.svg"
+      },
+      "capital": {
+        "english": [
+          "Jakarta"
+        ],
+        "japanese": [
+          "Jakarta"
+        ],
+        "hiragana": [
+          "Jakarta"
+        ]
+      },
+      "region": {
+        "english": "Asia",
+        "japanese": "アジア",
+        "hiragana": "あじあ"
+      },
+      "subregion": {
+        "english": "South-Eastern Asia",
+        "japanese": "東南アジア",
+        "hiragana": "とうなんあじあ"
+      },
+      "latlng": [
+        -5,
+        120
+      ],
+      "area": 1904569,
+      "population": 273523615
+    },
+    {
+      "name": {
         "common": "Japan",
-        "official": "Japan"
+        "official": "Japan",
+        "japanese": "日本",
+        "hiragana": "にほん"
       },
       "cca2": "JP",
       "cca3": "JPN",
@@ -1298,11 +4926,27 @@
         "png": "https://flagcdn.com/w320/jp.png",
         "svg": "https://flagcdn.com/jp.svg"
       },
-      "capital": [
-        "Tokyo"
-      ],
-      "region": "Asia",
-      "subregion": "Eastern Asia",
+      "capital": {
+        "english": [
+          "Tokyo"
+        ],
+        "japanese": [
+          "東京"
+        ],
+        "hiragana": [
+          "とうきょう"
+        ]
+      },
+      "region": {
+        "english": "Asia",
+        "japanese": "アジア",
+        "hiragana": "あじあ"
+      },
+      "subregion": {
+        "english": "Eastern Asia",
+        "japanese": "東アジア",
+        "hiragana": "ひがしあじあ"
+      },
       "latlng": [
         36,
         138
@@ -1312,8 +4956,178 @@
     },
     {
       "name": {
+        "common": "Philippines",
+        "official": "Republic of the Philippines",
+        "japanese": "Philippines",
+        "hiragana": "Philippines"
+      },
+      "cca2": "PH",
+      "cca3": "PHL",
+      "flag": "🇵🇭",
+      "flags": {
+        "png": "https://flagcdn.com/w320/ph.png",
+        "svg": "https://flagcdn.com/ph.svg"
+      },
+      "capital": {
+        "english": [
+          "Manila"
+        ],
+        "japanese": [
+          "Manila"
+        ],
+        "hiragana": [
+          "Manila"
+        ]
+      },
+      "region": {
+        "english": "Asia",
+        "japanese": "アジア",
+        "hiragana": "あじあ"
+      },
+      "subregion": {
+        "english": "South-Eastern Asia",
+        "japanese": "東南アジア",
+        "hiragana": "とうなんあじあ"
+      },
+      "latlng": [
+        13,
+        122
+      ],
+      "area": 300000,
+      "population": 109581078
+    },
+    {
+      "name": {
+        "common": "Vietnam",
+        "official": "Socialist Republic of Vietnam",
+        "japanese": "Vietnam",
+        "hiragana": "Vietnam"
+      },
+      "cca2": "VN",
+      "cca3": "VNM",
+      "flag": "🇻🇳",
+      "flags": {
+        "png": "https://flagcdn.com/w320/vn.png",
+        "svg": "https://flagcdn.com/vn.svg"
+      },
+      "capital": {
+        "english": [
+          "Hanoi"
+        ],
+        "japanese": [
+          "Hanoi"
+        ],
+        "hiragana": [
+          "Hanoi"
+        ]
+      },
+      "region": {
+        "english": "Asia",
+        "japanese": "アジア",
+        "hiragana": "あじあ"
+      },
+      "subregion": {
+        "english": "South-Eastern Asia",
+        "japanese": "東南アジア",
+        "hiragana": "とうなんあじあ"
+      },
+      "latlng": [
+        16.16666666,
+        107.83333333
+      ],
+      "area": 331212,
+      "population": 97338579
+    },
+    {
+      "name": {
+        "common": "Turkey",
+        "official": "Republic of Turkey",
+        "japanese": "トルコ",
+        "hiragana": "とるこ"
+      },
+      "cca2": "TR",
+      "cca3": "TUR",
+      "flag": "🇹🇷",
+      "flags": {
+        "png": "https://flagcdn.com/w320/tr.png",
+        "svg": "https://flagcdn.com/tr.svg"
+      },
+      "capital": {
+        "english": [
+          "Ankara"
+        ],
+        "japanese": [
+          "アンカラ"
+        ],
+        "hiragana": [
+          "あんから"
+        ]
+      },
+      "region": {
+        "english": "Asia",
+        "japanese": "アジア",
+        "hiragana": "あじあ"
+      },
+      "subregion": {
+        "english": "Western Asia",
+        "japanese": "西アジア",
+        "hiragana": "にしあじあ"
+      },
+      "latlng": [
+        39,
+        35
+      ],
+      "area": 783562,
+      "population": 84339067
+    },
+    {
+      "name": {
+        "common": "Thailand",
+        "official": "Kingdom of Thailand",
+        "japanese": "タイ",
+        "hiragana": "たい"
+      },
+      "cca2": "TH",
+      "cca3": "THA",
+      "flag": "🇹🇭",
+      "flags": {
+        "png": "https://flagcdn.com/w320/th.png",
+        "svg": "https://flagcdn.com/th.svg"
+      },
+      "capital": {
+        "english": [
+          "Bangkok"
+        ],
+        "japanese": [
+          "バンコク"
+        ],
+        "hiragana": [
+          "ばんこく"
+        ]
+      },
+      "region": {
+        "english": "Asia",
+        "japanese": "アジア",
+        "hiragana": "あじあ"
+      },
+      "subregion": {
+        "english": "South-Eastern Asia",
+        "japanese": "東南アジア",
+        "hiragana": "とうなんあじあ"
+      },
+      "latlng": [
+        15,
+        100
+      ],
+      "area": 513120,
+      "population": 69799978
+    },
+    {
+      "name": {
         "common": "South Korea",
-        "official": "Republic of Korea"
+        "official": "Republic of Korea",
+        "japanese": "韓国",
+        "hiragana": "かんこく"
       },
       "cca2": "KR",
       "cca3": "KOR",
@@ -1322,11 +5136,27 @@
         "png": "https://flagcdn.com/w320/kr.png",
         "svg": "https://flagcdn.com/kr.svg"
       },
-      "capital": [
-        "Seoul"
-      ],
-      "region": "Asia",
-      "subregion": "Eastern Asia",
+      "capital": {
+        "english": [
+          "Seoul"
+        ],
+        "japanese": [
+          "ソウル"
+        ],
+        "hiragana": [
+          "そうる"
+        ]
+      },
+      "region": {
+        "english": "Asia",
+        "japanese": "アジア",
+        "hiragana": "あじあ"
+      },
+      "subregion": {
+        "english": "Eastern Asia",
+        "japanese": "東アジア",
+        "hiragana": "ひがしあじあ"
+      },
       "latlng": [
         37,
         127.5
@@ -1336,8 +5166,52 @@
     },
     {
       "name": {
+        "common": "Malaysia",
+        "official": "Malaysia",
+        "japanese": "Malaysia",
+        "hiragana": "Malaysia"
+      },
+      "cca2": "MY",
+      "cca3": "MYS",
+      "flag": "🇲🇾",
+      "flags": {
+        "png": "https://flagcdn.com/w320/my.png",
+        "svg": "https://flagcdn.com/my.svg"
+      },
+      "capital": {
+        "english": [
+          "Kuala Lumpur"
+        ],
+        "japanese": [
+          "Kuala Lumpur"
+        ],
+        "hiragana": [
+          "Kuala Lumpur"
+        ]
+      },
+      "region": {
+        "english": "Asia",
+        "japanese": "アジア",
+        "hiragana": "あじあ"
+      },
+      "subregion": {
+        "english": "South-Eastern Asia",
+        "japanese": "東南アジア",
+        "hiragana": "とうなんあじあ"
+      },
+      "latlng": [
+        2.5,
+        112.5
+      ],
+      "area": 329847,
+      "population": 32365999
+    },
+    {
+      "name": {
         "common": "Australia",
-        "official": "Commonwealth of Australia"
+        "official": "Commonwealth of Australia",
+        "japanese": "オーストラリア",
+        "hiragana": "おーすとらりあ"
       },
       "cca2": "AU",
       "cca3": "AUS",
@@ -1346,18 +5220,246 @@
         "png": "https://flagcdn.com/w320/au.png",
         "svg": "https://flagcdn.com/au.svg"
       },
-      "capital": [
-        "Canberra"
-      ],
-      "region": "Oceania",
-      "subregion": "Australia and New Zealand",
+      "capital": {
+        "english": [
+          "Canberra"
+        ],
+        "japanese": [
+          "キャンベラ"
+        ],
+        "hiragana": [
+          "きゃんべら"
+        ]
+      },
+      "region": {
+        "english": "Oceania",
+        "japanese": "オセアニア",
+        "hiragana": "おせあにあ"
+      },
+      "subregion": {
+        "english": "Australia and New Zealand",
+        "japanese": "オーストラリア・ニュージーランド",
+        "hiragana": "おーすとらりあ・にゅーじーらんど"
+      },
       "latlng": [
         -27,
         133
       ],
       "area": 7692024,
       "population": 25687041
+    },
+    {
+      "name": {
+        "common": "Singapore",
+        "official": "Republic of Singapore",
+        "japanese": "Singapore",
+        "hiragana": "Singapore"
+      },
+      "cca2": "SG",
+      "cca3": "SGP",
+      "flag": "🇸🇬",
+      "flags": {
+        "png": "https://flagcdn.com/w320/sg.png",
+        "svg": "https://flagcdn.com/sg.svg"
+      },
+      "capital": {
+        "english": [
+          "Singapore"
+        ],
+        "japanese": [
+          "Singapore"
+        ],
+        "hiragana": [
+          "Singapore"
+        ]
+      },
+      "region": {
+        "english": "Asia",
+        "japanese": "アジア",
+        "hiragana": "あじあ"
+      },
+      "subregion": {
+        "english": "South-Eastern Asia",
+        "japanese": "東南アジア",
+        "hiragana": "とうなんあじあ"
+      },
+      "latlng": [
+        1.36666666,
+        103.8
+      ],
+      "area": 710,
+      "population": 5685807
+    },
+    {
+      "name": {
+        "common": "New Zealand",
+        "official": "New Zealand",
+        "japanese": "New Zealand",
+        "hiragana": "New Zealand"
+      },
+      "cca2": "NZ",
+      "cca3": "NZL",
+      "flag": "🇳🇿",
+      "flags": {
+        "png": "https://flagcdn.com/w320/nz.png",
+        "svg": "https://flagcdn.com/nz.svg"
+      },
+      "capital": {
+        "english": [
+          "Wellington"
+        ],
+        "japanese": [
+          "Wellington"
+        ],
+        "hiragana": [
+          "Wellington"
+        ]
+      },
+      "region": {
+        "english": "Oceania",
+        "japanese": "オセアニア",
+        "hiragana": "おせあにあ"
+      },
+      "subregion": {
+        "english": "Australia and New Zealand",
+        "japanese": "オーストラリア・ニュージーランド",
+        "hiragana": "おーすとらりあ・にゅーじーらんど"
+      },
+      "latlng": [
+        -41,
+        174
+      ],
+      "area": 270467,
+      "population": 5084300
+    },
+    {
+      "name": {
+        "common": "Nigeria",
+        "official": "Federal Republic of Nigeria",
+        "japanese": "Nigeria",
+        "hiragana": "Nigeria"
+      },
+      "cca2": "NG",
+      "cca3": "NGA",
+      "flag": "🇳🇬",
+      "flags": {
+        "png": "https://flagcdn.com/w320/ng.png",
+        "svg": "https://flagcdn.com/ng.svg"
+      },
+      "capital": {
+        "english": [
+          "Abuja"
+        ],
+        "japanese": [
+          "Abuja"
+        ],
+        "hiragana": [
+          "Abuja"
+        ]
+      },
+      "region": {
+        "english": "Africa",
+        "japanese": "アフリカ",
+        "hiragana": "あふりか"
+      },
+      "subregion": {
+        "english": "Western Africa",
+        "japanese": "Western Africa",
+        "hiragana": "Western Africa"
+      },
+      "latlng": [
+        10,
+        8
+      ],
+      "area": 923768,
+      "population": 206139589
+    },
+    {
+      "name": {
+        "common": "Egypt",
+        "official": "Arab Republic of Egypt",
+        "japanese": "エジプト",
+        "hiragana": "えじぷと"
+      },
+      "cca2": "EG",
+      "cca3": "EGY",
+      "flag": "🇪🇬",
+      "flags": {
+        "png": "https://flagcdn.com/w320/eg.png",
+        "svg": "https://flagcdn.com/eg.svg"
+      },
+      "capital": {
+        "english": [
+          "Cairo"
+        ],
+        "japanese": [
+          "カイロ"
+        ],
+        "hiragana": [
+          "かいろ"
+        ]
+      },
+      "region": {
+        "english": "Africa",
+        "japanese": "アフリカ",
+        "hiragana": "あふりか"
+      },
+      "subregion": {
+        "english": "Northern Africa",
+        "japanese": "北アフリカ",
+        "hiragana": "きたあふりか"
+      },
+      "latlng": [
+        27,
+        30
+      ],
+      "area": 1002450,
+      "population": 102334403
+    },
+    {
+      "name": {
+        "common": "South Africa",
+        "official": "Republic of South Africa",
+        "japanese": "南アフリカ",
+        "hiragana": "みなみあふりか"
+      },
+      "cca2": "ZA",
+      "cca3": "ZAF",
+      "flag": "🇿🇦",
+      "flags": {
+        "png": "https://flagcdn.com/w320/za.png",
+        "svg": "https://flagcdn.com/za.svg"
+      },
+      "capital": {
+        "english": [
+          "Cape Town",
+          "Pretoria",
+          "Bloemfontein"
+        ],
+        "japanese": [
+          "ケープタウン"
+        ],
+        "hiragana": [
+          "けーぷたうん"
+        ]
+      },
+      "region": {
+        "english": "Africa",
+        "japanese": "アフリカ",
+        "hiragana": "あふりか"
+      },
+      "subregion": {
+        "english": "Southern Africa",
+        "japanese": "南アフリカ",
+        "hiragana": "みなみあふりか"
+      },
+      "latlng": [
+        -29,
+        24
+      ],
+      "area": 1221037,
+      "population": 59308690
     }
   ],
-  "totalCountries": 15
+  "totalCountries": 37
 }

@@ -48,6 +48,34 @@ async function initializeApp() {
  */
 function setupEventListeners() {
     try {
+        // Language mode selection - both cards and buttons
+        const languageButtons = document.querySelectorAll('.language-btn');
+        const languageCards = document.querySelectorAll('.language-card');
+        
+        // Handle language button clicks
+        languageButtons.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation(); // Prevent card click
+                const language = e.target.dataset.language;
+                if (language) {
+                    handleLanguageSelection(language);
+                }
+            });
+        });
+        
+        // Handle language card clicks (for better UX)
+        languageCards.forEach(card => {
+            card.addEventListener('click', (e) => {
+                // Only trigger if not clicking the button directly
+                if (!e.target.classList.contains('language-btn')) {
+                    const language = card.dataset.language;
+                    if (language) {
+                        handleLanguageSelection(language);
+                    }
+                }
+            });
+        });
+        
         // Difficulty selection - both cards and buttons
         const difficultyButtons = document.querySelectorAll('.difficulty-btn');
         const difficultyCards = document.querySelectorAll('.difficulty-card');
@@ -161,6 +189,38 @@ function handleKeyboardInput(event) {
         
     } catch (error) {
         console.error('Error handling keyboard input:', error);
+    }
+}
+
+/**
+ * Handle language mode selection (Requirement 8.1)
+ * @param {string} language - Selected language mode (hiragana/japanese/english)
+ */
+function handleLanguageSelection(language) {
+    try {
+        if (!language || !['hiragana', 'japanese', 'english'].includes(language)) {
+            throw new Error('Invalid language mode');
+        }
+        
+        console.log(`Language mode selected: ${language}`);
+        
+        // Update game state
+        gameState.languageMode = language;
+        
+        // Update UI to show selected language
+        updateLanguageSelection(language);
+        
+        // Update map controls language if map is initialized (Requirement 8.11)
+        if (typeof updateMapControlsLanguage === 'function') {
+            updateMapControlsLanguage();
+        }
+        
+        // Show difficulty selection
+        showDifficultySelection();
+        
+    } catch (error) {
+        console.error('Error handling language selection:', error);
+        showError('言語モードの選択に失敗しました。');
     }
 }
 

@@ -56,6 +56,8 @@ body {
     padding: 30px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
+    min-height: 500px;
+    display: block;
 }
 
 /* Screen Management */
@@ -85,12 +87,142 @@ body {
     font-size: 1.1rem;
 }
 
+/* Language Mode Selection */
+.language-selection {
+    margin-bottom: 40px;
+}
+
+.language-selection h3 {
+    text-align: center;
+    color: #2d3748;
+    margin-bottom: 20px;
+    font-size: 1.3rem;
+}
+
+.language-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    max-width: 800px;
+    margin: 0 auto 30px;
+}
+
+.language-card {
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+
+.language-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.language-card.selected {
+    border-color: #4facfe;
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+}
+
+.language-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.language-header h4 {
+    margin: 0;
+    color: #2d3748;
+    font-size: 1.2rem;
+}
+
+.language-badge {
+    font-size: 1.5rem;
+    padding: 5px 10px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.language-badge.hiragana {
+    background: linear-gradient(135deg, #fbb6ce 0%, #f687b3 100%);
+}
+
+.language-badge.japanese {
+    background: linear-gradient(135deg, #fed7d7 0%, #fc8181 100%);
+}
+
+.language-badge.english {
+    background: linear-gradient(135deg, #bee3f8 0%, #90cdf4 100%);
+}
+
+.language-details {
+    margin-bottom: 15px;
+}
+
+.language-details p {
+    margin: 5px 0;
+    color: #4a5568;
+    font-size: 0.9rem;
+}
+
+.language-example {
+    font-style: italic;
+    color: #718096;
+    font-size: 0.85rem !important;
+}
+
+.language-btn {
+    width: 100%;
+    padding: 12px 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: white;
+}
+
+.language-card[data-language="hiragana"] .language-btn {
+    background: linear-gradient(135deg, #ed64a6 0%, #d53f8c 100%);
+}
+
+.language-card[data-language="japanese"] .language-btn {
+    background: linear-gradient(135deg, #f56565 0%, #e53e3e 100%);
+}
+
+.language-card[data-language="english"] .language-btn {
+    background: linear-gradient(135deg, #4299e1 0%, #3182ce 100%);
+}
+
+.language-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Difficulty Selection */
 .difficulty-selection {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 25px;
     max-width: 900px;
     margin: 0 auto;
+}
+
+.difficulty-selection h3 {
+    grid-column: 1 / -1;
+    text-align: center;
+    color: #2d3748;
+    margin-bottom: 20px;
+    font-size: 1.3rem;
+}
+
+.difficulty-options {
+    display: contents;
 }
 
 .difficulty-card {
@@ -214,6 +346,20 @@ body {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
+/* Game Screen */
+#game-screen {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: relative !important;
+    width: 100% !important;
+    min-height: 400px !important;
+}
+
+#game-screen.hidden {
+    display: none !important;
+}
+
 /* Game Layout */
 .game-layout {
     display: grid;
@@ -243,10 +389,13 @@ body {
 }
 
 .flag-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: all 0.3s ease;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    transition: all 0.3s ease !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
 }
 
 .map-section {

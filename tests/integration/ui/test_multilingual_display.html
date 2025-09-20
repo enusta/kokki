@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>多言語表示テスト - 国旗あてゲーム</title>
+    <link rel="stylesheet" href="../../../styles.css">
+    <style>
+        .test-container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .test-section {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+        }
+        
+        .test-result {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            font-family: monospace;
+        }
+        
+        .test-pass {
+            background-color: #f0fff4;
+            border: 1px solid #68d391;
+            color: #22543d;
+        }
+        
+        .test-fail {
+            background-color: #fff5f5;
+            border: 1px solid #fc8181;
+            color: #742a2a;
+        }
+        
+        .language-selector {
+            margin: 10px 0;
+        }
+        
+        .language-btn {
+            margin: 5px;
+            padding: 8px 16px;
+            border: 1px solid #ccc;
+            background: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        .language-btn.active {
+            background: #4299e1;
+            color: white;
+        }
+        
+        .sample-display {
+            margin: 10px 0;
+            padding: 10px;
+            background: #f7fafc;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>多言語表示機能テスト</h1>
+        <p>このテストは、ゲーム内の多言語表示機能が正しく動作することを確認します。</p>
+        
+        <div class="test-section">
+            <h2>テスト 1: 多言語ヘルパー関数の存在確認</h2>
+            <div id="helper-functions-test"></div>
+        </div>
+        
+        <div class="test-section">
+            <h2>テスト 2: 言語モード切り替え</h2>
+            <div class="language-selector">
+                <button class="language-btn" data-lang="hiragana">ひらがな</button>
+                <button class="language-btn" data-lang="japanese">日本語</button>
+                <button class="language-btn" data-lang="english">English</button>
+            </div>
+            <div id="language-mode-test"></div>
+        </div>
+        
+        <div class="test-section">
+            <h2>テスト 3: サンプル国データでの表示確認</h2>
+            <div id="sample-data-test"></div>
+            <div class="sample-display" id="sample-display"></div>
+        </div>
+        
+        <div class="test-section">
+            <h2>テスト 4: 地図ポップアップの多言語対応</h2>
+            <div id="map-popup-test"></div>
+            <div class="sample-display" id="popup-display"></div>
+        </div>
+        
+        <div class="test-section">
+            <h2>テスト結果サマリー</h2>
+            <div id="test-summary"></div>
+        </div>
+    </div>
+
+    <!-- Include game modules -->
+    <script src="../../../js/countryService.js"></script>
+    <script src="../../../js/game.js"></script>
+    <script src="../../../js/map.js"></script>
+    <script src="../../../js/ui.js"></script>
+
+    <script>
+        // Test data - sample country with multilingual information
+        const sampleCountry = {
+            name: {
+                common: "Japan",
+                official: "Japan",
+                japanese: "日本",
+                hiragana: "にほん"
+            },
+            cca2: "JP",
+            cca3: "JPN",
+            flag: "🇯🇵",
+            flags: {
+                png: "https://flagcdn.com/w320/jp.png",
+                svg: "https://flagcdn.com/jp.svg"
+            },
+            capital: {
+                english: ["Tokyo"],
+                japanese: ["東京"],
+                hiragana: ["とうきょう"]
+            },
+            region: {
+                english: "Asia",
+                japanese: "アジア",
+                hiragana: "あじあ"
+            },
+            subregion: {
+                english: "Eastern Asia",
+                japanese: "東アジア",
+                hiragana: "ひがしあじあ"
+            },
+            latlng: [36.0, 138.0],
+            area: 377930,
+            population: 125836021
+        };
+
+        // Initialize game state for testing
+        if (typeof gameState !== 'undefined') {
+            gameState.languageMode = 'japanese';
+        }
+
+        let testResults = [];
+
+        function runTest(testName, testFunction) {
+            try {
+                const result = testFunction();
+                testResults.push({ name: testName, passed: true, result: result });
+                return { passed: true, result: result };
+            } catch (error) {
+                testResults.push({ name: testName, passed: false, error: error.message });
+                return { passed: false, error: error.message };
+            }
+        }
+
+        function displayTestResult(elementId, testResult) {
+            const element = document.getElementById(elementId);
+            const resultDiv = document.createElement('div');
+            resultDiv.className = testResult.passed ? 'test-result test-pass' : 'test-result test-fail';
+            
+            if (testResult.passed) {
+                resultDiv.innerHTML = `✅ テスト成功: ${testResult.result}`;
+            } else {
+                resultDiv.innerHTML = `❌ テスト失敗: ${testResult.error}`;
+            }
+            
+            element.appendChild(resultDiv);
+        }
+
+        // Test 1: Check if helper functions exist
+        function testHelperFunctions() {
+            const functions = ['getCountryName', 'getCapitalName', 'getRegionName', 'getSubregionName'];
+            const missing = functions.filter(fn => typeof window[fn] !== 'function');
+            
+            if (missing.length > 0) {
+                throw new Error(`Missing functions: ${missing.join(', ')}`);
+            }
+            
+            return `All helper functions exist: ${functions.join(', ')}`;
+        }
+
+        // Test 2: Test language mode switching
+        function testLanguageMode() {
+            if (typeof gameState === 'undefined') {
+                throw new Error('gameState is not defined');
+            }
+            
+            const modes = ['hiragana', 'japanese', 'english'];
+            const results = [];
+            
+            modes.forEach(mode => {
+                gameState.languageMode = mode;
+                const countryName = getCountryName(sampleCountry, mode);
+                results.push(`${mode}: ${countryName}`);
+            });
+            
+            return results.join(', ');
+        }
+
+        // Test 3: Test sample data display
+        function testSampleDataDisplay() {
+            const modes = ['hiragana', 'japanese', 'english'];
+            const results = {};
+            
+            modes.forEach(mode => {
+                results[mode] = {
+                    country: getCountryName(sampleCountry, mode),
+                    capital: getCapitalName(sampleCountry, mode),
+                    region: getRegionName(sampleCountry, mode),
+                    subregion: getSubregionName(sampleCountry, mode)
+                };
+            });
+            
+            return results;
+        }
+
+        // Test 4: Test map popup multilingual support
+        function testMapPopup() {
+            if (typeof createCountryInfoPopup !== 'function') {
+                throw new Error('createCountryInfoPopup function not found');
+            }
+            
+            const modes = ['hiragana', 'japanese', 'english'];
+            const popups = {};
+            
+            modes.forEach(mode => {
+                gameState.languageMode = mode;
+                const popup = createCountryInfoPopup(sampleCountry);
+                popups[mode] = popup.length > 0;
+            });
+            
+            return `Popup generation successful for all modes: ${Object.values(popups).every(v => v)}`;
+        }
+
+        // Run all tests
+        function runAllTests() {
+            console.log('Running multilingual display tests...');
+            
+            // Test 1
+            const test1 = runTest('Helper Functions Existence', testHelperFunctions);
+            displayTestResult('helper-functions-test', test1);
+            
+            // Test 2
+            const test2 = runTest('Language Mode Switching', testLanguageMode);
+            displayTestResult('language-mode-test', test2);
+            
+            // Test 3
+            const test3 = runTest('Sample Data Display', testSampleDataDisplay);
+            displayTestResult('sample-data-test', test3);
+            if (test3.passed) {
+                displaySampleData(test3.result);
+            }
+            
+            // Test 4
+            const test4 = runTest('Map Popup Multilingual', testMapPopup);
+            displayTestResult('map-popup-test', test4);
+            if (test4.passed) {
+                displayPopupSamples();
+            }
+            
+            // Display summary
+            displayTestSummary();
+        }
+
+        function displaySampleData(data) {
+            const display = document.getElementById('sample-display');
+            let html = '<h4>サンプル国データ表示:</h4>';
+            
+            Object.keys(data).forEach(mode => {
+                const modeData = data[mode];
+                html += `
+                    <div style="margin: 10px 0; padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
+                        <strong>${mode}モード:</strong><br>
+                        国名: ${modeData.country}<br>
+                        首都: ${modeData.capital}<br>
+                        地域: ${modeData.region}<br>
+                        詳細地域: ${modeData.subregion}
+                    </div>
+                `;
+            });
+            
+            display.innerHTML = html;
+        }
+
+        function displayPopupSamples() {
+            const display = document.getElementById('popup-display');
+            const modes = ['hiragana', 'japanese', 'english'];
+            let html = '<h4>地図ポップアップサンプル:</h4>';
+            
+            modes.forEach(mode => {
+                gameState.languageMode = mode;
+                const popup = createCountryInfoPopup(sampleCountry);
+                html += `
+                    <div style="margin: 10px 0; padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
+                        <strong>${mode}モード:</strong>
+                        <div style="font-size: 0.9em; margin-top: 5px;">${popup}</div>
+                    </div>
+                `;
+            });
+            
+            display.innerHTML = html;
+        }
+
+        function displayTestSummary() {
+            const summary = document.getElementById('test-summary');
+            const passed = testResults.filter(t => t.passed).length;
+            const total = testResults.length;
+            
+            const summaryClass = passed === total ? 'test-pass' : 'test-fail';
+            summary.innerHTML = `
+                <div class="test-result ${summaryClass}">
+                    <strong>テスト結果: ${passed}/${total} 成功</strong><br>
+                    ${passed === total ? '✅ すべてのテストが成功しました！' : '❌ 一部のテストが失敗しました。'}
+                </div>
+            `;
+        }
+
+        // Language selector functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const languageButtons = document.querySelectorAll('.language-btn');
+            
+            languageButtons.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const lang = this.dataset.lang;
+                    
+                    // Update active button
+                    languageButtons.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Update game state
+                    if (typeof gameState !== 'undefined') {
+                        gameState.languageMode = lang;
+                    }
+                    
+                    // Re-run sample data test
+                    const test3 = runTest('Sample Data Display', testSampleDataDisplay);
+                    if (test3.passed) {
+                        displaySampleData(test3.result);
+                    }
+                    
+                    // Re-run popup test
+                    displayPopupSamples();
+                });
+            });
+            
+            // Set default active button
+            document.querySelector('.language-btn[data-lang="japanese"]').classList.add('active');
+            
+            // Run tests after DOM is loaded
+            setTimeout(runAllTests, 100);
+        });
+    </script>
+</body>
+</html>

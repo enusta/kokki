@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ゲームデバッグ - 国旗あてゲーム</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .debug-panel {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            width: 300px;
+            background: white;
+            border: 2px solid #333;
+            padding: 10px;
+            z-index: 1000;
+            max-height: 400px;
+            overflow-y: auto;
+            font-family: monospace;
+            font-size: 12px;
+        }
+        .debug-log {
+            margin: 5px 0;
+            padding: 2px;
+        }
+        .debug-error { color: red; }
+        .debug-warn { color: orange; }
+        .debug-info { color: blue; }
+        .debug-success { color: green; }
+        .test-buttons {
+            margin: 10px 0;
+        }
+        .test-buttons button {
+            margin: 2px;
+            padding: 5px 10px;
+            font-size: 11px;
+        }
+    </style>
+</head>
+<body>
+    <div class="debug-panel">
+        <h3>デバッグパネル</h3>
+        <div class="test-buttons">
+            <button onclick="testUIElements()">UI要素テスト</button>
+            <button onclick="testCountryData()">国データテスト</button>
+            <button onclick="testGameStart()">ゲーム開始テスト</button>
+            <button onclick="clearDebugLog()">ログクリア</button>
+        </div>
+        <div id="debug-log"></div>
+    </div>
+
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>国旗あてゲーム（デバッグ版）</h1>
+            <div class="score-display">
+                <span id="current-score">スコア: 0</span>
+                <span id="question-counter">問題: 0/0</span>
+            </div>
+        </header>
+
+        <!-- Main Game Area -->
+        <main class="main-content">
+            <!-- Start Screen -->
+            <div id="start-screen" class="screen">
+                <div class="start-content">
+                    <h2>国旗あてゲーム</h2>
+                    <p class="start-description">デバッグ版 - 右上のパネルでテストしてください</p>
+                    
+                    <!-- 言語モード選択 -->
+                    <div class="language-selection">
+                        <h3>表示モード</h3>
+                        <div class="language-options">
+                            <div class="language-card" data-language="japanese">
+                                <div class="language-header">
+                                    <h4>日本語</h4>
+                                    <span class="language-badge japanese">🎌</span>
+                                </div>
+                                <div class="language-details">
+                                    <p>小学生向け（6-12歳）</p>
+                                    <p class="language-example">例：日本、アメリカ</p>
+                                </div>
+                                <button class="language-btn" data-language="japanese">日本語モード</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 難易度選択 -->
+                    <div class="difficulty-selection">
+                        <h3>難易度を選択してください</h3>
+                        <div class="difficulty-options">
+                            <div class="difficulty-card" data-difficulty="beginner">
+                                <div class="difficulty-header">
+                                    <h3>初級</h3>
+                                    <span class="difficulty-badge beginner">🌟</span>
+                                </div>
+                                <div class="difficulty-details">
+                                    <p>有名な国の国旗</p>
+                                    <ul>
+                                        <li>約25カ国</li>
+                                        <li>10問</li>
+                                        <li>ヨーロッパ・北米中心</li>
+                                    </ul>
+                                </div>
+                                <button class="difficulty-btn" data-difficulty="beginner">初級で開始</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Game Screen -->
+            <div id="game-screen" class="screen hidden">
+                <div class="game-layout">
+                    <div class="flag-section">
+                        <div class="flag-container">
+                            <img id="flag-image" src="" alt="国旗" class="flag-image">
+                        </div>
+                    </div>
+                    
+                    <div class="map-section">
+                        <div id="world-map" class="map-container hidden"></div>
+                    </div>
+                </div>
+                
+                <div class="options-section">
+                    <div class="answer-options">
+                        <button class="option-btn" data-option="0">オプション1</button>
+                        <button class="option-btn" data-option="1">オプション2</button>
+                        <button class="option-btn" data-option="2">オプション3</button>
+                        <button class="option-btn" data-option="3">オプション4</button>
+                    </div>
+                </div>
+                
+                <div class="feedback-section">
+                    <div id="feedback-message" class="feedback hidden">フィードバックメッセージ</div>
+                </div>
+            </div>
+
+            <!-- Result Screen -->
+            <div id="result-screen" class="screen hidden">
+                <h2>ゲーム終了！</h2>
+                <div class="final-score">
+                    <p id="final-score-text">最終スコア</p>
+                    <p id="accuracy-text">正解率</p>
+                    <div id="score-details">詳細</div>
+                </div>
+                <button id="play-again-btn" class="play-again-btn">もう一度プレイ</button>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="progress-bar">
+                <div id="progress-fill" class="progress-fill"></div>
+            </div>
+            <div class="controls">
+                <button id="next-btn" class="control-btn hidden">次の問題</button>
+                <button id="restart-btn" class="control-btn">リスタート</button>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div id="loading-overlay" class="loading-overlay hidden">
+        <div class="loading-spinner"></div>
+        <p>読み込み中...</p>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="js/countryService.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/map.js"></script>
+    <script src="js/game.js"></script>
+    <script src="js/app.js"></script>
+
+    <script>
+        // Debug logging function
+        function debugLog(message, type = 'info') {
+            const logElement = document.getElementById('debug-log');
+            const timestamp = new Date().toLocaleTimeString();
+            const logEntry = document.createElement('div');
+            logEntry.className = `debug-log debug-${type}`;
+            logEntry.textContent = `[${timestamp}] ${message}`;
+            logElement.appendChild(logEntry);
+            logElement.scrollTop = logElement.scrollHeight;
+            
+            // Also log to console
+            console.log(`[DEBUG ${type.toUpperCase()}] ${message}`);
+        }
+
+        function clearDebugLog() {
+            document.getElementById('debug-log').innerHTML = '';
+        }
+
+        // Test functions
+        function testUIElements() {
+            debugLog('=== UI要素テスト開始 ===', 'info');
+            
+            const elements = {
+                startScreen: document.getElementById('start-screen'),
+                gameScreen: document.getElementById('game-screen'),
+                resultScreen: document.getElementById('result-screen'),
+                flagImage: document.getElementById('flag-image'),
+                optionButtons: document.querySelectorAll('.option-btn'),
+                scoreDisplay: document.getElementById('current-score'),
+                questionCounter: document.getElementById('question-counter'),
+                feedbackMessage: document.getElementById('feedback-message'),
+                progressFill: document.getElementById('progress-fill'),
+                loadingOverlay: document.getElementById('loading-overlay')
+            };
+
+            Object.entries(elements).forEach(([name, element]) => {
+                if (element) {
+                    if (element.length !== undefined) {
+                        debugLog(`✓ ${name}: ${element.length}個の要素`, 'success');
+                    } else {
+                        debugLog(`✓ ${name}: 要素が見つかりました`, 'success');
+                    }
+                } else {
+                    debugLog(`✗ ${name}: 要素が見つかりません`, 'error');
+                }
+            });
+            
+            debugLog('=== UI要素テスト完了 ===', 'info');
+        }
+
+        async function testCountryData() {
+            debugLog('=== 国データテスト開始 ===', 'info');
+            
+            try {
+                if (typeof fetchCountries === 'function') {
+                    debugLog('fetchCountries関数が見つかりました', 'success');
+                    
+                    const countries = await fetchCountries();
+                    debugLog(`国データ取得: ${countries ? countries.length : 0}カ国`, countries ? 'success' : 'error');
+                    
+                    if (countries && countries.length > 0) {
+                        debugLog(`最初の国: ${countries[0].name?.common || 'Unknown'}`, 'info');
+                        
+                        if (typeof getCountriesByDifficulty === 'function') {
+                            const beginnerCountries = getCountriesByDifficulty(countries, 'beginner');
+                            debugLog(`初級フィルタ後: ${beginnerCountries.length}カ国`, 'info');
+                        } else {
+                            debugLog('getCountriesByDifficulty関数が見つかりません', 'error');
+                        }
+                    }
+                } else {
+                    debugLog('fetchCountries関数が見つかりません', 'error');
+                }
+            } catch (error) {
+                debugLog(`国データテストエラー: ${error.message}`, 'error');
+            }
+            
+            debugLog('=== 国データテスト完了 ===', 'info');
+        }
+
+        async function testGameStart() {
+            debugLog('=== ゲーム開始テスト開始 ===', 'info');
+            
+            try {
+                // Initialize game state
+                if (typeof gameState !== 'undefined') {
+                    gameState.languageMode = 'japanese';
+                    debugLog('ゲーム状態を初期化しました', 'success');
+                } else {
+                    debugLog('gameState変数が見つかりません', 'error');
+                    return;
+                }
+
+                // Test UI initialization
+                if (typeof initializeUI === 'function') {
+                    initializeUI();
+                    debugLog('UI初期化を実行しました', 'success');
+                } else {
+                    debugLog('initializeUI関数が見つかりません', 'error');
+                }
+
+                // Test game start
+                if (typeof startGame === 'function') {
+                    debugLog('ゲーム開始を試行します...', 'info');
+                    await startGame('beginner');
+                    debugLog('ゲーム開始が完了しました', 'success');
+                } else {
+                    debugLog('startGame関数が見つかりません', 'error');
+                }
+            } catch (error) {
+                debugLog(`ゲーム開始テストエラー: ${error.message}`, 'error');
+                debugLog(`エラースタック: ${error.stack}`, 'error');
+            }
+            
+            debugLog('=== ゲーム開始テスト完了 ===', 'info');
+        }
+
+        // Override console.log to also show in debug panel
+        const originalConsoleLog = console.log;
+        console.log = function(...args) {
+            originalConsoleLog.apply(console, args);
+            if (args.length > 0) {
+                debugLog(args.join(' '), 'info');
+            }
+        };
+
+        const originalConsoleError = console.error;
+        console.error = function(...args) {
+            originalConsoleError.apply(console, args);
+            if (args.length > 0) {
+                debugLog(args.join(' '), 'error');
+            }
+        };
+
+        const originalConsoleWarn = console.warn;
+        console.warn = function(...args) {
+            originalConsoleWarn.apply(console, args);
+            if (args.length > 0) {
+                debugLog(args.join(' '), 'warn');
+            }
+        };
+
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            debugLog('ページが読み込まれました', 'success');
+            debugLog('右上のボタンでテストを実行してください', 'info');
+        });
+    </script>
+</body>
+</html>

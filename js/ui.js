@@ -51,6 +51,15 @@ function initializeUI() {
     
     elements.loadingOverlay = document.getElementById('loading-overlay');
     
+    // Debug: Log element references
+    console.log('UI Elements initialized:');
+    console.log('- startScreen:', elements.startScreen);
+    console.log('- gameScreen:', elements.gameScreen);
+    console.log('- flagImage:', elements.flagImage);
+    console.log('- optionButtons:', elements.optionButtons, 'length:', elements.optionButtons.length);
+    console.log('- scoreDisplay:', elements.scoreDisplay);
+    console.log('- loadingOverlay:', elements.loadingOverlay);
+    
     // Set up event listeners
     setupEventListeners();
     
@@ -305,8 +314,13 @@ function showFlagError(countryName) {
  * @param {Array} options - Array of country names for options
  */
 function showOptions(options) {
+    console.log('showOptions called with:', options);
+    console.log('Option buttons element:', elements.optionButtons);
+    
     if (!elements.optionButtons || !options || options.length !== 4) {
         console.error('Invalid options or option buttons not found');
+        console.error('elements.optionButtons:', elements.optionButtons);
+        console.error('options:', options);
         return;
     }
     
@@ -316,6 +330,7 @@ function showOptions(options) {
     // Set text and enable buttons
     elements.optionButtons.forEach((btn, index) => {
         if (options[index]) {
+            console.log(`Setting button ${index} to: ${options[index]}`);
             btn.textContent = options[index];
             btn.disabled = false;
             btn.style.opacity = '0';
@@ -327,6 +342,8 @@ function showOptions(options) {
             }, index * 100);
         }
     });
+    
+    console.log('Options set successfully');
 }
 
 /**
@@ -886,6 +903,51 @@ function hidePreloadProgress() {
     const progressElement = document.getElementById('preload-progress');
     if (progressElement) {
         progressElement.style.display = 'none';
+    }
+}
+
+/**
+ * Update language selection UI to show selected mode
+ * @param {string} selectedLanguage - Selected language mode
+ */
+function updateLanguageSelection(selectedLanguage) {
+    const languageCards = document.querySelectorAll('.language-card');
+    
+    languageCards.forEach(card => {
+        const cardLanguage = card.dataset.language;
+        if (cardLanguage === selectedLanguage) {
+            card.classList.add('selected');
+        } else {
+            card.classList.remove('selected');
+        }
+    });
+    
+    console.log(`Language selection updated: ${selectedLanguage}`);
+}
+
+/**
+ * Show difficulty selection section
+ */
+function showDifficultySelection() {
+    const difficultySection = document.querySelector('.difficulty-selection');
+    if (difficultySection) {
+        difficultySection.classList.remove('hidden');
+        
+        // Smooth scroll to difficulty selection
+        difficultySection.scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'start' 
+        });
+    }
+}
+
+/**
+ * Hide difficulty selection section
+ */
+function hideDifficultySelection() {
+    const difficultySection = document.querySelector('.difficulty-selection');
+    if (difficultySection) {
+        difficultySection.classList.add('hidden');
     }
 }
 

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ゲーム開始テスト</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .log { background: #f0f0f0; padding: 10px; margin: 10px 0; max-height: 400px; overflow-y: auto; }
+        button { margin: 5px; padding: 10px; }
+        .error { color: red; }
+        .success { color: green; }
+        .warning { color: orange; }
+    </style>
+</head>
+<body>
+    <h1>ゲーム開始テスト（タイムアウト付き）</h1>
+    
+    <button onclick="testGameStartWithTimeout()">ゲーム開始テスト（5秒タイムアウト）</button>
+    <button onclick="testFetchCountriesOnly()">fetchCountries単体テスト</button>
+    <button onclick="testGetCountriesByDifficulty()">getCountriesByDifficulty単体テスト</button>
+    <button onclick="clearLog()">ログクリア</button>
+    
+    <div id="log" class="log"></div>
+
+    <!-- 必要最小限のHTML要素 -->
+    <div id="start-screen" class="hidden"></div>
+    <div id="game-screen" class="hidden"></div>
+    <div id="result-screen" class="hidden"></div>
+    <div id="loading-overlay" class="hidden"></div>
+    <span id="current-score"></span>
+    <span id="question-counter"></span>
+    <div id="progress-fill"></div>
+
+    <script src="js/countryService.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/game.js"></script>
+
+    <script>
+        function log(message, type = 'info') {
+            const logElement = document.getElementById('log');
+            const timestamp = new Date().toLocaleTimeString();
+            const className = type === 'error' ? 'error' : type === 'success' ? 'success' : type === 'warning' ? 'warning' : '';
+            logElement.innerHTML += `<div class="${className}">[${timestamp}] ${message}</div>`;
+            logElement.scrollTop = logElement.scrollHeight;
+            console.log(message);
+        }
+
+        function clearLog() {
+            document.getElementById('log').innerHTML = '';
+        }
+
+        async function testGameStartWithTimeout() {
+            log('=== ゲーム開始テスト開始 ===');
+            
+            try {
+                // Initialize game state
+                gameState.languageMode = 'japanese';
+                log('ゲーム状態を初期化しました');
+
+                // Create timeout promise
+                const timeoutPromise = new Promise((_, reject) => {
+                    setTimeout(() => reject(new Error('ゲーム開始がタイムアウトしました（5秒）')), 5000);
+                });
+
+                // Create game start promise
+                const gameStartPromise = startGame('beginner');
+
+                // Race between game start and timeout
+                await Promise.race([gameStartPromise, timeoutPromise]);
+                
+                log('ゲーム開始が正常に完了しました', 'success');
+                
+            } catch (error) {
+                log(`ゲーム開始テストエラー: ${error.message}`, 'error');
+                log(`エラースタック: ${error.stack}`, 'error');
+            }
+        }
+
+        async function testFetchCountriesOnly() {
+            log('=== fetchCountries単体テスト開始 ===');
+            
+            try {
+                const timeoutPromise = new Promise((_, reject) => {
+                    setTimeout(() => reject(new Error('fetchCountriesがタイムアウトしました（10秒）')), 10000);
+                });
+
+                const fetchPromise = fetchCountries();
+                const countries = await Promise.race([fetchPromise, timeoutPromise]);
+                
+                log(`fetchCountries成功: ${countries ? countries.length : 0}カ国取得`, 'success');
+                
+                if (countries && countries.length > 0) {
+                    log(`最初の国: ${countries[0].name?.common || 'Unknown'}`);
+                    log(`国データ構造: ${JSON.stringify(countries[0]).substring(0, 200)}...`);
+                }
+                
+            } catch (error) {
+                log(`fetchCountriesテストエラー: ${error.message}`, 'error');
+            }
+        }
+
+        async function testGetCountriesByDifficulty() {
+            log('=== getCountriesByDifficulty単体テスト開始 ===');
+            
+            try {
+                // First get countries
+                const countries = await fetchCountries();
+                if (!countries || countries.length === 0) {
+                    throw new Error('国データが取得できませんでした');
+                }
+                
+                log(`全国データ: ${countries.length}カ国`);
+                
+                // Test difficulty filtering
+                const beginnerCountries = getCountriesByDifficulty(countries, 'beginner');
+                log(`初級フィルタ後: ${beginnerCountries.length}カ国`, 'success');
+                
+                if (beginnerCountries.length > 0) {
+                    log(`初級の最初の国: ${beginnerCountries[0].name?.common || 'Unknown'}`);
+                }
+                
+            } catch (error) {
+                log(`getCountriesByDifficultyテストエラー: ${error.message}`, 'error');
+            }
+        }
+
+        // Override functions that might cause issues
+        function showLoading(message) {
+            log(`Loading: ${message}`);
+        }
+
+        function hideLoading() {
+            log('Loading hidden');
+        }
+
+        function showScreen(screenName) {
+            log(`Screen changed to: ${screenName}`);
+        }
+
+        function initializeScoreDisplay() {
+            log('Score display initialized');
+        }
+
+        function showMap() {
+            log('Map shown');
+        }
+
+        function updateScore() {
+            log('Score updated');
+        }
+
+        function updateQuestionCounter() {
+            log('Question counter updated');
+        }
+
+        function updateProgress() {
+            log('Progress updated');
+        }
+
+        function displayFlag() {
+            log('Flag displayed');
+        }
+
+        function showOptions() {
+            log('Options shown');
+        }
+
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            log('ページが読み込まれました');
+            log('各ボタンをクリックしてテストしてください');
+        });
+    </script>
+</body>
+</html>

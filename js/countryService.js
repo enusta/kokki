@@ -35,21 +35,21 @@ const DIFFICULTY_CONFIG = {
  */
 async function fetchCountries() {
     try {
-        // Check if we have valid cached data first
+        // Try external static JSON file first (highest priority)
+        const externalFallbackData = await loadExternalFallbackData();
+        if (externalFallbackData && externalFallbackData.length > 0) {
+            console.log('Using external static JSON data');
+            saveToCache(externalFallbackData);
+            return externalFallbackData;
+        }
+
+        // Check if we have valid cached data as secondary option
         if (isCacheValid()) {
             const cachedData = loadFromCache();
             if (cachedData && cachedData.length > 0) {
                 console.log('Using cached countries data');
                 return cachedData;
             }
-        }
-
-        // Try external fallback data first
-        const externalFallbackData = await loadExternalFallbackData();
-        if (externalFallbackData && externalFallbackData.length > 0) {
-            console.log('Using external fallback data');
-            saveToCache(externalFallbackData);
-            return externalFallbackData;
         }
 
         console.log('Fetching countries from API...');
@@ -172,11 +172,25 @@ function getCountriesByDifficulty(countries, difficulty) {
     // Filter by regions if specified
     if (config.regions !== 'all') {
         console.log('Filtering by regions:', config.regions);
-        console.log('Available regions in data:', [...new Set(countries.map(c => c.region))]);
+        
+        // Check region format in data (could be string or object)
+        const availableRegions = [...new Set(countries.map(c => {
+            if (typeof c.region === 'string') {
+                return c.region;
+            } else if (c.region && c.region.english) {
+                return c.region.english;
+            }
+            return 'Unknown';
+        }))];
+        console.log('Available regions in data:', availableRegions);
 
-        filteredCountries = filteredCountries.filter(country =>
-            config.regions.includes(country.region)
-        );
+        filteredCountries = filteredCountries.filter(country => {
+            const regionToCheck = typeof country.region === 'string' 
+                ? country.region 
+                : (country.region && country.region.english ? country.region.english : 'Unknown');
+            
+            return config.regions.includes(regionToCheck);
+        });
         console.log(`After region filtering: ${filteredCountries.length} countries`);
     }
 
@@ -597,19 +611,28 @@ async function loadExternalFallbackData() {
             let allCountries = [];
             
             if (data.allCountries && Array.isArray(data.allCountries)) {
+                console.log('Using allCountries array from JSON');
                 allCountries = data.allCountries;
             } else if (data.difficulties) {
+                console.log('Combining difficulties into allCountries array');
                 // Combine all difficulties into one array for compatibility
                 Object.values(data.difficulties).forEach(difficulty => {
-                    if (difficulty.countries) {
+                    if (difficulty.countries && Array.isArray(difficulty.countries)) {
+                        console.log(`Adding ${difficulty.countries.length} countries from difficulty level`);
                         allCountries.push(...difficulty.countries);
                     }
                 });
+                
+                console.log(`Combined ${allCountries.length} countries before deduplication`);
                 
                 // Remove duplicates based on cca2 code
                 allCountries = allCountries.filter((country, index, self) => 
                     index === self.findIndex(c => c.cca2 === country.cca2)
                 );
+                
+                console.log(`After deduplication: ${allCountries.length} unique countries`);
+            } else {
+                console.warn('No valid data structure found in countries.json');
             }
             
             if (allCountries.length > 0) {
@@ -650,6 +673,8 @@ async function checkNetworkConnectivity() {
         return false;
     }
 }
+
+
 
 /**
  * Initialize country service - can be called to preload data

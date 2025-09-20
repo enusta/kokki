@@ -1,0 +1,294 @@
+{
+  "countries": {
+    "United States": {
+      "japanese": "アメリカ合衆国",
+      "hiragana": "あめりかがっしゅうこく"
+    },
+    "Canada": {
+      "japanese": "カナダ",
+      "hiragana": "かなだ"
+    },
+    "Germany": {
+      "japanese": "ドイツ",
+      "hiragana": "どいつ"
+    },
+    "France": {
+      "japanese": "フランス",
+      "hiragana": "ふらんす"
+    },
+    "United Kingdom": {
+      "japanese": "イギリス",
+      "hiragana": "いぎりす"
+    },
+    "Italy": {
+      "japanese": "イタリア",
+      "hiragana": "いたりあ"
+    },
+    "Spain": {
+      "japanese": "スペイン",
+      "hiragana": "すぺいん"
+    },
+    "Mexico": {
+      "japanese": "メキシコ",
+      "hiragana": "めきしこ"
+    },
+    "Japan": {
+      "japanese": "日本",
+      "hiragana": "にほん"
+    },
+    "China": {
+      "japanese": "中国",
+      "hiragana": "ちゅうごく"
+    },
+    "India": {
+      "japanese": "インド",
+      "hiragana": "いんど"
+    },
+    "South Korea": {
+      "japanese": "韓国",
+      "hiragana": "かんこく"
+    },
+    "Thailand": {
+      "japanese": "タイ",
+      "hiragana": "たい"
+    },
+    "Brazil": {
+      "japanese": "ブラジル",
+      "hiragana": "ぶらじる"
+    },
+    "Argentina": {
+      "japanese": "アルゼンチン",
+      "hiragana": "あるぜんちん"
+    },
+    "Australia": {
+      "japanese": "オーストラリア",
+      "hiragana": "おーすとらりあ"
+    },
+    "South Africa": {
+      "japanese": "南アフリカ",
+      "hiragana": "みなみあふりか"
+    },
+    "Egypt": {
+      "japanese": "エジプト",
+      "hiragana": "えじぷと"
+    },
+    "Russia": {
+      "japanese": "ロシア",
+      "hiragana": "ろしあ"
+    },
+    "Norway": {
+      "japanese": "ノルウェー",
+      "hiragana": "のるうぇー"
+    },
+    "Switzerland": {
+      "japanese": "スイス",
+      "hiragana": "すいす"
+    },
+    "Poland": {
+      "japanese": "ポーランド",
+      "hiragana": "ぽーらんど"
+    },
+    "Turkey": {
+      "japanese": "トルコ",
+      "hiragana": "とるこ"
+    },
+    "Netherlands": {
+      "japanese": "オランダ",
+      "hiragana": "おらんだ"
+    },
+    "Sweden": {
+      "japanese": "スウェーデン",
+      "hiragana": "すうぇーでん"
+    }
+  },
+  "capitals": {
+    "Washington, D.C.": {
+      "japanese": "ワシントンD.C.",
+      "hiragana": "わしんとんでぃーしー"
+    },
+    "Ottawa": {
+      "japanese": "オタワ",
+      "hiragana": "おたわ"
+    },
+    "Berlin": {
+      "japanese": "ベルリン",
+      "hiragana": "べるりん"
+    },
+    "Paris": {
+      "japanese": "パリ",
+      "hiragana": "ぱり"
+    },
+    "London": {
+      "japanese": "ロンドン",
+      "hiragana": "ろんどん"
+    },
+    "Rome": {
+      "japanese": "ローマ",
+      "hiragana": "ろーま"
+    },
+    "Madrid": {
+      "japanese": "マドリード",
+      "hiragana": "まどりーど"
+    },
+    "Mexico City": {
+      "japanese": "メキシコシティ",
+      "hiragana": "めきしこしてぃ"
+    },
+    "Tokyo": {
+      "japanese": "東京",
+      "hiragana": "とうきょう"
+    },
+    "Beijing": {
+      "japanese": "北京",
+      "hiragana": "ぺきん"
+    },
+    "New Delhi": {
+      "japanese": "ニューデリー",
+      "hiragana": "にゅーでりー"
+    },
+    "Seoul": {
+      "japanese": "ソウル",
+      "hiragana": "そうる"
+    },
+    "Bangkok": {
+      "japanese": "バンコク",
+      "hiragana": "ばんこく"
+    },
+    "Brasília": {
+      "japanese": "ブラジリア",
+      "hiragana": "ぶらじりあ"
+    },
+    "Buenos Aires": {
+      "japanese": "ブエノスアイレス",
+      "hiragana": "ぶえのすあいれす"
+    },
+    "Canberra": {
+      "japanese": "キャンベラ",
+      "hiragana": "きゃんべら"
+    },
+    "Cape Town": {
+      "japanese": "ケープタウン",
+      "hiragana": "けーぷたうん"
+    },
+    "Pretoria": {
+      "japanese": "プレトリア",
+      "hiragana": "ぷれとりあ"
+    },
+    "Bloemfontein": {
+      "japanese": "ブルームフォンテーン",
+      "hiragana": "ぶるーむふぉんてーん"
+    },
+    "Cairo": {
+      "japanese": "カイロ",
+      "hiragana": "かいろ"
+    },
+    "Moscow": {
+      "japanese": "モスクワ",
+      "hiragana": "もすくわ"
+    },
+    "Oslo": {
+      "japanese": "オスロ",
+      "hiragana": "おすろ"
+    },
+    "Bern": {
+      "japanese": "ベルン",
+      "hiragana": "べるん"
+    },
+    "Warsaw": {
+      "japanese": "ワルシャワ",
+      "hiragana": "わるしゃわ"
+    },
+    "Ankara": {
+      "japanese": "アンカラ",
+      "hiragana": "あんから"
+    },
+    "Amsterdam": {
+      "japanese": "アムステルダム",
+      "hiragana": "あむすてるだむ"
+    },
+    "Stockholm": {
+      "japanese": "ストックホルム",
+      "hiragana": "すとっくほるむ"
+    }
+  },
+  "regions": {
+    "Americas": {
+      "japanese": "アメリカ大陸",
+      "hiragana": "あめりかたいりく"
+    },
+    "Europe": {
+      "japanese": "ヨーロッパ",
+      "hiragana": "よーろっぱ"
+    },
+    "Asia": {
+      "japanese": "アジア",
+      "hiragana": "あじあ"
+    },
+    "Africa": {
+      "japanese": "アフリカ",
+      "hiragana": "あふりか"
+    },
+    "Oceania": {
+      "japanese": "オセアニア",
+      "hiragana": "おせあにあ"
+    }
+  },
+  "subregions": {
+    "North America": {
+      "japanese": "北アメリカ",
+      "hiragana": "きたあめりか"
+    },
+    "South America": {
+      "japanese": "南アメリカ",
+      "hiragana": "みなみあめりか"
+    },
+    "Western Europe": {
+      "japanese": "西ヨーロッパ",
+      "hiragana": "にしよーろっぱ"
+    },
+    "Eastern Europe": {
+      "japanese": "東ヨーロッパ",
+      "hiragana": "ひがしよーろっぱ"
+    },
+    "Northern Europe": {
+      "japanese": "北ヨーロッパ",
+      "hiragana": "きたよーろっぱ"
+    },
+    "Southern Europe": {
+      "japanese": "南ヨーロッパ",
+      "hiragana": "みなみよーろっぱ"
+    },
+    "Central Europe": {
+      "japanese": "中央ヨーロッパ",
+      "hiragana": "ちゅうおうよーろっぱ"
+    },
+    "Eastern Asia": {
+      "japanese": "東アジア",
+      "hiragana": "ひがしあじあ"
+    },
+    "Southern Asia": {
+      "japanese": "南アジア",
+      "hiragana": "みなみあじあ"
+    },
+    "South-Eastern Asia": {
+      "japanese": "東南アジア",
+      "hiragana": "とうなんあじあ"
+    },
+    "Western Asia": {
+      "japanese": "西アジア",
+      "hiragana": "にしあじあ"
+    },
+    "Northern Africa": {
+      "japanese": "北アフリカ",
+      "hiragana": "きたあふりか"
+    },
+    "Southern Africa": {
+      "japanese": "南アフリカ",
+      "hiragana": "みなみあふりか"
+    },
+    "Australia and New Zealand": {
+      "japanese": "オーストラリア・ニュージーランド",
+      "hiragana": "おーすとらりあ・にゅーじーらんど"
+    }
+  }
+}

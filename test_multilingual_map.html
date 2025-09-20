@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>地図多言語対応テスト - 国旗あてゲーム</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .test-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .test-section {
+            margin: 20px 0;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        .test-controls {
+            margin: 10px 0;
+        }
+        .test-controls button {
+            margin: 5px;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            background: #007bff;
+            color: white;
+            cursor: pointer;
+        }
+        .test-controls button:hover {
+            background: #0056b3;
+        }
+        .language-selector {
+            margin: 10px 0;
+        }
+        .language-selector button {
+            margin: 5px;
+            padding: 8px 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background: white;
+            cursor: pointer;
+        }
+        .language-selector button.active {
+            background: #28a745;
+            color: white;
+        }
+        #world-map {
+            height: 400px;
+            width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .test-log {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+            padding: 10px;
+            margin: 10px 0;
+            max-height: 200px;
+            overflow-y: auto;
+            font-family: monospace;
+            font-size: 12px;
+        }
+        .log-success { color: #28a745; }
+        .log-error { color: #dc3545; }
+        .log-info { color: #17a2b8; }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>地図多言語対応テスト</h1>
+        <p>このテストでは、地図表示の多言語対応機能を確認します。</p>
+
+        <div class="test-section">
+            <h2>言語モード選択</h2>
+            <div class="language-selector">
+                <button onclick="setLanguageMode('hiragana')" id="btn-hiragana">ひらがな</button>
+                <button onclick="setLanguageMode('japanese')" id="btn-japanese" class="active">日本語</button>
+                <button onclick="setLanguageMode('english')" id="btn-english">English</button>
+            </div>
+            <p>現在の言語モード: <span id="current-language">japanese</span></p>
+        </div>
+
+        <div class="test-section">
+            <h2>地図表示</h2>
+            <div id="world-map"></div>
+        </div>
+
+        <div class="test-section">
+            <h2>テスト操作</h2>
+            <div class="test-controls">
+                <button onclick="testHighlightJapan()">日本をハイライト</button>
+                <button onclick="testHighlightUSA()">アメリカをハイライト</button>
+                <button onclick="testHighlightFrance()">フランスをハイライト</button>
+                <button onclick="testShowCountryInfo()">国情報表示テスト</button>
+                <button onclick="testMapControls()">地図コントロールテスト</button>
+                <button onclick="clearMap()">地図をクリア</button>
+            </div>
+        </div>
+
+        <div class="test-section">
+            <h2>テスト結果</h2>
+            <div id="test-log" class="test-log"></div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="js/game.js"></script>
+    <script src="js/countryService.js"></script>
+    <script src="js/map.js"></script>
+
+    <script>
+        // Test data
+        const testCountries = {
+            japan: {
+                name: {
+                    common: "Japan",
+                    japanese: "日本",
+                    hiragana: "にほん"
+                },
+                cca2: "JP",
+                flag: "🇯🇵",
+                latlng: [36.0, 138.0],
+                capital: {
+                    english: ["Tokyo"],
+                    japanese: ["東京"],
+                    hiragana: ["とうきょう"]
+                },
+                region: {
+                    english: "Asia",
+                    japanese: "アジア",
+                    hiragana: "あじあ"
+                },
+                subregion: {
+                    english: "Eastern Asia",
+                    japanese: "東アジア",
+                    hiragana: "ひがしあじあ"
+                },
+                population: 125836021,
+                area: 377930
+            },
+            usa: {
+                name: {
+                    common: "United States",
+                    japanese: "アメリカ合衆国",
+                    hiragana: "あめりかがっしゅうこく"
+                },
+                cca2: "US",
+                flag: "🇺🇸",
+                latlng: [37.0902, -95.7129],
+                capital: {
+                    english: ["Washington, D.C."],
+                    japanese: ["ワシントンD.C."],
+                    hiragana: ["わしんとんでぃーしー"]
+                },
+                region: {
+                    english: "Americas",
+                    japanese: "アメリカ大陸",
+                    hiragana: "あめりかたいりく"
+                },
+                subregion: {
+                    english: "North America",
+                    japanese: "北アメリカ",
+                    hiragana: "きたあめりか"
+                },
+                population: 331002651,
+                area: 9833517
+            },
+            france: {
+                name: {
+                    common: "France",
+                    japanese: "フランス",
+                    hiragana: "ふらんす"
+                },
+                cca2: "FR",
+                flag: "🇫🇷",
+                latlng: [46.0, 2.0],
+                capital: {
+                    english: ["Paris"],
+                    japanese: ["パリ"],
+                    hiragana: ["ぱり"]
+                },
+                region: {
+                    english: "Europe",
+                    japanese: "ヨーロッパ",
+                    hiragana: "よーろっぱ"
+                },
+                subregion: {
+                    english: "Western Europe",
+                    japanese: "西ヨーロッパ",
+                    hiragana: "にしよーろっぱ"
+                },
+                population: 67391582,
+                area: 643801
+            }
+        };
+
+        // Initialize game state for testing
+        const gameState = {
+            languageMode: 'japanese',
+            currentCountry: null
+        };
+
+        // Initialize map
+        let mapInitialized = false;
+
+        function initializeTestMap() {
+            if (!mapInitialized) {
+                const success = initializeMap();
+                if (success) {
+                    mapInitialized = true;
+                    log('地図が初期化されました', 'success');
+                } else {
+                    log('地図の初期化に失敗しました', 'error');
+                }
+            }
+        }
+
+        // Language mode functions
+        function setLanguageMode(mode) {
+            gameState.languageMode = mode;
+            document.getElementById('current-language').textContent = mode;
+            
+            // Update button states
+            document.querySelectorAll('.language-selector button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.getElementById(`btn-${mode}`).classList.add('active');
+            
+            // Update map controls language
+            if (typeof updateMapControlsLanguage === 'function') {
+                updateMapControlsLanguage();
+            }
+            
+            log(`言語モードを ${mode} に変更しました`, 'info');
+        }
+
+        // Test functions
+        function testHighlightJapan() {
+            gameState.currentCountry = testCountries.japan;
+            if (typeof highlightCountry === 'function') {
+                highlightCountry('JP', testCountries.japan.latlng, gameState.languageMode);
+                log(`日本をハイライトしました (${gameState.languageMode}モード)`, 'success');
+            } else {
+                log('highlightCountry関数が見つかりません', 'error');
+            }
+        }
+
+        function testHighlightUSA() {
+            gameState.currentCountry = testCountries.usa;
+            if (typeof highlightCountry === 'function') {
+                highlightCountry('US', testCountries.usa.latlng, gameState.languageMode);
+                log(`アメリカをハイライトしました (${gameState.languageMode}モード)`, 'success');
+            } else {
+                log('highlightCountry関数が見つかりません', 'error');
+            }
+        }
+
+        function testHighlightFrance() {
+            gameState.currentCountry = testCountries.france;
+            if (typeof highlightCountry === 'function') {
+                highlightCountry('FR', testCountries.france.latlng, gameState.languageMode);
+                log(`フランスをハイライトしました (${gameState.languageMode}モード)`, 'success');
+            } else {
+                log('highlightCountry関数が見つかりません', 'error');
+            }
+        }
+
+        function testShowCountryInfo() {
+            if (typeof showCountryInfo === 'function') {
+                showCountryInfo(testCountries.japan, testCountries.japan.latlng, gameState.languageMode);
+                log(`国情報を表示しました (${gameState.languageMode}モード)`, 'success');
+            } else {
+                log('showCountryInfo関数が見つかりません', 'error');
+            }
+        }
+
+        function testMapControls() {
+            const labels = getLocalizedLabels(gameState.languageMode);
+            log(`地図コントロールのラベル (${gameState.languageMode}):`, 'info');
+            log(`- ズームイン: ${labels.zoomIn}`, 'info');
+            log(`- ズームアウト: ${labels.zoomOut}`, 'info');
+            log(`- リセット: ${labels.reset}`, 'info');
+            log(`- 首都: ${labels.capital}`, 'info');
+            log(`- 地域: ${labels.region}`, 'info');
+        }
+
+        function clearMap() {
+            if (typeof clearHighlight === 'function') {
+                clearHighlight();
+            }
+            if (typeof resetMapView === 'function') {
+                resetMapView();
+            }
+            log('地図をクリアしました', 'info');
+        }
+
+        // Logging function
+        function log(message, type = 'info') {
+            const logElement = document.getElementById('test-log');
+            const timestamp = new Date().toLocaleTimeString();
+            const logEntry = document.createElement('div');
+            logEntry.className = `log-${type}`;
+            logEntry.textContent = `[${timestamp}] ${message}`;
+            logElement.appendChild(logEntry);
+            logElement.scrollTop = logElement.scrollHeight;
+        }
+
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            log('地図多言語対応テストを開始します', 'info');
+            initializeTestMap();
+            
+            // Test basic functionality
+            setTimeout(() => {
+                log('基本機能をテストします...', 'info');
+                
+                // Test language mode functions
+                if (typeof getCountryName === 'function') {
+                    const japanName = getCountryName(testCountries.japan, 'japanese');
+                    log(`getCountryName テスト: ${japanName}`, 'success');
+                } else {
+                    log('getCountryName関数が見つかりません', 'error');
+                }
+                
+                if (typeof getLocalizedLabels === 'function') {
+                    const labels = getLocalizedLabels('japanese');
+                    log(`getLocalizedLabels テスト: ${labels.capital}`, 'success');
+                } else {
+                    log('getLocalizedLabels関数が見つかりません', 'error');
+                }
+                
+                log('テスト準備完了。上のボタンで各機能をテストしてください。', 'success');
+            }, 1000);
+        });
+    </script>
+</body>
+</html>

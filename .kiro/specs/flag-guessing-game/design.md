@@ -2,7 +2,7 @@
 
 ## Overview
 
-国旗あてゲームは、教育的価値を持つインタラクティブなWebアプリケーションです。ユーザーは国旗を見て国名を当て、正解時には世界地図でその国の位置を確認できます。シンプルで直感的なUIと、段階的な学習体験を提供します。
+国旗あてゲームは、日本の子ども（幼児～小学生）を対象とした教育的価値を持つインタラクティブなWebアプリケーションです。ユーザーは国旗を見て国名を当て、正解時には世界地図でその国の位置を確認できます。年齢に応じた日本語表示（ひらがな・カタカナ・漢字）により、子どもの読み書きレベルに合わせた学習体験を提供します。
 
 ## Architecture
 
@@ -74,12 +74,14 @@ function showCountryInfo(country) { /* ... */ }
 
 ### データモデル
 
-#### 国データモデル
+#### 国データモデル（日本語対応拡張版）
 ```javascript
 {
   name: {
     common: "Japan",
-    official: "Japan"
+    official: "Japan",
+    japanese: "日本",
+    hiragana: "にほん"
   },
   cca2: "JP",
   cca3: "JPN",
@@ -88,9 +90,21 @@ function showCountryInfo(country) { /* ... */ }
     png: "https://flagcdn.com/w320/jp.png",
     svg: "https://flagcdn.com/jp.svg"
   },
-  capital: ["Tokyo"],
-  region: "Asia",
-  subregion: "Eastern Asia",
+  capital: {
+    english: ["Tokyo"],
+    japanese: ["東京"],
+    hiragana: ["とうきょう"]
+  },
+  region: {
+    english: "Asia",
+    japanese: "アジア",
+    hiragana: "あじあ"
+  },
+  subregion: {
+    english: "Eastern Asia",
+    japanese: "東アジア",
+    hiragana: "ひがしあじあ"
+  },
   latlng: [36.0, 138.0],
   area: 377930,
   population: 125836021
@@ -104,6 +118,7 @@ function showCountryInfo(country) { /* ... */ }
   totalQuestions: 10,
   score: 0,
   difficulty: "beginner",
+  languageMode: "japanese", // 言語表示モード（hiragana/japanese/english）
   countries: [],
   currentCountry: null,
   options: [],
@@ -249,6 +264,130 @@ async function loadFallbackData() {
     return getMinimalEmbeddedData();
   }
 }
+```
+
+### 日本語対応システム
+
+#### 設計原則
+- 日本の子ども（幼児～小学生）の読み書きレベルに対応
+- 3つの言語表示モード：ひらがな、日本語（カタカナ・漢字）、英語
+- ゲーム全体で一貫した言語表示
+- 地図上の情報も含めた包括的な日本語化
+
+#### 言語モード設定
+```javascript
+const LANGUAGE_MODES = {
+  hiragana: {
+    name: "ひらがな",
+    description: "ようじむけ（すべてひらがな）",
+    targetAge: "3-6歳"
+  },
+  japanese: {
+    name: "日本語",
+    description: "小学生向け（カタカナ・漢字含む）",
+    targetAge: "6-12歳"
+  },
+  english: {
+    name: "English",
+    description: "中学生以上向け（英語表示）",
+    targetAge: "12歳以上"
+  }
+};
+```
+
+#### 表示名取得ロジック
+```javascript
+// 国名取得関数
+function getCountryName(country, languageMode) {
+  switch (languageMode) {
+    case 'hiragana':
+      return country.name.hiragana || country.name.japanese || country.name.common;
+    case 'japanese':
+      return country.name.japanese || country.name.common;
+    case 'english':
+    default:
+      return country.name.common;
+  }
+}
+
+// 首都名取得関数
+function getCapitalName(country, languageMode) {
+  if (!country.capital) return '不明';
+  
+  switch (languageMode) {
+    case 'hiragana':
+      return country.capital.hiragana?.[0] || country.capital.japanese?.[0] || country.capital.english?.[0];
+    case 'japanese':
+      return country.capital.japanese?.[0] || country.capital.english?.[0];
+    case 'english':
+    default:
+      return country.capital.english?.[0] || country.capital[0];
+  }
+}
+
+// 地域名取得関数
+function getRegionName(country, languageMode) {
+  if (!country.region) return '不明';
+  
+  switch (languageMode) {
+    case 'hiragana':
+      return country.region.hiragana || country.region.japanese || country.region.english;
+    case 'japanese':
+      return country.region.japanese || country.region.english;
+    case 'english':
+    default:
+      return country.region.english || country.region;
+  }
+}
+```
+
+#### UI統合
+```javascript
+// 選択肢表示の更新
+function showOptions(countries, languageMode) {
+  const countryNames = countries.map(country => getCountryName(country, languageMode));
+  // UI更新処理
+}
+
+// 地図ポップアップの更新
+function createCountryInfoPopup(country, languageMode) {
+  const countryName = getCountryName(country, languageMode);
+  const capitalName = getCapitalName(country, languageMode);
+  const regionName = getRegionName(country, languageMode);
+  
+  return `
+    <div class="country-popup">
+      <h3>${countryName}</h3>
+      <p>首都: ${capitalName}</p>
+      <p>地域: ${regionName}</p>
+    </div>
+  `;
+}
+```
+
+#### データ生成拡張
+```javascript
+// データ生成スクリプトの拡張
+const JAPANESE_TRANSLATIONS = {
+  countries: {
+    "United States": { japanese: "アメリカ合衆国", hiragana: "あめりかがっしゅうこく" },
+    "Japan": { japanese: "日本", hiragana: "にほん" },
+    "Germany": { japanese: "ドイツ", hiragana: "どいつ" }
+    // ... 他の国の翻訳
+  },
+  capitals: {
+    "Washington, D.C.": { japanese: "ワシントンD.C.", hiragana: "わしんとんでぃーしー" },
+    "Tokyo": { japanese: "東京", hiragana: "とうきょう" },
+    "Berlin": { japanese: "ベルリン", hiragana: "べるりん" }
+    // ... 他の首都の翻訳
+  },
+  regions: {
+    "Americas": { japanese: "アメリカ大陸", hiragana: "あめりかたいりく" },
+    "Asia": { japanese: "アジア", hiragana: "あじあ" },
+    "Europe": { japanese: "ヨーロッパ", hiragana: "よーろっぱ" }
+    // ... 他の地域の翻訳
+  }
+};
 ```
 
 ### 重複防止システム

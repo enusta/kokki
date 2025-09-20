@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>国旗あてゲーム</title>
-    
+
     <!-- Leaflet CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-          crossorigin=""/>
-    
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+
     <!-- Custom CSS -->
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <div class="container">
         <!-- Header -->
@@ -29,56 +30,102 @@
             <!-- Start Screen -->
             <div id="start-screen" class="screen">
                 <div class="start-content">
-                    <h2>難易度を選択してください</h2>
-                    <p class="start-description">あなたのレベルに合わせて難易度を選んでください</p>
-                    
-                    <div class="difficulty-selection">
-                        <div class="difficulty-card" data-difficulty="beginner">
-                            <div class="difficulty-header">
-                                <h3>初級</h3>
-                                <span class="difficulty-badge beginner">🌟</span>
+                    <h2>国旗あてゲーム</h2>
+                    <p class="start-description">年齢に合わせて表示モードと難易度を選んでください</p>
+
+                    <!-- 言語モード選択 -->
+                    <div class="language-selection">
+                        <h3>表示モード</h3>
+                        <div class="language-options">
+                            <div class="language-card" data-language="hiragana">
+                                <div class="language-header">
+                                    <h4>ひらがな</h4>
+                                    <span class="language-badge hiragana">🌸</span>
+                                </div>
+                                <div class="language-details">
+                                    <p>ようじむけ（3-6さい）</p>
+                                    <p class="language-example">れい：にほん、あめりか</p>
+                                </div>
+                                <button class="language-btn" data-language="hiragana">ひらがなモード</button>
                             </div>
-                            <div class="difficulty-details">
-                                <p>有名な国の国旗</p>
-                                <ul>
-                                    <li>約25カ国</li>
-                                    <li>10問</li>
-                                    <li>ヨーロッパ・北米中心</li>
-                                </ul>
+
+                            <div class="language-card" data-language="japanese">
+                                <div class="language-header">
+                                    <h4>日本語</h4>
+                                    <span class="language-badge japanese">🎌</span>
+                                </div>
+                                <div class="language-details">
+                                    <p>小学生向け（6-12歳）</p>
+                                    <p class="language-example">例：日本、アメリカ</p>
+                                </div>
+                                <button class="language-btn" data-language="japanese">日本語モード</button>
                             </div>
-                            <button class="difficulty-btn" data-difficulty="beginner">初級で開始</button>
+
+                            <div class="language-card" data-language="english">
+                                <div class="language-header">
+                                    <h4>English</h4>
+                                    <span class="language-badge english">🌍</span>
+                                </div>
+                                <div class="language-details">
+                                    <p>中学生以上向け（12歳以上）</p>
+                                    <p class="language-example">Example: Japan, America</p>
+                                </div>
+                                <button class="language-btn" data-language="english">English Mode</button>
+                            </div>
                         </div>
-                        
-                        <div class="difficulty-card" data-difficulty="intermediate">
-                            <div class="difficulty-header">
-                                <h3>中級</h3>
-                                <span class="difficulty-badge intermediate">🏆</span>
+                    </div>
+
+                    <!-- 難易度選択 -->
+                    <div class="difficulty-selection hidden">
+                        <h3>難易度を選択してください</h3>
+                        <div class="difficulty-options">
+                            <div class="difficulty-card" data-difficulty="beginner">
+                                <div class="difficulty-header">
+                                    <h3>初級</h3>
+                                    <span class="difficulty-badge beginner">🌟</span>
+                                </div>
+                                <div class="difficulty-details">
+                                    <p>有名な国の国旗</p>
+                                    <ul>
+                                        <li>約25カ国</li>
+                                        <li>10問</li>
+                                        <li>ヨーロッパ・北米中心</li>
+                                    </ul>
+                                </div>
+                                <button class="difficulty-btn" data-difficulty="beginner">初級で開始</button>
                             </div>
-                            <div class="difficulty-details">
-                                <p>より多くの国の国旗</p>
-                                <ul>
-                                    <li>約60カ国</li>
-                                    <li>15問</li>
-                                    <li>4大陸の国々</li>
-                                </ul>
+
+                            <div class="difficulty-card" data-difficulty="intermediate">
+                                <div class="difficulty-header">
+                                    <h3>中級</h3>
+                                    <span class="difficulty-badge intermediate">🏆</span>
+                                </div>
+                                <div class="difficulty-details">
+                                    <p>より多くの国の国旗</p>
+                                    <ul>
+                                        <li>約60カ国</li>
+                                        <li>15問</li>
+                                        <li>4大陸の国々</li>
+                                    </ul>
+                                </div>
+                                <button class="difficulty-btn" data-difficulty="intermediate">中級で開始</button>
                             </div>
-                            <button class="difficulty-btn" data-difficulty="intermediate">中級で開始</button>
-                        </div>
-                        
-                        <div class="difficulty-card" data-difficulty="advanced">
-                            <div class="difficulty-header">
-                                <h3>上級</h3>
-                                <span class="difficulty-badge advanced">🎯</span>
+
+                            <div class="difficulty-card" data-difficulty="advanced">
+                                <div class="difficulty-header">
+                                    <h3>上級</h3>
+                                    <span class="difficulty-badge advanced">🎯</span>
+                                </div>
+                                <div class="difficulty-details">
+                                    <p>世界中の国の国旗</p>
+                                    <ul>
+                                        <li>150カ国以上</li>
+                                        <li>20問</li>
+                                        <li>全世界の国々</li>
+                                    </ul>
+                                </div>
+                                <button class="difficulty-btn" data-difficulty="advanced">上級で開始</button>
                             </div>
-                            <div class="difficulty-details">
-                                <p>世界中の国の国旗</p>
-                                <ul>
-                                    <li>150カ国以上</li>
-                                    <li>20問</li>
-                                    <li>全世界の国々</li>
-                                </ul>
-                            </div>
-                            <button class="difficulty-btn" data-difficulty="advanced">上級で開始</button>
                         </div>
                     </div>
                 </div>
@@ -92,12 +139,12 @@
                             <img id="flag-image" src="" alt="国旗" class="flag-image">
                         </div>
                     </div>
-                    
+
                     <div class="map-section">
                         <div id="world-map" class="map-container hidden"></div>
                     </div>
                 </div>
-                
+
                 <div class="options-section">
                     <div class="answer-options">
                         <button class="option-btn" data-option="0"></button>
@@ -106,7 +153,7 @@
                         <button class="option-btn" data-option="3"></button>
                     </div>
                 </div>
-                
+
                 <div class="feedback-section">
                     <div id="feedback-message" class="feedback hidden"></div>
                 </div>
@@ -144,9 +191,8 @@
 
     <!-- Leaflet JavaScript -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-            crossorigin=""></script>
-    
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
     <!-- Custom JavaScript -->
     <script src="js/countryService.js"></script>
     <script src="js/ui.js"></script>
@@ -154,4 +200,5 @@
     <script src="js/game.js"></script>
     <script src="js/app.js"></script>
 </body>
+
 </html>

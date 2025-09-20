@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>最小テスト</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .test-section { margin: 20px 0; padding: 10px; border: 1px solid #ccc; }
+        button { margin: 5px; padding: 10px; }
+        .log { background: #f0f0f0; padding: 10px; margin: 10px 0; max-height: 300px; overflow-y: auto; }
+    </style>
+</head>
+<body>
+    <h1>最小テスト - 段階的確認</h1>
+    
+    <div class="test-section">
+        <h2>ステップ1: 基本的なJavaScript動作確認</h2>
+        <button onclick="testBasicJS()">基本JSテスト</button>
+        <button onclick="testConsole()">コンソールテスト</button>
+    </div>
+    
+    <div class="test-section">
+        <h2>ステップ2: 個別ファイル読み込みテスト</h2>
+        <button onclick="testCountryService()">countryService.jsテスト</button>
+        <button onclick="testUI()">ui.jsテスト</button>
+        <button onclick="testGame()">game.jsテスト</button>
+    </div>
+    
+    <div class="test-section">
+        <h2>ステップ3: データ取得テスト</h2>
+        <button onclick="testDataFetch()">データ取得テスト</button>
+    </div>
+    
+    <div id="log" class="log"></div>
+
+    <script>
+        function log(message) {
+            const logElement = document.getElementById('log');
+            const timestamp = new Date().toLocaleTimeString();
+            logElement.innerHTML += `[${timestamp}] ${message}<br>`;
+            logElement.scrollTop = logElement.scrollHeight;
+            console.log(message);
+        }
+
+        function testBasicJS() {
+            log('=== 基本JSテスト開始 ===');
+            try {
+                log('JavaScript基本動作: OK');
+                log('DOM操作: OK');
+                log('=== 基本JSテスト完了 ===');
+            } catch (error) {
+                log(`基本JSテストエラー: ${error.message}`);
+            }
+        }
+
+        function testConsole() {
+            log('=== コンソールテスト開始 ===');
+            console.log('コンソールログテスト');
+            console.error('コンソールエラーテスト');
+            console.warn('コンソール警告テスト');
+            log('コンソールテスト完了（開発者ツールを確認してください）');
+        }
+
+        function testCountryService() {
+            log('=== countryService.jsテスト開始 ===');
+            try {
+                if (typeof fetchCountries === 'function') {
+                    log('fetchCountries関数: 存在');
+                } else {
+                    log('fetchCountries関数: 存在しない');
+                }
+                
+                if (typeof getCountriesByDifficulty === 'function') {
+                    log('getCountriesByDifficulty関数: 存在');
+                } else {
+                    log('getCountriesByDifficulty関数: 存在しない');
+                }
+                
+                log('=== countryService.jsテスト完了 ===');
+            } catch (error) {
+                log(`countryService.jsテストエラー: ${error.message}`);
+            }
+        }
+
+        function testUI() {
+            log('=== ui.jsテスト開始 ===');
+            try {
+                if (typeof initializeUI === 'function') {
+                    log('initializeUI関数: 存在');
+                } else {
+                    log('initializeUI関数: 存在しない');
+                }
+                
+                if (typeof showScreen === 'function') {
+                    log('showScreen関数: 存在');
+                } else {
+                    log('showScreen関数: 存在しない');
+                }
+                
+                log('=== ui.jsテスト完了 ===');
+            } catch (error) {
+                log(`ui.jsテストエラー: ${error.message}`);
+            }
+        }
+
+        function testGame() {
+            log('=== game.jsテスト開始 ===');
+            try {
+                if (typeof gameState !== 'undefined') {
+                    log('gameState変数: 存在');
+                    log(`gameState内容: ${JSON.stringify(gameState)}`);
+                } else {
+                    log('gameState変数: 存在しない');
+                }
+                
+                if (typeof startGame === 'function') {
+                    log('startGame関数: 存在');
+                } else {
+                    log('startGame関数: 存在しない');
+                }
+                
+                log('=== game.jsテスト完了 ===');
+            } catch (error) {
+                log(`game.jsテストエラー: ${error.message}`);
+            }
+        }
+
+        async function testDataFetch() {
+            log('=== データ取得テスト開始 ===');
+            try {
+                log('データ取得を開始します...');
+                
+                // タイムアウト付きでテスト
+                const timeoutPromise = new Promise((_, reject) => {
+                    setTimeout(() => reject(new Error('タイムアウト（10秒）')), 10000);
+                });
+                
+                const fetchPromise = fetch('./data/countries.json')
+                    .then(response => {
+                        log(`レスポンス状態: ${response.status}`);
+                        if (response.ok) {
+                            return response.json();
+                        } else {
+                            throw new Error(`HTTP ${response.status}`);
+                        }
+                    })
+                    .then(data => {
+                        log(`データ取得成功: ${JSON.stringify(data).substring(0, 100)}...`);
+                        return data;
+                    });
+                
+                const result = await Promise.race([fetchPromise, timeoutPromise]);
+                log('=== データ取得テスト完了 ===');
+                
+            } catch (error) {
+                log(`データ取得テストエラー: ${error.message}`);
+            }
+        }
+
+        // ページ読み込み時
+        document.addEventListener('DOMContentLoaded', () => {
+            log('ページが読み込まれました');
+            log('各ボタンをクリックして段階的にテストしてください');
+        });
+    </script>
+
+    <!-- 個別にスクリプトを読み込み（問題のあるファイルを特定するため） -->
+    <script src="js/countryService.js" onerror="log('countryService.js読み込みエラー')"></script>
+    <script src="js/ui.js" onerror="log('ui.js読み込みエラー')"></script>
+    <script src="js/game.js" onerror="log('game.js読み込みエラー')"></script>
+    <script src="js/app.js" onerror="log('app.js読み込みエラー')"></script>
+</body>
+</html>
